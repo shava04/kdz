@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace PingPongWindowsForms
 {
+
     public partial class Form1 : Form
     {
         const int movementSpeed = 3, top = 0, bottom = 333;
@@ -63,6 +64,12 @@ namespace PingPongWindowsForms
             if (aPanel1.Bounds.IntersectsWith(aBall.Bounds) || (aPanel2.Bounds.IntersectsWith(aBall.Bounds)))
             {
                 ballSpeedX *= -1;
+            }
+            if (pictureBox1.Location.X<0)
+            {
+                pictureBox1.Location = new Point(340, bottom / 2);
+                ballSpeedX = 3;
+                ballSpeedY = 1;
             }
             //if ((aBall.Location.X - aPanel1.Location.X)*(aBall.Location.X - aPanel1.Location.X) < 2  && (aPanel1.Location.Y-aBall.Location.Y)*(aPanel1.Location.Y - aBall.Location.Y) < 2)
             //{
