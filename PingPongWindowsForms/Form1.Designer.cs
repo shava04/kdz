@@ -35,7 +35,7 @@
             this.Ball = new System.Windows.Forms.PictureBox();
             this.Field = new System.Windows.Forms.PictureBox();
             this.LeftGoal = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.RightGoal = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.Def1 = new System.Windows.Forms.PictureBox();
@@ -61,10 +61,23 @@
             this.ForwComp1 = new System.Windows.Forms.PictureBox();
             this.ForwComp2 = new System.Windows.Forms.PictureBox();
             this.ForwComp3 = new System.Windows.Forms.PictureBox();
+            this.Score = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PlayerScore = new System.Windows.Forms.Label();
+            this.CmpScore = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.news = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.aMin = new System.Windows.Forms.Label();
+            this.aSec = new System.Windows.Forms.Label();
+            this.aDoubleDot = new System.Windows.Forms.Label();
+            this.aSecTen = new System.Windows.Forms.Label();
+            this.playerScoreBig = new System.Windows.Forms.Label();
+            this.compScoreBig = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Field)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LeftGoal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RightGoal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Def1)).BeginInit();
@@ -89,12 +102,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.ForwComp1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ForwComp2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ForwComp3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // aTimer
             // 
             this.aTimer.Enabled = true;
-            this.aTimer.Interval = 15;
+            this.aTimer.Interval = 25;
             this.aTimer.Tick += new System.EventHandler(this.aTimer_Tick);
             // 
             // aBallTimer
@@ -107,7 +121,7 @@
             // 
             this.Ball.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(170)))), ((int)(((byte)(0)))));
             this.Ball.Image = global::PingPongWindowsForms.Properties.Resources.ball1;
-            this.Ball.Location = new System.Drawing.Point(559, 274);
+            this.Ball.Location = new System.Drawing.Point(564, 275);
             this.Ball.Name = "Ball";
             this.Ball.Size = new System.Drawing.Size(24, 24);
             this.Ball.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -133,15 +147,15 @@
             this.LeftGoal.TabIndex = 5;
             this.LeftGoal.TabStop = false;
             // 
-            // pictureBox2
+            // RightGoal
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1062, 190);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(49, 192);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
+            this.RightGoal.Image = ((System.Drawing.Image)(resources.GetObject("RightGoal.Image")));
+            this.RightGoal.Location = new System.Drawing.Point(1058, 190);
+            this.RightGoal.Name = "RightGoal";
+            this.RightGoal.Size = new System.Drawing.Size(49, 192);
+            this.RightGoal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.RightGoal.TabIndex = 6;
+            this.RightGoal.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -155,7 +169,7 @@
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(200)))), ((int)(((byte)(90)))));
-            this.pictureBox4.Location = new System.Drawing.Point(1060, 180);
+            this.pictureBox4.Location = new System.Drawing.Point(1058, 180);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(67, 214);
             this.pictureBox4.TabIndex = 8;
@@ -166,7 +180,7 @@
             this.Def1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Def1.Location = new System.Drawing.Point(243, 180);
             this.Def1.Name = "Def1";
-            this.Def1.Size = new System.Drawing.Size(10, 39);
+            this.Def1.Size = new System.Drawing.Size(10, 30);
             this.Def1.TabIndex = 9;
             this.Def1.TabStop = false;
             // 
@@ -175,7 +189,7 @@
             this.Mid1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Mid1.Location = new System.Drawing.Point(459, 66);
             this.Mid1.Name = "Mid1";
-            this.Mid1.Size = new System.Drawing.Size(10, 39);
+            this.Mid1.Size = new System.Drawing.Size(10, 30);
             this.Mid1.TabIndex = 10;
             this.Mid1.TabStop = false;
             // 
@@ -184,7 +198,7 @@
             this.Def2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Def2.Location = new System.Drawing.Point(243, 343);
             this.Def2.Name = "Def2";
-            this.Def2.Size = new System.Drawing.Size(10, 39);
+            this.Def2.Size = new System.Drawing.Size(10, 30);
             this.Def2.TabIndex = 11;
             this.Def2.TabStop = false;
             // 
@@ -193,7 +207,7 @@
             this.Mid2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Mid2.Location = new System.Drawing.Point(459, 164);
             this.Mid2.Name = "Mid2";
-            this.Mid2.Size = new System.Drawing.Size(10, 39);
+            this.Mid2.Size = new System.Drawing.Size(10, 30);
             this.Mid2.TabIndex = 12;
             this.Mid2.TabStop = false;
             // 
@@ -202,7 +216,7 @@
             this.Mid3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Mid3.Location = new System.Drawing.Point(459, 261);
             this.Mid3.Name = "Mid3";
-            this.Mid3.Size = new System.Drawing.Size(10, 39);
+            this.Mid3.Size = new System.Drawing.Size(10, 30);
             this.Mid3.TabIndex = 13;
             this.Mid3.TabStop = false;
             // 
@@ -211,7 +225,7 @@
             this.Mid4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Mid4.Location = new System.Drawing.Point(459, 358);
             this.Mid4.Name = "Mid4";
-            this.Mid4.Size = new System.Drawing.Size(10, 39);
+            this.Mid4.Size = new System.Drawing.Size(10, 30);
             this.Mid4.TabIndex = 14;
             this.Mid4.TabStop = false;
             // 
@@ -220,7 +234,7 @@
             this.Mid5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Mid5.Location = new System.Drawing.Point(459, 455);
             this.Mid5.Name = "Mid5";
-            this.Mid5.Size = new System.Drawing.Size(10, 39);
+            this.Mid5.Size = new System.Drawing.Size(10, 30);
             this.Mid5.TabIndex = 15;
             this.Mid5.TabStop = false;
             // 
@@ -229,7 +243,7 @@
             this.Forw1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Forw1.Location = new System.Drawing.Point(773, 127);
             this.Forw1.Name = "Forw1";
-            this.Forw1.Size = new System.Drawing.Size(10, 39);
+            this.Forw1.Size = new System.Drawing.Size(10, 30);
             this.Forw1.TabIndex = 16;
             this.Forw1.TabStop = false;
             // 
@@ -238,7 +252,7 @@
             this.Forw2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Forw2.Location = new System.Drawing.Point(773, 261);
             this.Forw2.Name = "Forw2";
-            this.Forw2.Size = new System.Drawing.Size(10, 39);
+            this.Forw2.Size = new System.Drawing.Size(10, 30);
             this.Forw2.TabIndex = 17;
             this.Forw2.TabStop = false;
             // 
@@ -247,7 +261,7 @@
             this.Forw3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Forw3.Location = new System.Drawing.Point(773, 389);
             this.Forw3.Name = "Forw3";
-            this.Forw3.Size = new System.Drawing.Size(10, 39);
+            this.Forw3.Size = new System.Drawing.Size(10, 30);
             this.Forw3.TabIndex = 18;
             this.Forw3.TabStop = false;
             // 
@@ -256,22 +270,21 @@
             this.GoalKeeper.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.GoalKeeper.Location = new System.Drawing.Point(94, 266);
             this.GoalKeeper.Name = "GoalKeeper";
-            this.GoalKeeper.Size = new System.Drawing.Size(10, 39);
+            this.GoalKeeper.Size = new System.Drawing.Size(10, 30);
             this.GoalKeeper.TabIndex = 19;
             this.GoalKeeper.TabStop = false;
             // 
             // aCompTimer
             // 
-            this.aCompTimer.Enabled = true;
-            this.aCompTimer.Interval = 15;
+            this.aCompTimer.Interval = 25;
             this.aCompTimer.Tick += new System.EventHandler(this.aCompTimer_Tick);
             // 
             // GoalComp
             // 
             this.GoalComp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.GoalComp.Location = new System.Drawing.Point(1033, 266);
+            this.GoalComp.Location = new System.Drawing.Point(1035, 269);
             this.GoalComp.Name = "GoalComp";
-            this.GoalComp.Size = new System.Drawing.Size(10, 39);
+            this.GoalComp.Size = new System.Drawing.Size(10, 30);
             this.GoalComp.TabIndex = 20;
             this.GoalComp.TabStop = false;
             // 
@@ -280,7 +293,7 @@
             this.DefComp1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.DefComp1.Location = new System.Drawing.Point(889, 180);
             this.DefComp1.Name = "DefComp1";
-            this.DefComp1.Size = new System.Drawing.Size(10, 39);
+            this.DefComp1.Size = new System.Drawing.Size(10, 30);
             this.DefComp1.TabIndex = 21;
             this.DefComp1.TabStop = false;
             // 
@@ -289,7 +302,7 @@
             this.DefComp2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.DefComp2.Location = new System.Drawing.Point(889, 343);
             this.DefComp2.Name = "DefComp2";
-            this.DefComp2.Size = new System.Drawing.Size(10, 39);
+            this.DefComp2.Size = new System.Drawing.Size(10, 30);
             this.DefComp2.TabIndex = 22;
             this.DefComp2.TabStop = false;
             // 
@@ -298,7 +311,7 @@
             this.MidComp1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.MidComp1.Location = new System.Drawing.Point(673, 66);
             this.MidComp1.Name = "MidComp1";
-            this.MidComp1.Size = new System.Drawing.Size(10, 39);
+            this.MidComp1.Size = new System.Drawing.Size(10, 30);
             this.MidComp1.TabIndex = 23;
             this.MidComp1.TabStop = false;
             // 
@@ -307,7 +320,7 @@
             this.MidComp3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.MidComp3.Location = new System.Drawing.Point(673, 260);
             this.MidComp3.Name = "MidComp3";
-            this.MidComp3.Size = new System.Drawing.Size(10, 39);
+            this.MidComp3.Size = new System.Drawing.Size(10, 30);
             this.MidComp3.TabIndex = 24;
             this.MidComp3.TabStop = false;
             // 
@@ -316,7 +329,7 @@
             this.MidComp2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.MidComp2.Location = new System.Drawing.Point(673, 160);
             this.MidComp2.Name = "MidComp2";
-            this.MidComp2.Size = new System.Drawing.Size(10, 39);
+            this.MidComp2.Size = new System.Drawing.Size(10, 30);
             this.MidComp2.TabIndex = 25;
             this.MidComp2.TabStop = false;
             // 
@@ -325,7 +338,7 @@
             this.MidComp4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.MidComp4.Location = new System.Drawing.Point(673, 360);
             this.MidComp4.Name = "MidComp4";
-            this.MidComp4.Size = new System.Drawing.Size(10, 39);
+            this.MidComp4.Size = new System.Drawing.Size(10, 30);
             this.MidComp4.TabIndex = 26;
             this.MidComp4.TabStop = false;
             // 
@@ -334,7 +347,7 @@
             this.MidComp5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.MidComp5.Location = new System.Drawing.Point(673, 460);
             this.MidComp5.Name = "MidComp5";
-            this.MidComp5.Size = new System.Drawing.Size(10, 39);
+            this.MidComp5.Size = new System.Drawing.Size(10, 30);
             this.MidComp5.TabIndex = 27;
             this.MidComp5.TabStop = false;
             // 
@@ -343,7 +356,7 @@
             this.ForwComp1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.ForwComp1.Location = new System.Drawing.Point(345, 127);
             this.ForwComp1.Name = "ForwComp1";
-            this.ForwComp1.Size = new System.Drawing.Size(10, 39);
+            this.ForwComp1.Size = new System.Drawing.Size(10, 30);
             this.ForwComp1.TabIndex = 28;
             this.ForwComp1.TabStop = false;
             // 
@@ -352,7 +365,7 @@
             this.ForwComp2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.ForwComp2.Location = new System.Drawing.Point(345, 261);
             this.ForwComp2.Name = "ForwComp2";
-            this.ForwComp2.Size = new System.Drawing.Size(10, 39);
+            this.ForwComp2.Size = new System.Drawing.Size(10, 30);
             this.ForwComp2.TabIndex = 29;
             this.ForwComp2.TabStop = false;
             // 
@@ -361,9 +374,159 @@
             this.ForwComp3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.ForwComp3.Location = new System.Drawing.Point(345, 395);
             this.ForwComp3.Name = "ForwComp3";
-            this.ForwComp3.Size = new System.Drawing.Size(10, 39);
+            this.ForwComp3.Size = new System.Drawing.Size(10, 30);
             this.ForwComp3.TabIndex = 30;
             this.ForwComp3.TabStop = false;
+            // 
+            // Score
+            // 
+            this.Score.AutoSize = true;
+            this.Score.BackColor = System.Drawing.Color.PaleGreen;
+            this.Score.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold);
+            this.Score.ForeColor = System.Drawing.Color.Firebrick;
+            this.Score.Location = new System.Drawing.Point(515, 569);
+            this.Score.Name = "Score";
+            this.Score.Size = new System.Drawing.Size(112, 32);
+            this.Score.TabIndex = 31;
+            this.Score.Text = "SCORE";
+            this.Score.Click += new System.EventHandler(this.Score_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.PaleGreen;
+            this.pictureBox1.Location = new System.Drawing.Point(459, 563);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(224, 98);
+            this.pictureBox1.TabIndex = 32;
+            this.pictureBox1.TabStop = false;
+            // 
+            // PlayerScore
+            // 
+            this.PlayerScore.AutoSize = true;
+            this.PlayerScore.BackColor = System.Drawing.Color.PaleGreen;
+            this.PlayerScore.Font = new System.Drawing.Font("Arial", 28F, System.Drawing.FontStyle.Bold);
+            this.PlayerScore.ForeColor = System.Drawing.Color.Firebrick;
+            this.PlayerScore.Location = new System.Drawing.Point(522, 601);
+            this.PlayerScore.Name = "PlayerScore";
+            this.PlayerScore.Size = new System.Drawing.Size(41, 45);
+            this.PlayerScore.TabIndex = 33;
+            this.PlayerScore.Text = "0";
+            this.PlayerScore.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // CmpScore
+            // 
+            this.CmpScore.AutoSize = true;
+            this.CmpScore.BackColor = System.Drawing.Color.PaleGreen;
+            this.CmpScore.Font = new System.Drawing.Font("Arial", 28F, System.Drawing.FontStyle.Bold);
+            this.CmpScore.ForeColor = System.Drawing.Color.Firebrick;
+            this.CmpScore.Location = new System.Drawing.Point(584, 601);
+            this.CmpScore.Name = "CmpScore";
+            this.CmpScore.Size = new System.Drawing.Size(41, 45);
+            this.CmpScore.TabIndex = 34;
+            this.CmpScore.Text = "0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.PaleGreen;
+            this.label2.Font = new System.Drawing.Font("Arial", 28F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Firebrick;
+            this.label2.Location = new System.Drawing.Point(557, 597);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 45);
+            this.label2.TabIndex = 35;
+            this.label2.Text = "|";
+            // 
+            // news
+            // 
+            this.news.AutoSize = true;
+            this.news.Font = new System.Drawing.Font("Arial", 30.75F, System.Drawing.FontStyle.Bold);
+            this.news.ForeColor = System.Drawing.Color.LightYellow;
+            this.news.Location = new System.Drawing.Point(416, 197);
+            this.news.Name = "news";
+            this.news.Size = new System.Drawing.Size(296, 47);
+            this.news.TabIndex = 36;
+            this.news.Text = "GOOOOOOAL";
+            this.news.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 16.25F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(108, 563);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 26);
+            this.label1.TabIndex = 37;
+            this.label1.Text = "TIME";
+            // 
+            // aMin
+            // 
+            this.aMin.AutoSize = true;
+            this.aMin.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold);
+            this.aMin.Location = new System.Drawing.Point(110, 587);
+            this.aMin.Name = "aMin";
+            this.aMin.Size = new System.Drawing.Size(18, 19);
+            this.aMin.TabIndex = 38;
+            this.aMin.Text = "0";
+            this.aMin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // aSec
+            // 
+            this.aSec.AutoSize = true;
+            this.aSec.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold);
+            this.aSec.Location = new System.Drawing.Point(154, 587);
+            this.aSec.Name = "aSec";
+            this.aSec.Size = new System.Drawing.Size(18, 19);
+            this.aSec.TabIndex = 39;
+            this.aSec.Text = "0";
+            // 
+            // aDoubleDot
+            // 
+            this.aDoubleDot.AutoSize = true;
+            this.aDoubleDot.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold);
+            this.aDoubleDot.Location = new System.Drawing.Point(131, 587);
+            this.aDoubleDot.Name = "aDoubleDot";
+            this.aDoubleDot.Size = new System.Drawing.Size(15, 19);
+            this.aDoubleDot.TabIndex = 40;
+            this.aDoubleDot.Text = ":";
+            // 
+            // aSecTen
+            // 
+            this.aSecTen.AutoSize = true;
+            this.aSecTen.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold);
+            this.aSecTen.Location = new System.Drawing.Point(140, 587);
+            this.aSecTen.Name = "aSecTen";
+            this.aSecTen.Size = new System.Drawing.Size(18, 19);
+            this.aSecTen.TabIndex = 41;
+            this.aSecTen.Text = "0";
+            // 
+            // playerScoreBig
+            // 
+            this.playerScoreBig.AutoSize = true;
+            this.playerScoreBig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(170)))), ((int)(((byte)(0)))));
+            this.playerScoreBig.Font = new System.Drawing.Font("Arial", 170F, System.Drawing.FontStyle.Bold);
+            this.playerScoreBig.ForeColor = System.Drawing.Color.Firebrick;
+            this.playerScoreBig.Location = new System.Drawing.Point(257, 180);
+            this.playerScoreBig.Name = "playerScoreBig";
+            this.playerScoreBig.Size = new System.Drawing.Size(235, 259);
+            this.playerScoreBig.TabIndex = 42;
+            this.playerScoreBig.Text = "0";
+            this.playerScoreBig.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.playerScoreBig.Visible = false;
+            // 
+            // compScoreBig
+            // 
+            this.compScoreBig.AutoSize = true;
+            this.compScoreBig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(170)))), ((int)(((byte)(0)))));
+            this.compScoreBig.Font = new System.Drawing.Font("Arial", 170F, System.Drawing.FontStyle.Bold);
+            this.compScoreBig.ForeColor = System.Drawing.Color.Firebrick;
+            this.compScoreBig.Location = new System.Drawing.Point(648, 180);
+            this.compScoreBig.Name = "compScoreBig";
+            this.compScoreBig.Size = new System.Drawing.Size(235, 259);
+            this.compScoreBig.TabIndex = 43;
+            this.compScoreBig.Text = "0";
+            this.compScoreBig.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.compScoreBig.Visible = false;
             // 
             // Form1
             // 
@@ -371,35 +534,48 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(75)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1137, 604);
-            this.Controls.Add(this.ForwComp3);
-            this.Controls.Add(this.ForwComp2);
-            this.Controls.Add(this.ForwComp1);
-            this.Controls.Add(this.MidComp5);
-            this.Controls.Add(this.MidComp4);
+            this.ClientSize = new System.Drawing.Size(1137, 673);
+            this.Controls.Add(this.news);
+            this.Controls.Add(this.MidComp1);
             this.Controls.Add(this.MidComp2);
             this.Controls.Add(this.MidComp3);
-            this.Controls.Add(this.MidComp1);
+            this.Controls.Add(this.MidComp4);
+            this.Controls.Add(this.MidComp5);
+            this.Controls.Add(this.Forw3);
+            this.Controls.Add(this.Forw1);
+            this.Controls.Add(this.Forw2);
             this.Controls.Add(this.DefComp2);
             this.Controls.Add(this.DefComp1);
+            this.Controls.Add(this.compScoreBig);
+            this.Controls.Add(this.Def1);
+            this.Controls.Add(this.Def2);
+            this.Controls.Add(this.Mid2);
+            this.Controls.Add(this.Mid3);
+            this.Controls.Add(this.Mid4);
+            this.Controls.Add(this.ForwComp1);
+            this.Controls.Add(this.ForwComp3);
+            this.Controls.Add(this.ForwComp2);
+            this.Controls.Add(this.playerScoreBig);
+            this.Controls.Add(this.aSecTen);
+            this.Controls.Add(this.aSec);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.CmpScore);
+            this.Controls.Add(this.PlayerScore);
+            this.Controls.Add(this.Score);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.GoalComp);
             this.Controls.Add(this.GoalKeeper);
-            this.Controls.Add(this.Forw3);
-            this.Controls.Add(this.Forw2);
-            this.Controls.Add(this.Forw1);
             this.Controls.Add(this.Mid5);
-            this.Controls.Add(this.Mid4);
-            this.Controls.Add(this.Mid3);
-            this.Controls.Add(this.Mid2);
-            this.Controls.Add(this.Def2);
             this.Controls.Add(this.Mid1);
-            this.Controls.Add(this.Def1);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.LeftGoal);
             this.Controls.Add(this.Ball);
             this.Controls.Add(this.Field);
             this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.RightGoal);
             this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.aMin);
+            this.Controls.Add(this.aDoubleDot);
             this.DoubleBuffered = true;
             this.Name = "Form1";
             this.Text = "Football";
@@ -408,7 +584,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Field)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.LeftGoal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RightGoal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Def1)).EndInit();
@@ -433,7 +609,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ForwComp1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ForwComp2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ForwComp3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -443,7 +621,7 @@
         private System.Windows.Forms.PictureBox Ball;
         private System.Windows.Forms.PictureBox Field;
         private System.Windows.Forms.PictureBox LeftGoal;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox RightGoal;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox Def1;
@@ -469,6 +647,19 @@
         private System.Windows.Forms.PictureBox ForwComp1;
         private System.Windows.Forms.PictureBox ForwComp2;
         private System.Windows.Forms.PictureBox ForwComp3;
+        private System.Windows.Forms.Label Score;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label PlayerScore;
+        private System.Windows.Forms.Label CmpScore;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label news;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label aMin;
+        private System.Windows.Forms.Label aSec;
+        private System.Windows.Forms.Label aDoubleDot;
+        private System.Windows.Forms.Label aSecTen;
+        private System.Windows.Forms.Label playerScoreBig;
+        private System.Windows.Forms.Label compScoreBig;
     }
 }
 
