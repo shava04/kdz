@@ -74,6 +74,7 @@
             this.aSecTen = new System.Windows.Forms.Label();
             this.playerScoreBig = new System.Windows.Forms.Label();
             this.compScoreBig = new System.Windows.Forms.Label();
+            this.aWinnerTable = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Field)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LeftGoal)).BeginInit();
@@ -121,7 +122,7 @@
             // 
             this.Ball.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(170)))), ((int)(((byte)(0)))));
             this.Ball.Image = global::PingPongWindowsForms.Properties.Resources.ball1;
-            this.Ball.Location = new System.Drawing.Point(564, 275);
+            this.Ball.Location = new System.Drawing.Point(558, 275);
             this.Ball.Name = "Ball";
             this.Ball.Size = new System.Drawing.Size(24, 24);
             this.Ball.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -442,7 +443,7 @@
             this.news.AutoSize = true;
             this.news.Font = new System.Drawing.Font("Arial", 30.75F, System.Drawing.FontStyle.Bold);
             this.news.ForeColor = System.Drawing.Color.LightYellow;
-            this.news.Location = new System.Drawing.Point(416, 197);
+            this.news.Location = new System.Drawing.Point(413, 193);
             this.news.Name = "news";
             this.news.Size = new System.Drawing.Size(296, 47);
             this.news.TabIndex = 36;
@@ -520,13 +521,25 @@
             this.compScoreBig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(170)))), ((int)(((byte)(0)))));
             this.compScoreBig.Font = new System.Drawing.Font("Arial", 170F, System.Drawing.FontStyle.Bold);
             this.compScoreBig.ForeColor = System.Drawing.Color.Firebrick;
-            this.compScoreBig.Location = new System.Drawing.Point(648, 180);
+            this.compScoreBig.Location = new System.Drawing.Point(664, 180);
             this.compScoreBig.Name = "compScoreBig";
             this.compScoreBig.Size = new System.Drawing.Size(235, 259);
             this.compScoreBig.TabIndex = 43;
             this.compScoreBig.Text = "0";
             this.compScoreBig.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.compScoreBig.Visible = false;
+            // 
+            // aWinnerTable
+            // 
+            this.aWinnerTable.AutoSize = true;
+            this.aWinnerTable.Font = new System.Drawing.Font("Arial", 30.75F, System.Drawing.FontStyle.Bold);
+            this.aWinnerTable.ForeColor = System.Drawing.Color.LightYellow;
+            this.aWinnerTable.Location = new System.Drawing.Point(449, 372);
+            this.aWinnerTable.Name = "aWinnerTable";
+            this.aWinnerTable.Size = new System.Drawing.Size(243, 47);
+            this.aWinnerTable.TabIndex = 44;
+            this.aWinnerTable.Text = "YOU LOST!";
+            this.aWinnerTable.Visible = false;
             // 
             // Form1
             // 
@@ -535,6 +548,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(75)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1137, 673);
+            this.Controls.Add(this.aWinnerTable);
             this.Controls.Add(this.news);
             this.Controls.Add(this.MidComp1);
             this.Controls.Add(this.MidComp2);
@@ -660,6 +674,7 @@
         private System.Windows.Forms.Label aSecTen;
         private System.Windows.Forms.Label playerScoreBig;
         private System.Windows.Forms.Label compScoreBig;
+        private System.Windows.Forms.Label aWinnerTable;
     }
 }
 

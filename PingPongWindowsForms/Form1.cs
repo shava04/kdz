@@ -14,16 +14,19 @@ namespace PingPongWindowsForms
     public partial class Form1 : Form
     {
         const int top = 39, bottom = 510, rightOfTheField = 1050, leftOfTheField = 84;
-        int movementSpeed = 6, directionSpeed;
+        int movementSpeed = 6;
         int compSpeed = 2;
-        bool isUpPressed, isDownPressed, gameEnd = false;
+        bool isUpPressed, isDownPressed, gameEnd = false;        
         int ballSpeedX = 10, ballSpeedY = 4;
-        int numberOfTicksUpDirection=0, numberOfTicksDownDirection;
+        int ballSpeedXClone = 10;
         int playerScore = 0, compScore = 0;
         int compdirect;
         int n = 0;
         int m = 1;
         int sec = 0,secTen = 0, min = 0;
+        int acceleration1, acceleration2, acceleration3, countForAcceleration = 0;
+
+
         
 
         SoundPlayer goalScored = new SoundPlayer("goalscored.wav");
@@ -52,6 +55,36 @@ namespace PingPongWindowsForms
         private void Scoring()
         {          
             Ball.Location = new Point(558, 271);
+
+
+            //Player Team Reset
+            GoalKeeper.Location = new Point(94, 266);
+            Def1.Location = new Point(243, 180);
+            Def2.Location = new Point(243, 343);
+            Mid1.Location = new Point(459, 66);
+            Mid2.Location = new Point(459, 164);
+            Mid3.Location = new Point(459, 261);
+            Mid4.Location = new Point(459, 358);
+            Mid5.Location = new Point(459, 455);
+            Forw1.Location = new Point(773, 127);
+            Forw2.Location = new Point(773, 261);
+            Forw3.Location = new Point(773, 389);
+
+
+            //Comp Team Reset
+            GoalComp.Location = new Point(1035, 269);
+            ForwComp1.Location = new Point(345, 127);
+            ForwComp2.Location = new Point(345, 261);
+            ForwComp3.Location = new Point(345, 395);
+            MidComp1.Location = new Point(673, 66);
+            MidComp2.Location = new Point(673, 160);
+            MidComp3.Location = new Point(673, 260);
+            MidComp4.Location = new Point(673, 360);
+            MidComp5.Location = new Point(673, 460);
+            DefComp1.Location = new Point(889, 180);
+            DefComp2.Location = new Point(889, 343);
+
+
             PlayerScore.Text = playerScore.ToString();
             CmpScore.Text = compScore.ToString();                                           
         }
@@ -59,7 +92,7 @@ namespace PingPongWindowsForms
 
 
 
-        private void CompTeamUp()
+        public void CompTeamUp()
         {
             ForwComp1.Location = new Point(ForwComp1.Location.X, ForwComp1.Location.Y - compSpeed);
             ForwComp2.Location = new Point(ForwComp2.Location.X, ForwComp2.Location.Y - compSpeed);
@@ -79,7 +112,7 @@ namespace PingPongWindowsForms
 
         }
 
-        private void CompTeamDown()
+        public void CompTeamDown()
         {
             ForwComp1.Location = new Point(ForwComp1.Location.X, ForwComp1.Location.Y + compSpeed);
             ForwComp2.Location = new Point(ForwComp2.Location.X, ForwComp2.Location.Y + compSpeed);
@@ -136,10 +169,29 @@ namespace PingPongWindowsForms
             if (min == 90)
             {
                 news.Text = "GAME OVER";
+                news.Location = new Point(426, 193);
                 aBallTimer.Enabled = true;
                 aTimer.Enabled = false;
                 aCompTimer.Enabled = false;
                 gameEnd = true;
+                if (playerScore > compScore)
+                {
+                    aWinnerTable.Location = new Point(453, 372);
+                    aWinnerTable.Text = "YOU WON!";
+                    aWinnerTable.Visible = true;
+                }
+                else if (playerScore == compScore)
+                {
+                    aWinnerTable.Location = new Point(495, 372);
+                    aWinnerTable.Text = "DRAW!";
+                    aWinnerTable.Visible = true;
+                }
+                else
+                {
+                    aWinnerTable.Location = new Point(449, 372);
+                    aWinnerTable.Text = "YOU LOST!";
+                    aWinnerTable.Visible = true;
+                }
             }
 
 
@@ -155,6 +207,8 @@ namespace PingPongWindowsForms
             //    System.Threading.Thread.Sleep(300);
             //}
 
+
+            //COMP CONTROL
 
             if (Ball.Location.Y > 150 && Ball.Location.Y < 387)
             {
@@ -335,6 +389,8 @@ namespace PingPongWindowsForms
             else if(gameEnd)
             {
                 news.Visible = true;
+                playerScoreBig.Visible = true;
+                compScoreBig.Visible = true;
                 
             }
 
@@ -367,19 +423,91 @@ namespace PingPongWindowsForms
                 buffoniche.Play();
             }
 
-            //BALL 
-            if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
+            //BALL COLLISON TO ATTACK
+
+
+            //if (ballSpeedX > 0)
+            //{               
+            //    if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
+            //    {
+            //        if (intersectionFirst == false)
+            //        {
+            //            ballSpeedY *= -1;
+            //            intersectionFirst = true;
+            //        }
+            //        if (intersectionFirst == true)
+            //        {
+            //            intersectionFirst = false;
+            //        }
+
+            //    }
+
+            //}
+
+            if (ballSpeedX > 0)
             {
-                if (ballSpeedX > 0)
+                if (Ball.Location.Y < 266)
                 {
-                    ballSpeedY *= -1;
+                    if (ballSpeedY < 0)
+                    {
+                           if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
+                            {
+                                ballSpeedY *= -1;
+                            }
+                        
+                    }
+                }
+                else
+                {
+                    if (ballSpeedY > 0)
+                    {
+                        if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
+                        {
+                            ballSpeedY *= -1;
+                        }
+                    }
+                }
+                if (isDownPressed == true && ballSpeedY < 0)
+                {
+                    if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
+                    {
+                        ballSpeedY *= -1;
+                    }
+                }
+                if (isUpPressed == true && ballSpeedY > 0)
+                {
+                    if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
+                    {
+                        ballSpeedY *= -1;
+                    }
                 }
 
             }
+
+
             if (DefComp1.Bounds.IntersectsWith(Ball.Bounds) || DefComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp1.Bounds.IntersectsWith(Ball.Bounds) || MidComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp3.Bounds.IntersectsWith(Ball.Bounds) || MidComp4.Bounds.IntersectsWith(Ball.Bounds) || MidComp5.Bounds.IntersectsWith(Ball.Bounds) || ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
             {
-                ballSpeedY *= -1;
+                if (ballSpeedX < 0)
+                {
+                    ballSpeedY *= -1;
+                }
             }
+
+
+            //if (Mid1.Bounds.IntersectsWith(Ball.Bounds))
+            //{
+                
+            //}
+            //if (intersectionFirst && Mid1.Bounds.IntersectsWith(Ball.Bounds))
+            //{
+            //    trueIntersec = 0;
+            //}
+            //if (trueIntersec == 1)
+            //{
+            //    ballSpeedY *= -1;
+            //}
+
+
 
 
             //SCORING
@@ -427,38 +555,143 @@ namespace PingPongWindowsForms
             // COMP COLLISION FROM LEFT
             if (DefComp1.Bounds.IntersectsWith(Ball.Bounds) || DefComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp1.Bounds.IntersectsWith(Ball.Bounds) || MidComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp3.Bounds.IntersectsWith(Ball.Bounds) || MidComp4.Bounds.IntersectsWith(Ball.Bounds) || MidComp5.Bounds.IntersectsWith(Ball.Bounds) || ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
             {
-                if (ballSpeedX > 0)
-                {
-                    ballSpeedX *= -1;
-                }
+                
+               if (ballSpeedX > 0)
+               {
+                    if (compdirect < 0)
+                    {
+                        ballSpeedY *= 1;
+                        ballSpeedX *= -1;
+                     }
+                    else
+                    {
+                        ballSpeedY *= -1;
+                        ballSpeedX *= -1;
+                    }
+
+                 }
+                
+            }
+
+            //ACCELERATION only X
+
+            if (acceleration1 > 0)
+            {
+                ballSpeedX--;
+                acceleration1--;
+            }
+            else if (ballSpeedX > ballSpeedXClone)
+            {
+                ballSpeedX--;
             }
 
 
 
+
             //COLLISION FROM RIGHT
-            if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
+
+            countForAcceleration++;
+
+            if (ballSpeedX < 0)
             {
-                if (ballSpeedX < 0 && isUpPressed==false && isDownPressed==false)
+                if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
                 {
-                    ballSpeedX *= -1;
-                }
-                else if (ballSpeedX < 0 && isUpPressed == true && ballSpeedY < 0)
-                {
-                    ballSpeedX *= -1;
-                }
-                else if (ballSpeedX < 0 && isUpPressed == true && ballSpeedY > 0)
-                {
-                    ballSpeedX *= -1;
-                    ballSpeedY *= -1;
-                }
-                else if (ballSpeedX < 0 && isDownPressed == true && ballSpeedY < 0)
-                {
-                    ballSpeedX *= -1;
-                    ballSpeedY *= -1;
-                }
-                else if (ballSpeedX < 0 && isDownPressed == true && ballSpeedY > 0)
-                {
-                    ballSpeedX *= -1;
+                    if (countForAcceleration % 3 == 1)
+                    {
+                        acceleration1 = 2;
+
+                        if (ballSpeedX < 0 && isUpPressed == false && isDownPressed == false)
+                        {
+                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
+
+                        }
+                        else if (ballSpeedX < 0 && isUpPressed == true && ballSpeedY < 0)
+                        {
+                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
+
+                        }
+                        else if (ballSpeedX < 0 && isUpPressed == true && ballSpeedY > 0)
+                        {
+                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
+
+                            ballSpeedY *= -1;
+                        }
+                        else if (ballSpeedX < 0 && isDownPressed == true && ballSpeedY < 0)
+                        {
+                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
+
+                            ballSpeedY *= -1;
+                        }
+                        else if (ballSpeedX < 0 && isDownPressed == true && ballSpeedY > 0)
+                        {
+                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
+
+                        }
+                    }
+                    else if (countForAcceleration % 3 == 2)
+                    {
+                        acceleration1 = 4;
+
+                        if (ballSpeedX < 0 && isUpPressed == false && isDownPressed == false)
+                        {
+                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
+
+                        }
+                        else if (ballSpeedX < 0 && isUpPressed == true && ballSpeedY < 0)
+                        {
+                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
+
+                        }
+                        else if (ballSpeedX < 0 && isUpPressed == true && ballSpeedY > 0)
+                        {
+                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
+
+                            ballSpeedY *= -1;
+                        }
+                        else if (ballSpeedX < 0 && isDownPressed == true && ballSpeedY < 0)
+                        {
+                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
+
+                            ballSpeedY *= -1;
+                        }
+                        else if (ballSpeedX < 0 && isDownPressed == true && ballSpeedY > 0)
+                        {
+                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
+
+                        }
+                    }
+                    else
+                    {
+                        acceleration1 = 6;
+
+                        if (ballSpeedX < 0 && isUpPressed == false && isDownPressed == false)
+                        {
+                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
+
+                        }
+                        else if (ballSpeedX < 0 && isUpPressed == true && ballSpeedY < 0)
+                        {
+                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
+
+                        }
+                        else if (ballSpeedX < 0 && isUpPressed == true && ballSpeedY > 0)
+                        {
+                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
+
+                            ballSpeedY *= -1;
+                        }
+                        else if (ballSpeedX < 0 && isDownPressed == true && ballSpeedY < 0)
+                        {
+                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
+
+                            ballSpeedY *= -1;
+                        }
+                        else if (ballSpeedX < 0 && isDownPressed == true && ballSpeedY > 0)
+                        {
+                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
+
+                        }
+                    }
                 }
             }
 
@@ -475,9 +708,7 @@ namespace PingPongWindowsForms
             
 
             if (isUpPressed)
-            {
-                //directionSpeed = -movementSpeed;
-
+            {                
                 GoalKeeper.Location = new Point(GoalKeeper.Location.X, GoalKeeper.Location.Y - movementSpeed);
                 Def1.Location = new Point(Def1.Location.X, Def1.Location.Y - movementSpeed);
                 Def2.Location = new Point(Def2.Location.X, Def2.Location.Y - movementSpeed);
@@ -492,8 +723,6 @@ namespace PingPongWindowsForms
             }
             else if (isDownPressed)
             {
-               // directionSpeed = movementSpeed;
-
                 GoalKeeper.Location = new Point(GoalKeeper.Location.X, GoalKeeper.Location.Y + movementSpeed);
                 Def1.Location = new Point(Def1.Location.X, Def1.Location.Y + movementSpeed);
                 Def2.Location = new Point(Def2.Location.X, Def2.Location.Y + movementSpeed);
@@ -506,12 +735,6 @@ namespace PingPongWindowsForms
                 Forw2.Location = new Point(Forw2.Location.X, Forw2.Location.Y + movementSpeed);
                 Forw3.Location = new Point(Forw3.Location.X, Forw3.Location.Y + movementSpeed);
             }
-            
-
-
-
-
-
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
