@@ -58,7 +58,8 @@ namespace PingPongWindowsForms
         
 
         private void ShowGoal()
-        {
+        { 
+
             news.Visible = true;
             playerScoreBig.Visible = true;
             compScoreBig.Visible = true;
