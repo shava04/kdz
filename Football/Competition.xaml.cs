@@ -61,7 +61,8 @@ namespace Football
         private int rounds;
         private string login;
         private bool music = false;
-        public Competition(List<Team> teams, string myTeam, int rounds, string login, bool music)
+        private int level;
+        public Competition(List<Team> teams, string myTeam, int rounds, string login, bool music, int level)
         {
             InitializeComponent();
             this.teams = teams;
@@ -69,6 +70,7 @@ namespace Football
             this.rounds = rounds;
             this.login = login;
             this.music = music;
+            this.level = level;
             this.standings();
         }
 
@@ -249,6 +251,7 @@ namespace Football
                     StreamWriter sw = new StreamWriter(fl1);
                     sw.WriteLine(teamName1);
                     sw.WriteLine(teamName2);
+                    sw.WriteLine(level);
                     sw.Close();
                     fl1.Close();
                     Form1 game = new Form1();
