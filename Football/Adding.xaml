@@ -1,0 +1,38 @@
+﻿<Window x:Class="Football.Adding"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Football"
+        mc:Ignorable="d"
+        Title="Adding" Height="476.087" Width="386.413">
+    <Grid>
+        <Label x:Name="label" Content="Введите название команды" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="240,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1" Content="Вратарь" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="Правый центральный защитник" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label4" Content="Левый центральный защитник" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label6" Content="Правый полузащитник" HorizontalAlignment="Left" Margin="10,196,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label7" Content="Центральный полузащитник" HorizontalAlignment="Left" Margin="10,227,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label8" Content="Левый полузащитник" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label10" Content="Левый нападающий" HorizontalAlignment="Left" Margin="10,320,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label11" Content="Центральный нападающий" HorizontalAlignment="Left" Margin="10,351,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.318,-0.176"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="240,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="240,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="23" Margin="240,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox4" HorizontalAlignment="Left" Height="23" Margin="240,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox5" HorizontalAlignment="Left" Height="23" Margin="240,165,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox6" HorizontalAlignment="Left" Height="23" Margin="240,199,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox7" HorizontalAlignment="Left" Height="23" Margin="240,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox8" HorizontalAlignment="Left" Height="23" Margin="240,261,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox9" HorizontalAlignment="Left" Height="23" Margin="240,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox10" HorizontalAlignment="Left" Height="23" Margin="240,320,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="textBox11" HorizontalAlignment="Left" Height="23" Margin="240,351,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label2" Content="Правый защитник" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.704,0.519"/>
+        <Label x:Name="label5" Content="Левый защитник" HorizontalAlignment="Left" Margin="10,165,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label9" Content="Правый нападающий" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="ОК" HorizontalAlignment="Left" Margin="10,384,0,0" VerticalAlignment="Top" Width="136" Height="41" FontSize="20" Click="button_Click"/>
+        <Button x:Name="button1" Content="Отмена" HorizontalAlignment="Left" Margin="240,382,0,0" VerticalAlignment="Top" Width="120" Height="41" FontSize="20" Click="button1_Click"/>
+
+    </Grid>
+</Window>
