@@ -75,6 +75,8 @@
             this.playerScoreBig = new System.Windows.Forms.Label();
             this.compScoreBig = new System.Windows.Forms.Label();
             this.aWinnerTable = new System.Windows.Forms.Label();
+            this.aYourTeamLabel = new System.Windows.Forms.Label();
+            this.aCompTeamLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Field)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LeftGoal)).BeginInit();
@@ -383,6 +385,7 @@
             // 
             this.Score.AutoSize = true;
             this.Score.BackColor = System.Drawing.Color.PaleGreen;
+            this.Score.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Score.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold);
             this.Score.ForeColor = System.Drawing.Color.Firebrick;
             this.Score.Location = new System.Drawing.Point(515, 569);
@@ -395,9 +398,9 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.PaleGreen;
-            this.pictureBox1.Location = new System.Drawing.Point(459, 563);
+            this.pictureBox1.Location = new System.Drawing.Point(243, 563);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(224, 98);
+            this.pictureBox1.Size = new System.Drawing.Size(656, 98);
             this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
             // 
@@ -443,7 +446,7 @@
             this.news.AutoSize = true;
             this.news.Font = new System.Drawing.Font("Arial", 30.75F, System.Drawing.FontStyle.Bold);
             this.news.ForeColor = System.Drawing.Color.LightYellow;
-            this.news.Location = new System.Drawing.Point(413, 193);
+            this.news.Location = new System.Drawing.Point(418, 193);
             this.news.Name = "news";
             this.news.Size = new System.Drawing.Size(296, 47);
             this.news.TabIndex = 36;
@@ -521,7 +524,7 @@
             this.compScoreBig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(170)))), ((int)(((byte)(0)))));
             this.compScoreBig.Font = new System.Drawing.Font("Arial", 170F, System.Drawing.FontStyle.Bold);
             this.compScoreBig.ForeColor = System.Drawing.Color.Firebrick;
-            this.compScoreBig.Location = new System.Drawing.Point(664, 180);
+            this.compScoreBig.Location = new System.Drawing.Point(648, 180);
             this.compScoreBig.Name = "compScoreBig";
             this.compScoreBig.Size = new System.Drawing.Size(235, 259);
             this.compScoreBig.TabIndex = 43;
@@ -541,6 +544,30 @@
             this.aWinnerTable.Text = "YOU LOST!";
             this.aWinnerTable.Visible = false;
             // 
+            // aYourTeamLabel
+            // 
+            this.aYourTeamLabel.AutoSize = true;
+            this.aYourTeamLabel.BackColor = System.Drawing.Color.PaleGreen;
+            this.aYourTeamLabel.Font = new System.Drawing.Font("Arial", 30.75F, System.Drawing.FontStyle.Bold);
+            this.aYourTeamLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.aYourTeamLabel.Location = new System.Drawing.Point(293, 594);
+            this.aYourTeamLabel.Name = "aYourTeamLabel";
+            this.aYourTeamLabel.Size = new System.Drawing.Size(125, 47);
+            this.aYourTeamLabel.TabIndex = 45;
+            this.aYourTeamLabel.Text = "Team";
+            // 
+            // aCompTeamLabel
+            // 
+            this.aCompTeamLabel.AutoSize = true;
+            this.aCompTeamLabel.BackColor = System.Drawing.Color.PaleGreen;
+            this.aCompTeamLabel.Font = new System.Drawing.Font("Arial", 30.75F, System.Drawing.FontStyle.Bold);
+            this.aCompTeamLabel.ForeColor = System.Drawing.Color.Maroon;
+            this.aCompTeamLabel.Location = new System.Drawing.Point(706, 594);
+            this.aCompTeamLabel.Name = "aCompTeamLabel";
+            this.aCompTeamLabel.Size = new System.Drawing.Size(125, 47);
+            this.aCompTeamLabel.TabIndex = 46;
+            this.aCompTeamLabel.Text = "Team";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -548,6 +575,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(75)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1137, 673);
+            this.Controls.Add(this.aCompTeamLabel);
+            this.Controls.Add(this.aYourTeamLabel);
             this.Controls.Add(this.aWinnerTable);
             this.Controls.Add(this.news);
             this.Controls.Add(this.MidComp1);
@@ -591,7 +620,11 @@
             this.Controls.Add(this.aMin);
             this.Controls.Add(this.aDoubleDot);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Football";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
@@ -675,6 +708,8 @@
         private System.Windows.Forms.Label playerScoreBig;
         private System.Windows.Forms.Label compScoreBig;
         private System.Windows.Forms.Label aWinnerTable;
+        private System.Windows.Forms.Label aYourTeamLabel;
+        private System.Windows.Forms.Label aCompTeamLabel;
     }
 }
 
