@@ -8,6 +8,7 @@ namespace Football
 {
     class Tournament
     {
+
         private List<Team> teams = new List<Team>(0);
         public List<Team> Teams
         {
