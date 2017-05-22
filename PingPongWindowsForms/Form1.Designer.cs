@@ -398,9 +398,9 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.PaleGreen;
-            this.pictureBox1.Location = new System.Drawing.Point(243, 563);
+            this.pictureBox1.Location = new System.Drawing.Point(79, 563);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(656, 98);
+            this.pictureBox1.Size = new System.Drawing.Size(985, 98);
             this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
             // 
@@ -456,8 +456,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.PaleGreen;
             this.label1.Font = new System.Drawing.Font("Arial", 16.25F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(108, 563);
+            this.label1.Location = new System.Drawing.Point(108, 564);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 26);
             this.label1.TabIndex = 37;
@@ -466,8 +467,9 @@
             // aMin
             // 
             this.aMin.AutoSize = true;
+            this.aMin.BackColor = System.Drawing.Color.PaleGreen;
             this.aMin.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold);
-            this.aMin.Location = new System.Drawing.Point(110, 587);
+            this.aMin.Location = new System.Drawing.Point(110, 588);
             this.aMin.Name = "aMin";
             this.aMin.Size = new System.Drawing.Size(18, 19);
             this.aMin.TabIndex = 38;
@@ -477,8 +479,9 @@
             // aSec
             // 
             this.aSec.AutoSize = true;
+            this.aSec.BackColor = System.Drawing.Color.PaleGreen;
             this.aSec.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold);
-            this.aSec.Location = new System.Drawing.Point(154, 587);
+            this.aSec.Location = new System.Drawing.Point(154, 588);
             this.aSec.Name = "aSec";
             this.aSec.Size = new System.Drawing.Size(18, 19);
             this.aSec.TabIndex = 39;
@@ -497,8 +500,9 @@
             // aSecTen
             // 
             this.aSecTen.AutoSize = true;
+            this.aSecTen.BackColor = System.Drawing.Color.PaleGreen;
             this.aSecTen.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold);
-            this.aSecTen.Location = new System.Drawing.Point(140, 587);
+            this.aSecTen.Location = new System.Drawing.Point(140, 588);
             this.aSecTen.Name = "aSecTen";
             this.aSecTen.Size = new System.Drawing.Size(18, 19);
             this.aSecTen.TabIndex = 41;

@@ -25,7 +25,7 @@ namespace PingPongWindowsForms
         int n = 0;
         int m = 1;
         int sec = 0,secTen = 0, min = 0;
-        int accelerationDefPlayer, acceleration2, acceleration3;
+        int accelerationDefPlayer, accelerationAttPlayer, acceleration3;
         int countForAcceleration = 0, countForAccelerationDelete = 0, countForAccelerationToAttack = 0;
 
         string yourTeam, compTeam;
@@ -43,11 +43,12 @@ namespace PingPongWindowsForms
             StreamReader sr = new StreamReader(fl);
             yourTeam = sr.ReadLine();
             compTeam = sr.ReadLine();
+            compSpeed = int.Parse(sr.ReadLine());
             File.Delete("teams.txt");
-           
+
 
         }
-            
+
 
         private void Time()
         {
@@ -141,6 +142,11 @@ namespace PingPongWindowsForms
             }
         }
 
+        private void AccelerationAttackPlayer()
+        {
+            
+        }
+
 
 
         public void CompTeamUp()
@@ -184,8 +190,7 @@ namespace PingPongWindowsForms
 
         private void aCompTimer_Tick(object sender, EventArgs e)
         {
-            aYourTeamLabel.Text = yourTeam.ToString();
-            aCompTeamLabel.Text = compTeam.ToString();
+           
 
             //TIME  tick = 30 ms
             m++;          
@@ -443,14 +448,6 @@ namespace PingPongWindowsForms
                 
             }
 
-
-
-           
-
-
-
-
-
             //if ((Ball.Bounds.IntersectsWith(Mid1.Bounds) || Ball.Bounds.IntersectsWith(Mid2.Bounds) || (Ball.Bounds.IntersectsWith(Mid3.Bounds)) || Ball.Bounds.IntersectsWith(Mid4.Bounds) || Ball.Bounds.IntersectsWith(Mid5.Bounds)));
             //{
             //    if (ballSpeedX > 0)
@@ -473,59 +470,6 @@ namespace PingPongWindowsForms
             }
 
 
-            //BALL COLLISON TO ATTACK
-
-            countForAccelerationToAttack++;
-
-
-            if (ballSpeedX > 0)
-            {
-                if (Ball.Location.Y < 266)
-                {
-                    if (ballSpeedY < 0)
-                    {
-                           if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
-                            {
-                                ballSpeedY *= -1;
-                            }
-                        
-                    }
-                }
-                else
-                {
-                    if (ballSpeedY > 0)
-                    {
-                        if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
-                        {
-                            ballSpeedY *= -1;
-                        }
-                    }
-                }
-                if (isDownPressed == true && ballSpeedY < 0)
-                {
-                    if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
-                    {
-                        ballSpeedY *= -1;
-                    }
-                }
-                if (isUpPressed == true && ballSpeedY > 0)
-                {
-                    if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
-                    {
-                        ballSpeedY *= -1;
-                    }
-                }
-
-            }
-
-
-            if (DefComp1.Bounds.IntersectsWith(Ball.Bounds) || DefComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp1.Bounds.IntersectsWith(Ball.Bounds) || MidComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp3.Bounds.IntersectsWith(Ball.Bounds) || MidComp4.Bounds.IntersectsWith(Ball.Bounds) || MidComp5.Bounds.IntersectsWith(Ball.Bounds) || ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
-            {
-                if (ballSpeedX < 0)
-                {
-                    ballSpeedY *= -1;
-                }
-            }
 
 
             //if (LeftGoal.Bounds.IntersectsWith(Ball.Bounds))
@@ -572,46 +516,158 @@ namespace PingPongWindowsForms
             // COMP COLLISION FROM LEFT
             if (DefComp1.Bounds.IntersectsWith(Ball.Bounds) || DefComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp1.Bounds.IntersectsWith(Ball.Bounds) || MidComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp3.Bounds.IntersectsWith(Ball.Bounds) || MidComp4.Bounds.IntersectsWith(Ball.Bounds) || MidComp5.Bounds.IntersectsWith(Ball.Bounds) || ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
             {
-                
-               if (ballSpeedX > 0)
-               {
+
+
+                if (ballSpeedX > 0)
+                {
                     if (compdirect < 0)
                     {
                         ballSpeedY *= 1;
                         ballSpeedX *= -1;
-                     }
+                    }
                     else
                     {
                         ballSpeedY *= -1;
                         ballSpeedX *= -1;
                     }
 
-                 }
+                }
+                else
+                {
+                    ballSpeedY *= -1;
+                }
                 
             }
 
-            //ACCELERATION only X
-            
 
+
+            //ACCELERATION only X            
+            //BALL COLLISON TO ATTACK
+
+            countForAccelerationToAttack++;
+
+           
+
+            if (ballSpeedX > 0)
+            {
+                if (Ball.Location.Y < 266)
+                {
+                    if (ballSpeedY < 0)
+                    {
+                        if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
+                        {                            
+                            if (countForAccelerationToAttack % 3 == 1)
+                            {
+                                accelerationAttPlayer = 3;
+                                ballSpeedY *= -1;
+                                ballSpeedX += accelerationAttPlayer;
+                            }
+                            if (countForAccelerationToAttack % 3 == 2)
+                            {
+                                accelerationAttPlayer = 5;
+                                ballSpeedY *= -1;
+                                ballSpeedX += accelerationAttPlayer;
+                            }
+                            if (countForAccelerationToAttack % 3 == 0)
+                            {
+                                accelerationAttPlayer = 2;
+                                ballSpeedY *= -1;
+                                ballSpeedX += accelerationAttPlayer;
+                            }
+
+                           
+                        }
+
+                    }
+                }
+                else
+                {
+                    if (ballSpeedY > 0)
+                    {
+                        if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
+                        {
+                            if (countForAccelerationToAttack % 3 == 1)
+                            {
+                                accelerationAttPlayer = 3;
+                                ballSpeedY *= -1;
+                                ballSpeedX += accelerationAttPlayer;
+                            }
+                            if (countForAccelerationToAttack % 3 == 2)
+                            {
+                                accelerationAttPlayer = 5;
+                                ballSpeedY *= -1;
+                                ballSpeedX += accelerationAttPlayer;
+                            }
+                            if (countForAccelerationToAttack % 3 == 0)
+                            {
+                                accelerationAttPlayer = 2;
+                                ballSpeedY *= -1;
+                                ballSpeedX += accelerationAttPlayer;
+                            }
+
+                        }
+                    }
+                }
+                if (isDownPressed == true && ballSpeedY < 0)
+                {
+                    if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
+                    {
+                        if (countForAccelerationToAttack % 3 == 1)
+                        {
+                            accelerationAttPlayer = 3;
+                            ballSpeedY *= -1;
+                            ballSpeedX += accelerationAttPlayer;
+                        }
+                        if (countForAccelerationToAttack % 3 == 2)
+                        {
+                            accelerationAttPlayer = 5;
+                            ballSpeedY *= -1;
+                            ballSpeedX += accelerationAttPlayer;
+                        }
+                        if (countForAccelerationToAttack % 3 == 0)
+                        {
+                            accelerationAttPlayer = 2;
+                            ballSpeedY *= -1;
+                            ballSpeedX += accelerationAttPlayer;
+                        }
+
+                    }
+                }
+                if (isUpPressed == true && ballSpeedY > 0)
+                {
+                    if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
+                    {
+                        if (countForAccelerationToAttack % 3 == 1)
+                        {
+                            accelerationAttPlayer = 3;
+                            ballSpeedY *= -1;
+                            ballSpeedX += accelerationAttPlayer;
+                        }
+                        if (countForAccelerationToAttack % 3 == 2)
+                        {
+                            accelerationAttPlayer = 5;
+                            ballSpeedY *= -1;
+                            ballSpeedX += accelerationAttPlayer;
+                        }
+                        if (countForAccelerationToAttack % 3 == 0)
+                        {
+                            accelerationAttPlayer = 2;
+                            ballSpeedY *= -1;
+                            ballSpeedX += accelerationAttPlayer;
+                        }
+
+                    }
+                }
+
+            }
             
-            if (accelerationDefPlayer > 0)
+            if (ballSpeedX > ballSpeedXClone)
             {
                 if (countForAccelerationDelete % 2 == 0)
                 {
                     ballSpeedX--;
-                    accelerationDefPlayer--;
                 }
             }
-            else if (ballSpeedX > ballSpeedXClone)
-            {
-                if (countForAccelerationDelete % 2 == 0)
-                {
-                    ballSpeedX--;
-                }
-            }
-
-
-
 
             //COLLISION FROM RIGHT
 
