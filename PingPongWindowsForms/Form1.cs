@@ -45,6 +45,7 @@ namespace PingPongWindowsForms
             File.Delete("teams.txt");
             aYourTeamLabel.Text = yourTeam.ToString();
             aCompTeamLabel.Text = compTeam.ToString();
+
         }
 
 
