@@ -575,6 +575,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(75)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1137, 673);
+            this.Controls.Add(this.aMin);
             this.Controls.Add(this.aCompTeamLabel);
             this.Controls.Add(this.aYourTeamLabel);
             this.Controls.Add(this.aWinnerTable);
@@ -617,7 +618,6 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.RightGoal);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.aMin);
             this.Controls.Add(this.aDoubleDot);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;

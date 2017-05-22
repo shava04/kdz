@@ -231,6 +231,14 @@ namespace PingPongWindowsForms
                 aTimer.Enabled = false;
                 aCompTimer.Enabled = false;
                 gameEnd = true;
+
+                FileStream fl = new FileStream("score.txt", FileMode.Create, FileAccess.Write);
+                StreamWriter sw = new StreamWriter(fl);
+                sw.WriteLine(playerScore);
+                sw.WriteLine(compScore);
+                sw.Close();
+                fl.Close();
+
                 if (playerScore > compScore)
                 {
                     aWinnerTable.Location = new Point(453, 372);
@@ -625,7 +633,7 @@ namespace PingPongWindowsForms
                     }
                     else
                     {
-                        accelerationDefPlayer = 10;
+                        accelerationDefPlayer = 7;
                         AccelerationDefPlayer();
                        
                     }
