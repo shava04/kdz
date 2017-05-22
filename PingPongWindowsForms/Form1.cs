@@ -38,16 +38,16 @@ namespace PingPongWindowsForms
         public Form1()
         {
             InitializeComponent();
+
             FileStream fl = new FileStream("teams.txt", FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fl);
             yourTeam = sr.ReadLine();
             compTeam = sr.ReadLine();
             File.Delete("teams.txt");
-            aYourTeamLabel.Text = yourTeam.ToString();
-            aCompTeamLabel.Text = compTeam.ToString();
+           
 
         }
-
+            
 
         private void Time()
         {
@@ -184,7 +184,9 @@ namespace PingPongWindowsForms
 
         private void aCompTimer_Tick(object sender, EventArgs e)
         {
-            
+            aYourTeamLabel.Text = yourTeam.ToString();
+            aCompTeamLabel.Text = compTeam.ToString();
+
             //TIME  tick = 30 ms
             m++;          
             if (m % 11 == 0)
