@@ -44,11 +44,40 @@ namespace Football
                 result = value;
             }
         }
-        public Settings(bool music)
+        private int level;
+        public int Level
+        {
+            get
+            {
+                return level;
+            }
+            set
+            {
+                level = value;
+            }
+        }
+        public Settings(bool music, int level)
         {
             InitializeComponent();
             this.music = music;
             this.result = music;
+            this.level = level;
+            if (level==1)
+            {
+                radioButton4.IsChecked = true;
+            }
+            else if (level==2)
+            {
+                radioButton5.IsChecked = true;
+            }
+            else if (level==3)
+            {
+                radioButton6.IsChecked = true;
+            }
+            else
+            {
+                radioButton7.IsChecked = true;
+            }
             if (music ==true)
             {
                 checkBox1.IsChecked = true;
@@ -60,6 +89,7 @@ namespace Football
         }
         private void button_Click(object sender, RoutedEventArgs e)
         {
+
             if (checkBox1.IsChecked==true)
             {
                 this.result = true;
@@ -71,6 +101,22 @@ namespace Football
             if (music != checkBox1.IsChecked)
             {
                 stayornot = false;
+            }
+            if (radioButton4.IsChecked==true)
+            {
+                this.level = 1;
+            }
+            if (radioButton5.IsChecked==true)
+            {
+                this.level = 2;
+            }
+            if (radioButton6.IsChecked==true)
+            {
+                this.level = 3;
+            }
+            if (radioButton7.IsChecked == true)
+            {
+                this.level = 4;
             }
             DialogResult = true;
         }

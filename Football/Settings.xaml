@@ -7,9 +7,6 @@
         mc:Ignorable="d"
         Title="Settings" Height="369.512" Width="300">
     <Grid>
-        <RadioButton x:Name="radioButton" Content="1 минута" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="radioButton1" Content="2 минуты" HorizontalAlignment="Left" Margin="10,61,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="radioButton2" Content="3 минуты" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top"/>
         <Button x:Name="button" Content="Потвердить" HorizontalAlignment="Left" Margin="10,287,0,0" VerticalAlignment="Top" Width="139" Height="38" FontSize="20" Click="button_Click"/>
         <CheckBox x:Name="checkBox1" Content="Включить музыку" HorizontalAlignment="Left" Margin="5,257,0,0" VerticalAlignment="Top"/>
         <Button x:Name="button1" Content="Отмена" HorizontalAlignment="Left" Margin="185,287,0,0" VerticalAlignment="Top" Width="97" Height="38" FontSize="20" Click="button1_Click"/>
@@ -17,8 +14,9 @@
         <RadioButton x:Name="radioButton5" Content="Обычный" HorizontalAlignment="Left" Margin="12,173,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="radioButton6" Content="Профессионал" HorizontalAlignment="Left" Margin="12,193,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="radioButton7" Content="Легенда футбола" HorizontalAlignment="Left" Margin="12,213,0,0" VerticalAlignment="Top"/>
-        <GroupBox x:Name="groupBox" Header="Сложность игры" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top" Height="139" Width="124"/>
-        <GroupBox x:Name="groupBox1" Header="Продолжительность матча" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" Height="93" Width="185"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="12,57,0,0" VerticalAlignment="Top" Width="122" Height="27"/>
+        <Label x:Name="label" Content="  Продолжительность матча" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Сложность игры" HorizontalAlignment="Left" Margin="6,118,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
