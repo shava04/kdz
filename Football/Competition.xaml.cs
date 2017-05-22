@@ -245,26 +245,39 @@ namespace Football
                 int teamGoal2 = 0;
                 if (teamName1 == myTeam)
                 {
+                    FileStream fl1 = new FileStream("teams.txt", FileMode.Create, FileAccess.Write);
+                    StreamWriter sw = new StreamWriter(fl1);
+                    sw.WriteLine(teamName1);
+                    sw.WriteLine(teamName2);
+                    sw.Close();
+                    fl1.Close();
                     Form1 game = new Form1();
                     game.ShowDialog();
-                    FileStream fl = new FileStream("C:\\Users\\User\\Desktop\\score.txt", FileMode.Open, FileAccess.Read);
+                    FileStream fl = new FileStream("score.txt", FileMode.Open, FileAccess.Read);
                     StreamReader sr = new StreamReader(fl);
                     teamGoal1 = int.Parse(sr.ReadLine());
                     teamGoal2 = int.Parse(sr.ReadLine());
                     sr.Close();
                     fl.Close();
-                    File.Delete("C:\\Users\\User\\Desktop\\score.txt");
+                    File.Delete("score.txt");
                 }
                 else if (teamName2 == myTeam)
                 {
+                    FileStream fl1 = new FileStream("teams.txt", FileMode.Create, FileAccess.Write);
+                    StreamWriter sw = new StreamWriter(fl1);
+                    sw.WriteLine(teamName2);
+                    sw.WriteLine(teamName1);
+                    sw.Close();
+                    fl1.Close();
                     Form1 game = new Form1();
                     game.ShowDialog();
-                    FileStream fl = new FileStream("C:\\Users\\User\\Desktop\\score.txt", FileMode.Open, FileAccess.Read);
+                    FileStream fl = new FileStream("score.txt", FileMode.Open, FileAccess.Read);
                     StreamReader sr = new StreamReader(fl);
                     teamGoal2 = int.Parse(sr.ReadLine());
                     teamGoal1 = int.Parse(sr.ReadLine());
                     sr.Close();
                     fl.Close();
+                    File.Delete("score.txt"); 
                 }
                 else
                 {
