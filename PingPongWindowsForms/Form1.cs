@@ -44,7 +44,7 @@ namespace PingPongWindowsForms
             yourTeam = sr.ReadLine();
             compTeam = sr.ReadLine();
             compSpeed = int.Parse(sr.ReadLine());
-            File.Delete("teams.txt");
+           // File.Delete("teams.txt");
 
 
         }
