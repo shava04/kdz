@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using System.IO;
 namespace PingPongWindowsForms
 {
 
@@ -18,25 +19,40 @@ namespace PingPongWindowsForms
         int compSpeed = 2;
         bool isUpPressed, isDownPressed, gameEnd = false;        
         int ballSpeedX = 10, ballSpeedY = 4;
-        int ballSpeedXClone = 10;
+        int ballSpeedXClone = 10, ballSpeedYClone = 10;
         int playerScore = 0, compScore = 0;
         int compdirect;
         int n = 0;
         int m = 1;
         int sec = 0,secTen = 0, min = 0;
-        int acceleration1, acceleration2, acceleration3, countForAcceleration = 0;
+        int accelerationDefPlayer, acceleration2, acceleration3;
+        int countForAcceleration = 0, countForAccelerationDelete = 0, countForAccelerationToAttack = 0;
 
-
+        string yourTeam, compTeam;
         
 
         SoundPlayer goalScored = new SoundPlayer("goalscored.wav");
         SoundPlayer buffoniche = new SoundPlayer("буффонище.wav");
         SoundPlayer whistle = new SoundPlayer("whistlee.wav");
 
+        public Form1()
+        {
+            InitializeComponent();
+            FileStream fl = new FileStream("teams.txt", FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fl);
+            yourTeam = sr.ReadLine();
+            compTeam = sr.ReadLine();
+            File.Delete("teams.txt");
+            aYourTeamLabel.Text = yourTeam.ToString();
+            aCompTeamLabel.Text = compTeam.ToString();
+        }
+
+
         private void Time()
         {
 
         }
+        
         
 
         private void ShowGoal()
@@ -55,6 +71,8 @@ namespace PingPongWindowsForms
         private void Scoring()
         {          
             Ball.Location = new Point(558, 271);
+
+            ballSpeedX *= -1;
 
 
             //Player Team Reset
@@ -91,6 +109,38 @@ namespace PingPongWindowsForms
 
 
 
+        private void AccelerationDefPlayer()
+        {
+            if (ballSpeedX < 0 && isUpPressed == false && isDownPressed == false)
+            {
+                ballSpeedX = Math.Abs(ballSpeedX) + accelerationDefPlayer;
+
+            }
+            else if (ballSpeedX < 0 && isUpPressed == true && ballSpeedY < 0)
+            {
+                ballSpeedX = Math.Abs(ballSpeedX) + accelerationDefPlayer;
+
+            }
+            else if (ballSpeedX < 0 && isUpPressed == true && ballSpeedY > 0)
+            {
+                ballSpeedX = Math.Abs(ballSpeedX) + accelerationDefPlayer;
+
+                ballSpeedY *= -1;
+            }
+            else if (ballSpeedX < 0 && isDownPressed == true && ballSpeedY < 0)
+            {
+                ballSpeedX = Math.Abs(ballSpeedX) + accelerationDefPlayer;
+
+                ballSpeedY *= -1;
+            }
+            else if (ballSpeedX < 0 && isDownPressed == true && ballSpeedY > 0)
+            {
+                ballSpeedX = Math.Abs(ballSpeedX) + accelerationDefPlayer;
+
+            }
+        }
+
+
 
         public void CompTeamUp()
         {
@@ -107,10 +157,14 @@ namespace PingPongWindowsForms
             compdirect = 1;
         }
 
+
+
         private void Score_Click(object sender, EventArgs e)
         {
 
         }
+
+
 
         public void CompTeamDown()
         {
@@ -129,7 +183,7 @@ namespace PingPongWindowsForms
 
         private void aCompTimer_Tick(object sender, EventArgs e)
         {
-
+            
             //TIME  tick = 30 ms
             m++;          
             if (m % 11 == 0)
@@ -198,16 +252,6 @@ namespace PingPongWindowsForms
             //BALL MOVEMENT
             Ball.Location = new Point(Ball.Location.X + ballSpeedX, Ball.Location.Y + ballSpeedY);
 
-            //if (m % 3 != 0)
-            //{
-            //    m++;
-            //}
-            //else
-            //{
-            //    System.Threading.Thread.Sleep(300);
-            //}
-
-
             //COMP CONTROL
 
             if (Ball.Location.Y > 150 && Ball.Location.Y < 387)
@@ -216,7 +260,7 @@ namespace PingPongWindowsForms
                 {
                     GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y + compSpeed);
                 }
-                else //if (Ball.Location.Y < GoalComp.Location.Y)
+                else
                 {
                     GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y - compSpeed);
                 }
@@ -337,18 +381,12 @@ namespace PingPongWindowsForms
 
 
 
-        // Player player;
+        
 
 
 
-        public Form1()
-        {
 
-            InitializeComponent();
-            
-            
 
-        }
         private void aBallTimer_Tick(object sender, EventArgs e)
         {
             if (!gameEnd)
@@ -396,7 +434,7 @@ namespace PingPongWindowsForms
 
 
 
-            // Ball.Location = new Point(Ball.Location.X - ballSpeedX, Ball.Location.Y + ballSpeedY);
+           
 
 
 
@@ -423,26 +461,11 @@ namespace PingPongWindowsForms
                 buffoniche.Play();
             }
 
+
             //BALL COLLISON TO ATTACK
 
+            countForAccelerationToAttack++;
 
-            //if (ballSpeedX > 0)
-            //{               
-            //    if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
-            //    {
-            //        if (intersectionFirst == false)
-            //        {
-            //            ballSpeedY *= -1;
-            //            intersectionFirst = true;
-            //        }
-            //        if (intersectionFirst == true)
-            //        {
-            //            intersectionFirst = false;
-            //        }
-
-            //    }
-
-            //}
 
             if (ballSpeedX > 0)
             {
@@ -494,24 +517,6 @@ namespace PingPongWindowsForms
             }
 
 
-            //if (Mid1.Bounds.IntersectsWith(Ball.Bounds))
-            //{
-                
-            //}
-            //if (intersectionFirst && Mid1.Bounds.IntersectsWith(Ball.Bounds))
-            //{
-            //    trueIntersec = 0;
-            //}
-            //if (trueIntersec == 1)
-            //{
-            //    ballSpeedY *= -1;
-            //}
-
-
-
-
-            //SCORING
-
             //if (LeftGoal.Bounds.IntersectsWith(Ball.Bounds))
             //{
             //    compScore++;
@@ -523,6 +528,7 @@ namespace PingPongWindowsForms
             //    Scoring();
             //}
 
+            //SCORING
 
             if (Ball.Location.X > 1027)
             {
@@ -574,15 +580,23 @@ namespace PingPongWindowsForms
             }
 
             //ACCELERATION only X
+            
 
-            if (acceleration1 > 0)
+            
+            if (accelerationDefPlayer > 0)
             {
-                ballSpeedX--;
-                acceleration1--;
+                if (countForAccelerationDelete % 2 == 0)
+                {
+                    ballSpeedX--;
+                    accelerationDefPlayer--;
+                }
             }
             else if (ballSpeedX > ballSpeedXClone)
             {
-                ballSpeedX--;
+                if (countForAccelerationDelete % 2 == 0)
+                {
+                    ballSpeedX--;
+                }
             }
 
 
@@ -598,111 +612,40 @@ namespace PingPongWindowsForms
                 {
                     if (countForAcceleration % 3 == 1)
                     {
-                        acceleration1 = 2;
-
-                        if (ballSpeedX < 0 && isUpPressed == false && isDownPressed == false)
-                        {
-                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
-
-                        }
-                        else if (ballSpeedX < 0 && isUpPressed == true && ballSpeedY < 0)
-                        {
-                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
-
-                        }
-                        else if (ballSpeedX < 0 && isUpPressed == true && ballSpeedY > 0)
-                        {
-                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
-
-                            ballSpeedY *= -1;
-                        }
-                        else if (ballSpeedX < 0 && isDownPressed == true && ballSpeedY < 0)
-                        {
-                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
-
-                            ballSpeedY *= -1;
-                        }
-                        else if (ballSpeedX < 0 && isDownPressed == true && ballSpeedY > 0)
-                        {
-                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
-
-                        }
+                        accelerationDefPlayer = 2;
+                        AccelerationDefPlayer();
                     }
                     else if (countForAcceleration % 3 == 2)
                     {
-                        acceleration1 = 4;
-
-                        if (ballSpeedX < 0 && isUpPressed == false && isDownPressed == false)
-                        {
-                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
-
-                        }
-                        else if (ballSpeedX < 0 && isUpPressed == true && ballSpeedY < 0)
-                        {
-                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
-
-                        }
-                        else if (ballSpeedX < 0 && isUpPressed == true && ballSpeedY > 0)
-                        {
-                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
-
-                            ballSpeedY *= -1;
-                        }
-                        else if (ballSpeedX < 0 && isDownPressed == true && ballSpeedY < 0)
-                        {
-                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
-
-                            ballSpeedY *= -1;
-                        }
-                        else if (ballSpeedX < 0 && isDownPressed == true && ballSpeedY > 0)
-                        {
-                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
-
-                        }
+                        accelerationDefPlayer = 4;
+                        AccelerationDefPlayer();                        
                     }
                     else
                     {
-                        acceleration1 = 6;
-
-                        if (ballSpeedX < 0 && isUpPressed == false && isDownPressed == false)
-                        {
-                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
-
-                        }
-                        else if (ballSpeedX < 0 && isUpPressed == true && ballSpeedY < 0)
-                        {
-                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
-
-                        }
-                        else if (ballSpeedX < 0 && isUpPressed == true && ballSpeedY > 0)
-                        {
-                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
-
-                            ballSpeedY *= -1;
-                        }
-                        else if (ballSpeedX < 0 && isDownPressed == true && ballSpeedY < 0)
-                        {
-                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
-
-                            ballSpeedY *= -1;
-                        }
-                        else if (ballSpeedX < 0 && isDownPressed == true && ballSpeedY > 0)
-                        {
-                            ballSpeedX = Math.Abs(ballSpeedX) + acceleration1;
-
-                        }
+                        accelerationDefPlayer = 10;
+                        AccelerationDefPlayer();
+                       
                     }
                 }
             }
 
+            //BALL COLLISION WITH BORDERS
 
-                if (Ball.Location.Y <= top || Ball.Location.Y >= bottom)
+            if (Ball.Location.Y <= top)
             {
-                ballSpeedY *= -1;
+                ballSpeedY = Math.Abs(ballSpeedY);
             }
-            if (Ball.Location.X <= leftOfTheField || Ball.Location.X >= rightOfTheField - Ball.Width)
+            else if (Ball.Location.Y >= bottom)
             {
-                ballSpeedX *= -1;
+                ballSpeedY = -Math.Abs(ballSpeedY);
+            }
+            if (Ball.Location.X <= leftOfTheField)
+            {
+                ballSpeedX = Math.Abs(ballSpeedX);
+            }
+            else if(Ball.Location.X >= rightOfTheField - Ball.Width)
+            {
+                ballSpeedX = -Math.Abs(ballSpeedX);
             }
 
             
