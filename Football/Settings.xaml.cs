@@ -60,6 +60,7 @@ namespace Football
         }
         private void button_Click(object sender, RoutedEventArgs e)
         {
+
             if (checkBox1.IsChecked==true)
             {
                 this.result = true;

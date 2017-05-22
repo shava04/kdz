@@ -260,6 +260,7 @@ namespace Football
                     sr.Close();
                     fl.Close();
                     File.Delete("score.txt");
+
                 }
                 else if (teamName2 == myTeam)
                 {

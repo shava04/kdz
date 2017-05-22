@@ -43,7 +43,7 @@ namespace PingPongWindowsForms
             StreamReader sr = new StreamReader(fl);
             yourTeam = sr.ReadLine();
             compTeam = sr.ReadLine();
-            File.Delete("teams.txt");
+            //File.Delete("teams.txt");
            
 
         }
