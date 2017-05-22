@@ -45,7 +45,7 @@ namespace PingPongWindowsForms
             compTeam = sr.ReadLine();
             compSpeed = int.Parse(sr.ReadLine());
            // File.Delete("teams.txt");
-
+            
 
         }
 
@@ -407,6 +407,9 @@ namespace PingPongWindowsForms
         {
             if (!gameEnd)
             {
+                aYourTeamLabel.Text = yourTeam;
+                aCompTeamLabel.Text = compTeam;
+
                 if (n % 12 == 0)
                 {
                     playerScoreBig.Visible = false;
