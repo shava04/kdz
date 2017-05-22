@@ -458,7 +458,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.PaleGreen;
             this.label1.Font = new System.Drawing.Font("Arial", 16.25F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(108, 569);
+            this.label1.Location = new System.Drawing.Point(109, 566);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 26);
             this.label1.TabIndex = 37;
@@ -469,7 +469,7 @@
             this.aMin.AutoSize = true;
             this.aMin.BackColor = System.Drawing.Color.PaleGreen;
             this.aMin.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold);
-            this.aMin.Location = new System.Drawing.Point(110, 593);
+            this.aMin.Location = new System.Drawing.Point(111, 593);
             this.aMin.Name = "aMin";
             this.aMin.Size = new System.Drawing.Size(18, 19);
             this.aMin.TabIndex = 38;
@@ -490,8 +490,9 @@
             // aDoubleDot
             // 
             this.aDoubleDot.AutoSize = true;
+            this.aDoubleDot.BackColor = System.Drawing.Color.PaleGreen;
             this.aDoubleDot.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold);
-            this.aDoubleDot.Location = new System.Drawing.Point(131, 587);
+            this.aDoubleDot.Location = new System.Drawing.Point(129, 592);
             this.aDoubleDot.Name = "aDoubleDot";
             this.aDoubleDot.Size = new System.Drawing.Size(15, 19);
             this.aDoubleDot.TabIndex = 40;
@@ -579,6 +580,8 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(75)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1137, 673);
+            this.Controls.Add(this.aSecTen);
+            this.Controls.Add(this.aDoubleDot);
             this.Controls.Add(this.aMin);
             this.Controls.Add(this.aCompTeamLabel);
             this.Controls.Add(this.aYourTeamLabel);
@@ -604,7 +607,6 @@
             this.Controls.Add(this.ForwComp3);
             this.Controls.Add(this.ForwComp2);
             this.Controls.Add(this.playerScoreBig);
-            this.Controls.Add(this.aSecTen);
             this.Controls.Add(this.aSec);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
@@ -622,7 +624,6 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.RightGoal);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.aDoubleDot);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
