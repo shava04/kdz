@@ -1,0 +1,17 @@
+﻿<Window x:Class="Football.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Football"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="695.223" Width="727.272">
+    <Grid x:Name="___Football_">
+        <Button x:Name="button" Content="Играть" HorizontalAlignment="Left" Margin="107,60,0,0" VerticalAlignment="Top" Width="468" Height="90" FontSize="60" Click="button_Click_1"/>
+        <Button x:Name="button1" Content="Выход" HorizontalAlignment="Left" Margin="107,312,0,0" VerticalAlignment="Top" Width="468" Height="79" FontSize="60" Click="button1_Click"/>
+        <Button x:Name="button2" Content="Настройки" HorizontalAlignment="Left" Margin="107,185,0,0" VerticalAlignment="Top" Width="468" Height="82" FontSize="60" Click="button2_Click"/>
+        <Button x:Name="button3" Content="Регистрация" HorizontalAlignment="Left" Margin="107,432,0,0" VerticalAlignment="Top" Width="468" Height="68" FontSize="50" Click="button3_Click"/>
+        <Button x:Name="button4" Content="Авторизация" HorizontalAlignment="Left" Margin="107,532,0,0" VerticalAlignment="Top" Width="468" Height="62" FontSize="50" Click="button4_Click"/>
+
+    </Grid>
+</Window>

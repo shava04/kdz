@@ -1,0 +1,36 @@
+﻿<Window x:Class="Football.Competition"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Football"
+        mc:Ignorable="d"
+        Title="Competition" Height="559.707" Width="714.37">
+    <Grid Margin="0,0,2,-2">
+        <Button x:Name="button" Content="Список бомбардиров" HorizontalAlignment="Left" Margin="504,163,0,0" VerticalAlignment="Top" Width="181" Height="49" FontSize="15" Click="button_Click"/>
+        <Button x:Name="button1" Content="Информация о команде" HorizontalAlignment="Left" Margin="504,231,0,0" VerticalAlignment="Top" Width="181" Height="58" FontSize="15" Click="button1_Click"/>
+        <Button x:Name="button2" Content="Информация об игроке" HorizontalAlignment="Left" Margin="504,309,0,0" VerticalAlignment="Top" Width="181" Height="53" FontSize="15" Click="button2_Click"/>
+        <Button x:Name="button3" Content="Назад" HorizontalAlignment="Left" Margin="504,454,0,0" VerticalAlignment="Top" Width="177" Height="55" FontSize="20" Click="button3_Click"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="135" Margin="504,10,0,0" VerticalAlignment="Top" Width="177"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="19,243,0,0" VerticalAlignment="Top" Height="266" Width="251">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" MaxWidth="25" MinWidth="25"  Binding="{Binding id}"/>
+                <DataGridTextColumn Header="Team" MaxWidth="155" MinWidth="155"  Binding="{Binding name}"/>
+                <DataGridTextColumn Header="Points" MaxWidth="50" MinWidth="50"  Binding="{Binding point}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="dataGrid1" HorizontalAlignment="Left" Margin="285,243,0,0" VerticalAlignment="Top" Height="266" Width="189">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Team1" MaxWidth="80" MinWidth="80" Binding="{Binding team1}"/>
+                <DataGridTextColumn Header="goal1" MaxWidth="20" MinWidth="20" Binding="{Binding goal1}"/>
+                <DataGridTextColumn Header="goal2" MaxWidth="20" MinWidth="20" Binding="{Binding goal2}"/>
+                <DataGridTextColumn Header="Team2" MaxWidth="80" MinWidth="80" Binding="{Binding team2}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="button4" Content="РАЗЫГРАТЬ ТУР" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Width="455" Height="135" FontSize="50" Click="button4_Click"/>
+        <Label x:Name="label" Content="Турнирное положение" HorizontalAlignment="Left" Margin="19,163,0,0" VerticalAlignment="Top" Height="49" Width="231" FontSize="20"/>
+        <Label x:Name="label1" Content="Прошедший тур" HorizontalAlignment="Left" Margin="285,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.421,0.269" Height="49" Width="189" FontSize="20"/>
+        <Button x:Name="button5" Content="Сохранить" HorizontalAlignment="Left" Margin="504,386,0,0" VerticalAlignment="Top" Width="177" Height="49" FontSize="24" Click="button5_Click"/>
+
+    </Grid>
+</Window>
