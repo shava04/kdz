@@ -62,6 +62,8 @@ namespace Football
             comboBox1.Items.Add("red");
             comboBox1.Items.Add("yellow");
 
+
+
         }
         private void button1_Click(object sender, RoutedEventArgs e)
         {
