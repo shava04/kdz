@@ -43,13 +43,11 @@ namespace PingPongWindowsForms
         {
             InitializeComponent();
 
-            //FileStream fl = new FileStream("teams.txt", FileMode.Open, FileAccess.Read);
-            //StreamReader sr = new StreamReader(fl);
-            //yourTeam = sr.ReadLine();
-            //compTeam = sr.ReadLine();
-            //compSpeed = int.Parse(sr.ReadLine());
-           // File.Delete("teams.txt");
-            
+            FileStream fl = new FileStream("teams.txt", FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fl);
+            yourTeam = sr.ReadLine();
+            compTeam = sr.ReadLine();
+            compSpeed = int.Parse(sr.ReadLine());
 
         }
 
@@ -274,14 +272,14 @@ namespace PingPongWindowsForms
                 aTimer.Enabled = false;
                 aCompTimer.Enabled = false;
                 gameEnd = true;
-                
 
-                //FileStream fl = new FileStream("score.txt", FileMode.Create, FileAccess.Write);
-                //StreamWriter sw = new StreamWriter(fl);
-                //sw.WriteLine(playerScore);
-                //sw.WriteLine(compScore);
-                //sw.Close();
-                //fl.Close();
+
+                FileStream fl = new FileStream("score.txt", FileMode.Create, FileAccess.Write);
+                StreamWriter sw = new StreamWriter(fl);
+                sw.WriteLine(playerScore);
+                sw.WriteLine(compScore);
+                sw.Close();
+                fl.Close();
 
                 if (playerScore > compScore)
                 {
@@ -607,7 +605,7 @@ namespace PingPongWindowsForms
                     {
                         if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
                         {
-                            
+                            shot.Play();
                             if (countForAccelerationToAttack % 3 == 1)
                             {
                                 accelerationAttPlayer = 3;
@@ -641,7 +639,7 @@ namespace PingPongWindowsForms
                     {
                         if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
                         {
-                            
+                            shot.Play();
                             if (countForAccelerationToAttack % 3 == 1)
                             {
                                 accelerationAttPlayer = 3;
@@ -671,7 +669,7 @@ namespace PingPongWindowsForms
                 {
                     if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
                     {
-                        
+                        shot.Play();
                         if (countForAccelerationToAttack % 3 == 1)
                         {
                             accelerationAttPlayer = 3;
@@ -700,7 +698,7 @@ namespace PingPongWindowsForms
                 {
                     if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
                     {
-                        
+                        shot.Play();
                         if (countForAccelerationToAttack % 3 == 1)
                         {
                             accelerationAttPlayer = 3;
@@ -744,7 +742,7 @@ namespace PingPongWindowsForms
             {
                 if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
                 {
-                    
+                    shot.Play();
                     if (countForAcceleration % 3 == 1)
                     {
                         accelerationDefPlayer = 2;
