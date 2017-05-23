@@ -124,9 +124,9 @@
             // 
             this.Ball.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(170)))), ((int)(((byte)(0)))));
             this.Ball.Image = global::PingPongWindowsForms.Properties.Resources.ball1;
-            this.Ball.Location = new System.Drawing.Point(558, 275);
+            this.Ball.Location = new System.Drawing.Point(559, 273);
             this.Ball.Name = "Ball";
-            this.Ball.Size = new System.Drawing.Size(24, 24);
+            this.Ball.Size = new System.Drawing.Size(20, 20);
             this.Ball.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Ball.TabIndex = 3;
             this.Ball.TabStop = false;
@@ -398,9 +398,10 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.PaleGreen;
-            this.pictureBox1.Location = new System.Drawing.Point(79, 563);
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Location = new System.Drawing.Point(60, 563);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(985, 98);
+            this.pictureBox1.Size = new System.Drawing.Size(1028, 98);
             this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
             // 
@@ -469,7 +470,7 @@
             this.aMin.AutoSize = true;
             this.aMin.BackColor = System.Drawing.Color.PaleGreen;
             this.aMin.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold);
-            this.aMin.Location = new System.Drawing.Point(111, 593);
+            this.aMin.Location = new System.Drawing.Point(110, 593);
             this.aMin.Name = "aMin";
             this.aMin.Size = new System.Drawing.Size(18, 19);
             this.aMin.TabIndex = 38;
@@ -481,7 +482,7 @@
             this.aSec.AutoSize = true;
             this.aSec.BackColor = System.Drawing.Color.PaleGreen;
             this.aSec.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold);
-            this.aSec.Location = new System.Drawing.Point(154, 593);
+            this.aSec.Location = new System.Drawing.Point(155, 593);
             this.aSec.Name = "aSec";
             this.aSec.Size = new System.Drawing.Size(18, 19);
             this.aSec.TabIndex = 39;
@@ -492,7 +493,7 @@
             this.aDoubleDot.AutoSize = true;
             this.aDoubleDot.BackColor = System.Drawing.Color.PaleGreen;
             this.aDoubleDot.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold);
-            this.aDoubleDot.Location = new System.Drawing.Point(129, 592);
+            this.aDoubleDot.Location = new System.Drawing.Point(132, 592);
             this.aDoubleDot.Name = "aDoubleDot";
             this.aDoubleDot.Size = new System.Drawing.Size(15, 19);
             this.aDoubleDot.TabIndex = 40;
@@ -503,7 +504,7 @@
             this.aSecTen.AutoSize = true;
             this.aSecTen.BackColor = System.Drawing.Color.PaleGreen;
             this.aSecTen.Font = new System.Drawing.Font("Arial", 12.75F, System.Drawing.FontStyle.Bold);
-            this.aSecTen.Location = new System.Drawing.Point(140, 593);
+            this.aSecTen.Location = new System.Drawing.Point(141, 593);
             this.aSecTen.Name = "aSecTen";
             this.aSecTen.Size = new System.Drawing.Size(18, 19);
             this.aSecTen.TabIndex = 41;
@@ -580,11 +581,19 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(75)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1137, 673);
-            this.Controls.Add(this.aSecTen);
-            this.Controls.Add(this.aDoubleDot);
             this.Controls.Add(this.aMin);
+            this.Controls.Add(this.aSecTen);
+            this.Controls.Add(this.aSec);
+            this.Controls.Add(this.aDoubleDot);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.aCompTeamLabel);
+            this.Controls.Add(this.CmpScore);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.PlayerScore);
+            this.Controls.Add(this.Score);
             this.Controls.Add(this.aYourTeamLabel);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Ball);
             this.Controls.Add(this.aWinnerTable);
             this.Controls.Add(this.news);
             this.Controls.Add(this.MidComp1);
@@ -607,19 +616,11 @@
             this.Controls.Add(this.ForwComp3);
             this.Controls.Add(this.ForwComp2);
             this.Controls.Add(this.playerScoreBig);
-            this.Controls.Add(this.aSec);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.CmpScore);
-            this.Controls.Add(this.PlayerScore);
-            this.Controls.Add(this.Score);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.GoalComp);
             this.Controls.Add(this.GoalKeeper);
             this.Controls.Add(this.Mid5);
             this.Controls.Add(this.Mid1);
             this.Controls.Add(this.LeftGoal);
-            this.Controls.Add(this.Ball);
             this.Controls.Add(this.Field);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.RightGoal);

@@ -27,6 +27,7 @@ namespace PingPongWindowsForms
         int sec = 0,secTen = 0, min = 0;
         int accelerationDefPlayer, accelerationAttPlayer, acceleration3;
         int countForAcceleration = 0, countForAccelerationDelete = 0, countForAccelerationToAttack = 0;
+        int countForFinalWhistle;
 
         string yourTeam, compTeam;
         
@@ -34,16 +35,19 @@ namespace PingPongWindowsForms
         SoundPlayer goalScored = new SoundPlayer("goalscored.wav");
         SoundPlayer buffoniche = new SoundPlayer("буффонище.wav");
         SoundPlayer whistle = new SoundPlayer("whistlee.wav");
+        SoundPlayer finalWhistle = new SoundPlayer("FinalWhistle.wav");
+        SoundPlayer shot = new SoundPlayer("shot.wav");
+        
 
         public Form1()
         {
             InitializeComponent();
 
-            FileStream fl = new FileStream("teams.txt", FileMode.Open, FileAccess.Read);
-            StreamReader sr = new StreamReader(fl);
-            yourTeam = sr.ReadLine();
-            compTeam = sr.ReadLine();
-            compSpeed = int.Parse(sr.ReadLine());
+            //FileStream fl = new FileStream("teams.txt", FileMode.Open, FileAccess.Read);
+            //StreamReader sr = new StreamReader(fl);
+            //yourTeam = sr.ReadLine();
+            //compTeam = sr.ReadLine();
+            //compSpeed = int.Parse(sr.ReadLine());
            // File.Delete("teams.txt");
             
 
@@ -109,6 +113,40 @@ namespace PingPongWindowsForms
             CmpScore.Text = compScore.ToString();                                           
         }
 
+        private void TeamsLeaving()
+        {
+            //if (GoalKeeper.Location.X < 1117 || GoalKeeper.Location.Y < 652)
+            //{
+            //    GoalKeeper.Location = new Point(GoalKeeper.Location.X + movementSpeed, GoalKeeper.Location.Y + movementSpeed);
+            //}
+
+            ForwComp1.Location = new Point(ForwComp1.Location.X, ForwComp1.Location.Y + 3);
+            ForwComp2.Location = new Point(ForwComp2.Location.X, ForwComp2.Location.Y + 3);
+            ForwComp3.Location = new Point(ForwComp3.Location.X, ForwComp3.Location.Y + 3);
+            MidComp1.Location = new Point(MidComp1.Location.X, MidComp1.Location.Y + 3);
+            MidComp2.Location = new Point(MidComp2.Location.X, MidComp2.Location.Y + 3);
+            MidComp3.Location = new Point(MidComp3.Location.X, MidComp3.Location.Y + 3);
+            MidComp4.Location = new Point(MidComp4.Location.X, MidComp4.Location.Y + 3);
+            MidComp5.Location = new Point(MidComp5.Location.X, MidComp5.Location.Y + 3);
+            DefComp1.Location = new Point(DefComp1.Location.X, DefComp1.Location.Y + 3);
+            DefComp2.Location = new Point(DefComp2.Location.X, DefComp2.Location.Y + 3);
+            GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y + 3);
+
+            GoalKeeper.Location = new Point(GoalKeeper.Location.X, GoalKeeper.Location.Y +3);
+            Def1.Location = new Point(Def1.Location.X, Def1.Location.Y + 3);
+            Def2.Location = new Point(Def2.Location.X, Def2.Location.Y + 3);
+            Mid1.Location = new Point(Mid1.Location.X, Mid1.Location.Y + 3);
+            Mid2.Location = new Point(Mid2.Location.X, Mid2.Location.Y + 3);
+            Mid3.Location = new Point(Mid3.Location.X, Mid3.Location.Y + 3);
+            Mid4.Location = new Point(Mid4.Location.X, Mid4.Location.Y + 3);
+            Mid5.Location = new Point(Mid5.Location.X, Mid5.Location.Y + 3);
+            Forw1.Location = new Point(Forw1.Location.X, Forw1.Location.Y + 3);
+            Forw2.Location = new Point(Forw2.Location.X, Forw2.Location.Y + 3);
+            Forw3.Location = new Point(Forw3.Location.X, Forw3.Location.Y + 3);
+
+
+
+        }
 
 
         private void AccelerationDefPlayer()
@@ -236,13 +274,14 @@ namespace PingPongWindowsForms
                 aTimer.Enabled = false;
                 aCompTimer.Enabled = false;
                 gameEnd = true;
+                
 
-                FileStream fl = new FileStream("score.txt", FileMode.Create, FileAccess.Write);
-                StreamWriter sw = new StreamWriter(fl);
-                sw.WriteLine(playerScore);
-                sw.WriteLine(compScore);
-                sw.Close();
-                fl.Close();
+                //FileStream fl = new FileStream("score.txt", FileMode.Create, FileAccess.Write);
+                //StreamWriter sw = new StreamWriter(fl);
+                //sw.WriteLine(playerScore);
+                //sw.WriteLine(compScore);
+                //sw.Close();
+                //fl.Close();
 
                 if (playerScore > compScore)
                 {
@@ -445,10 +484,16 @@ namespace PingPongWindowsForms
             }
             else if(gameEnd)
             {
+                countForFinalWhistle++;
+                if (countForFinalWhistle / 1 == 1)
+                {
+                    finalWhistle.Play();
+                }
                 news.Visible = true;
                 playerScoreBig.Visible = true;
                 compScoreBig.Visible = true;
-                
+                TeamsLeaving();
+
             }
 
             //if ((Ball.Bounds.IntersectsWith(Mid1.Bounds) || Ball.Bounds.IntersectsWith(Mid2.Bounds) || (Ball.Bounds.IntersectsWith(Mid3.Bounds)) || Ball.Bounds.IntersectsWith(Mid4.Bounds) || Ball.Bounds.IntersectsWith(Mid5.Bounds)));
@@ -469,7 +514,10 @@ namespace PingPongWindowsForms
         {
             if(GoalKeeper.Bounds.IntersectsWith(Ball.Bounds))
             {
-                buffoniche.Play();
+                if (Ball.Location.Y > 197 && Ball.Location.Y < 391)
+                {
+                    buffoniche.Play();
+                }
             }
 
 
@@ -488,9 +536,9 @@ namespace PingPongWindowsForms
 
             //SCORING
 
-            if (Ball.Location.X > 1027)
+            if (Ball.Location.X >= 1059) //(1040; 197) ; (1040; 351)
             {
-                if (Ball.Location.Y > 197 && Ball.Location.Y < 379)
+                if (Ball.Location.Y >= 190 && Ball.Location.Y <= 368)
                 {
                     playerScore++;
                     Scoring();
@@ -499,9 +547,9 @@ namespace PingPongWindowsForms
 
                 }
             }
-            if (Ball.Location.X < 90)
+            if (Ball.Location.X <= 55) // (79; 193) (80; 358)
             {
-                if (Ball.Location.Y > 197 && Ball.Location.Y < 379)
+                if (Ball.Location.Y >= 188 && Ball.Location.Y <= 362)
                 {
                     compScore++;
                     Scoring();
@@ -514,7 +562,7 @@ namespace PingPongWindowsForms
             //COMP
             if (GoalComp.Bounds.IntersectsWith(Ball.Bounds))
             {
-                ballSpeedX *= -1;
+                ballSpeedX = -Math.Abs(ballSpeedX);
             }
             // COMP COLLISION FROM LEFT
             if (DefComp1.Bounds.IntersectsWith(Ball.Bounds) || DefComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp1.Bounds.IntersectsWith(Ball.Bounds) || MidComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp3.Bounds.IntersectsWith(Ball.Bounds) || MidComp4.Bounds.IntersectsWith(Ball.Bounds) || MidComp5.Bounds.IntersectsWith(Ball.Bounds) || ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
@@ -558,24 +606,28 @@ namespace PingPongWindowsForms
                     if (ballSpeedY < 0)
                     {
                         if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
-                        {                            
+                        {
+                            
                             if (countForAccelerationToAttack % 3 == 1)
                             {
                                 accelerationAttPlayer = 3;
                                 ballSpeedY *= -1;
                                 ballSpeedX += accelerationAttPlayer;
+                                
                             }
                             if (countForAccelerationToAttack % 3 == 2)
+                            {
+                                accelerationAttPlayer = 4;
+                                ballSpeedY *= -1;
+                                ballSpeedX += accelerationAttPlayer;
+                                
+                            }
+                            if (countForAccelerationToAttack % 3 == 0)
                             {
                                 accelerationAttPlayer = 5;
                                 ballSpeedY *= -1;
                                 ballSpeedX += accelerationAttPlayer;
-                            }
-                            if (countForAccelerationToAttack % 3 == 0)
-                            {
-                                accelerationAttPlayer = 2;
-                                ballSpeedY *= -1;
-                                ballSpeedX += accelerationAttPlayer;
+                                
                             }
 
                            
@@ -589,23 +641,27 @@ namespace PingPongWindowsForms
                     {
                         if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
                         {
+                            
                             if (countForAccelerationToAttack % 3 == 1)
                             {
                                 accelerationAttPlayer = 3;
                                 ballSpeedY *= -1;
                                 ballSpeedX += accelerationAttPlayer;
+                                
                             }
                             if (countForAccelerationToAttack % 3 == 2)
+                            {
+                                accelerationAttPlayer = 4;
+                                ballSpeedY *= -1;
+                                ballSpeedX += accelerationAttPlayer;
+                                
+                            }
+                            if (countForAccelerationToAttack % 3 == 0)
                             {
                                 accelerationAttPlayer = 5;
                                 ballSpeedY *= -1;
                                 ballSpeedX += accelerationAttPlayer;
-                            }
-                            if (countForAccelerationToAttack % 3 == 0)
-                            {
-                                accelerationAttPlayer = 2;
-                                ballSpeedY *= -1;
-                                ballSpeedX += accelerationAttPlayer;
+                                
                             }
 
                         }
@@ -615,23 +671,27 @@ namespace PingPongWindowsForms
                 {
                     if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
                     {
+                        
                         if (countForAccelerationToAttack % 3 == 1)
                         {
                             accelerationAttPlayer = 3;
                             ballSpeedY *= -1;
                             ballSpeedX += accelerationAttPlayer;
+                            
                         }
                         if (countForAccelerationToAttack % 3 == 2)
+                        {
+                            accelerationAttPlayer = 4;
+                            ballSpeedY *= -1;
+                            ballSpeedX += accelerationAttPlayer;
+                            
+                        }
+                        if (countForAccelerationToAttack % 3 == 0)
                         {
                             accelerationAttPlayer = 5;
                             ballSpeedY *= -1;
                             ballSpeedX += accelerationAttPlayer;
-                        }
-                        if (countForAccelerationToAttack % 3 == 0)
-                        {
-                            accelerationAttPlayer = 2;
-                            ballSpeedY *= -1;
-                            ballSpeedX += accelerationAttPlayer;
+                            
                         }
 
                     }
@@ -640,23 +700,27 @@ namespace PingPongWindowsForms
                 {
                     if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
                     {
+                        
                         if (countForAccelerationToAttack % 3 == 1)
                         {
                             accelerationAttPlayer = 3;
                             ballSpeedY *= -1;
                             ballSpeedX += accelerationAttPlayer;
+                            
                         }
                         if (countForAccelerationToAttack % 3 == 2)
+                        {
+                            accelerationAttPlayer = 4;
+                            ballSpeedY *= -1;
+                            ballSpeedX += accelerationAttPlayer;
+                            
+                        }
+                        if (countForAccelerationToAttack % 3 == 0)
                         {
                             accelerationAttPlayer = 5;
                             ballSpeedY *= -1;
                             ballSpeedX += accelerationAttPlayer;
-                        }
-                        if (countForAccelerationToAttack % 3 == 0)
-                        {
-                            accelerationAttPlayer = 2;
-                            ballSpeedY *= -1;
-                            ballSpeedX += accelerationAttPlayer;
+                                                      
                         }
 
                     }
@@ -680,20 +744,24 @@ namespace PingPongWindowsForms
             {
                 if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
                 {
+                    
                     if (countForAcceleration % 3 == 1)
                     {
                         accelerationDefPlayer = 2;
                         AccelerationDefPlayer();
+                        
                     }
                     else if (countForAcceleration % 3 == 2)
                     {
                         accelerationDefPlayer = 4;
-                        AccelerationDefPlayer();                        
+                        AccelerationDefPlayer();
+                        
                     }
                     else
                     {
                         accelerationDefPlayer = 7;
                         AccelerationDefPlayer();
+                        
                        
                     }
                 }
@@ -711,11 +779,17 @@ namespace PingPongWindowsForms
             }
             if (Ball.Location.X <= leftOfTheField)
             {
-                ballSpeedX = Math.Abs(ballSpeedX);
+                if (Ball.Location.Y < 188 || Ball.Location.Y > 362)
+                {
+                    ballSpeedX = Math.Abs(ballSpeedX);
+                }
             }
             else if(Ball.Location.X >= rightOfTheField - Ball.Width)
             {
-                ballSpeedX = -Math.Abs(ballSpeedX);
+                if (Ball.Location.Y < 190 || Ball.Location.Y > 368)
+                {
+                    ballSpeedX = -Math.Abs(ballSpeedX);
+                }
             }
 
             
