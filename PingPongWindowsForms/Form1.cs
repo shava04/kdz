@@ -24,7 +24,7 @@ namespace PingPongWindowsForms
         int compdirect;
         int n = 0;
         int m = 1;
-        int sec = 0,secTen = 0, min = 85;
+        int sec = 0,secTen = 0, min = 0;
         int accelerationDefPlayer, accelerationAttPlayer, acceleration3;
         int countForAcceleration = 0, countForAccelerationDelete = 0, countForAccelerationToAttack = 0;
         int countForFinalWhistle;
