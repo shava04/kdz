@@ -77,6 +77,8 @@
             this.aWinnerTable = new System.Windows.Forms.Label();
             this.aYourTeamLabel = new System.Windows.Forms.Label();
             this.aCompTeamLabel = new System.Windows.Forms.Label();
+            this.aTime_timer = new System.Windows.Forms.Timer(this.components);
+            this.additionalTime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Field)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LeftGoal)).BeginInit();
@@ -574,6 +576,24 @@
             this.aCompTeamLabel.TabIndex = 46;
             this.aCompTeamLabel.Text = "Team";
             // 
+            // aTime_timer
+            // 
+            this.aTime_timer.Interval = 10;
+            this.aTime_timer.Tick += new System.EventHandler(this.aTime_timer_Tick);
+            // 
+            // additionalTime
+            // 
+            this.additionalTime.AutoSize = true;
+            this.additionalTime.BackColor = System.Drawing.Color.PaleGreen;
+            this.additionalTime.Font = new System.Drawing.Font("Arial", 30.75F, System.Drawing.FontStyle.Bold);
+            this.additionalTime.ForeColor = System.Drawing.Color.Firebrick;
+            this.additionalTime.Location = new System.Drawing.Point(96, 612);
+            this.additionalTime.Name = "additionalTime";
+            this.additionalTime.Size = new System.Drawing.Size(89, 47);
+            this.additionalTime.TabIndex = 47;
+            this.additionalTime.Text = "+ 3 ";
+            this.additionalTime.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -581,6 +601,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(75)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1137, 673);
+            this.Controls.Add(this.additionalTime);
             this.Controls.Add(this.aMin);
             this.Controls.Add(this.aSecTen);
             this.Controls.Add(this.aSec);
@@ -716,6 +737,8 @@
         private System.Windows.Forms.Label aWinnerTable;
         private System.Windows.Forms.Label aYourTeamLabel;
         private System.Windows.Forms.Label aCompTeamLabel;
+        private System.Windows.Forms.Timer aTime_timer;
+        private System.Windows.Forms.Label additionalTime;
     }
 }
 
