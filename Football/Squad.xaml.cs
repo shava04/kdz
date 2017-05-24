@@ -28,12 +28,14 @@ namespace Football
         private string login;
         private bool music;
         private int level;
-        public Squad(string log, bool music, int level)
+        private int time;
+        public Squad(string log, bool music, int level, int time)
         {
             InitializeComponent();
             login = log;
             this.music = music;
             this.level = level;
+            this.time = time;
         }
         private List<Team> teams = new List<Team>(0);
         public List<Team> Teams
@@ -91,7 +93,7 @@ namespace Football
             }
             sw.Close();
             fl.Close();
-            Competition cmp = new Competition(Teams, t, 0, login, music, level);
+            Competition cmp = new Competition(Teams, t, 0, login, music, level, time);
             cmp.Show();
             this.Close();
         }

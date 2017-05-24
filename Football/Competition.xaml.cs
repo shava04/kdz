@@ -62,15 +62,29 @@ namespace Football
         private string login;
         private bool music = false;
         private int level;
-        public Competition(List<Team> teams, string myTeam, int rounds, string login, bool music, int level)
-        {
+        private int time;
+        public Competition(List<Team> teams, string myTeam, int rounds, string login, bool music, int level, int time)
+        { 
             InitializeComponent();
+            comboBox.Items.Add("black");
+            comboBox.Items.Add("orange");
+            comboBox.Items.Add("blue");
+            comboBox.Items.Add("red");
+            comboBox.Items.Add("yellow");
+            comboBox1.Items.Add("black");
+            comboBox1.Items.Add("orange");
+            comboBox1.Items.Add("blue");
+            comboBox1.Items.Add("red");
+            comboBox1.Items.Add("yellow");
+            comboBox.SelectedIndex = 0;
+            comboBox1.SelectedIndex = 1;
             this.teams = teams;
             this.myTeam = myTeam;
             this.rounds = rounds;
             this.login = login;
             this.music = music;
             this.level = level;
+            this.time = time;
             this.standings();
         }
 
@@ -247,21 +261,15 @@ namespace Football
                 int teamGoal2 = 0;
                 if (teamName1 == myTeam)
                 {
-                    Clothes clothes = new Clothes(teamName1, teamName2);
-                    clothes.ShowDialog();
-                    if (DialogResult==false)
-                    {
-                        return;
-                    }
-                    else
-                    {
+  
                         FileStream fl1 = new FileStream("teams.txt", FileMode.Create, FileAccess.Write);
                         StreamWriter sw = new StreamWriter(fl1);
                         sw.WriteLine(teamName1);
                         sw.WriteLine(teamName2);
                         sw.WriteLine(level);
-                        sw.WriteLine(clothes.Cloth1);
-                        sw.WriteLine(clothes.Cloth2);
+                        sw.WriteLine(comboBox.SelectedIndex);
+                        sw.WriteLine(comboBox1.SelectedIndex);
+                        sw.WriteLine(time);
                         sw.Close();
                         fl1.Close();
                         Form1 game = new Form1();
@@ -273,26 +281,18 @@ namespace Football
                         sr.Close();
                         fl.Close();
                         File.Delete("score.txt");
-                    }
 
                 }
                 else if (teamName2 == myTeam)
-                {
-                    Clothes clothes = new Clothes(teamName1, teamName2);
-                    clothes.ShowDialog();
-                    if (DialogResult == false)
-                    {
-                        return;
-                    }
-                    else
-                    {
+                { 
                         FileStream fl1 = new FileStream("teams.txt", FileMode.Create, FileAccess.Write);
                         StreamWriter sw = new StreamWriter(fl1);
                         sw.WriteLine(teamName2);
                         sw.WriteLine(teamName1);
                         sw.WriteLine(level);
-                        sw.WriteLine(clothes.Cloth2);
-                        sw.WriteLine(clothes.Cloth1);
+                        sw.WriteLine(comboBox.SelectedIndex);
+                        sw.WriteLine(comboBox1.SelectedIndex);
+                        sw.WriteLine(time);
                         sw.Close();
                         fl1.Close();
                         Form1 game = new Form1();
@@ -304,7 +304,6 @@ namespace Football
                         sr.Close();
                         fl.Close();
                         File.Delete("score.txt");
-                    }
                    
                 }
                 else

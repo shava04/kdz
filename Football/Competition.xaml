@@ -27,10 +27,12 @@
                 <DataGridTextColumn Header="Team2" MaxWidth="80" MinWidth="80" Binding="{Binding team2}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="button4" Content="РАЗЫГРАТЬ ТУР" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Width="455" Height="135" FontSize="50" Click="button4_Click"/>
+        <Button x:Name="button4" Content="РАЗЫГРАТЬ ТУР" HorizontalAlignment="Left" Margin="19,10,0,0" VerticalAlignment="Top" Width="231" Height="135" FontSize="30" Click="button4_Click"/>
         <Label x:Name="label" Content="Турнирное положение" HorizontalAlignment="Left" Margin="19,163,0,0" VerticalAlignment="Top" Height="49" Width="231" FontSize="20"/>
         <Label x:Name="label1" Content="Прошедший тур" HorizontalAlignment="Left" Margin="285,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.421,0.269" Height="49" Width="189" FontSize="20"/>
         <Button x:Name="button5" Content="Сохранить" HorizontalAlignment="Left" Margin="504,386,0,0" VerticalAlignment="Top" Width="177" Height="49" FontSize="24" Click="button5_Click"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="285,72,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="287,113,0,0" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
