@@ -85,7 +85,11 @@ namespace PingPongWindowsForms
                 e.Cancel = true;
             else
                 e.Cancel = false;
-        
+            if (min != addedTimeEnd)
+            {
+                playerScore = 0;
+                compScore = 3;
+            }
     }
 
         private void pauseBox_MouseHover(object sender, EventArgs e)
