@@ -132,7 +132,7 @@ namespace PingPongWindowsForms
             compSpeed = int.Parse(sr.ReadLine());
             myForm = int.Parse(sr.ReadLine());
             compForm = int.Parse(sr.ReadLine());
-            timing = int.Parse(sr.ReadLine());
+            timing = 4 - int.Parse(sr.ReadLine());
 
 
 
@@ -468,6 +468,7 @@ namespace PingPongWindowsForms
 
         private void aTimeShowing_Tick(object sender, EventArgs e)
         {
+            //10ms
             m++;
             if (m % 11 == 0)
             {
@@ -480,28 +481,38 @@ namespace PingPongWindowsForms
 
             if (m % 1 == 0)
             {
-                sec+=timing;               
-                if (sec % 10 != 0)
-                {
-                    aSec.Text = sec.ToString();
-                }
-                else if (sec % 10 == 0)
+                sec+=timing;
+                if (sec==60)
                 {
                     sec = 0;
-                    aSec.Text = sec.ToString();
-                    secTen++;
-                    if (secTen % 6 != 0)
-                    {
-                        aSecTen.Text = secTen.ToString();
-                    }
-                    else
-                    {
-                        secTen = 0;
-                        min++;
-                        aSecTen.Text = secTen.ToString();
-                        aMin.Text = min.ToString();
-                    }
+                    min++;
                 }
+                int ss = sec % 10;
+                int st = sec / 10;
+                aSec.Text = ss.ToString();
+                aSecTen.Text = st.ToString();
+                aMin.Text = min.ToString();           
+                //if (sec % 10 !=0)
+                //{
+                //    aSec.Text = sec.ToString();
+                //}
+                //else if (sec % 10 ==0)
+                //{
+                //    sec = 0;
+                //    aSec.Text = sec.ToString();
+                //    secTen++;
+                //    if (secTen % 6 != 0)
+                //    {
+                //        aSecTen.Text = secTen.ToString();
+                //    }
+                //    else
+                //    {
+                //        secTen = 0;
+                //        min++;
+                //        aSecTen.Text = secTen.ToString();
+                //        aMin.Text = min.ToString();
+                //    }
+                //}
             }
             if (min >= 90)
             {
@@ -690,6 +701,7 @@ namespace PingPongWindowsForms
                     }
                 }
             }
+           
         }
 
         private void aBallTimer_Tick(object sender, EventArgs e)
