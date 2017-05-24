@@ -654,7 +654,7 @@ namespace PingPongWindowsForms
             }
             if (Ball.Location.X > 509)
             {
-                if (Ball.Location.X < 773)
+                if (Ball.Location.X < 863)
                 {
                     if (Ball.Location.Y < 116)
                     {
@@ -722,7 +722,7 @@ namespace PingPongWindowsForms
                         }
                     }
                 }
-                else if (Ball.Location.X > 773)
+                else if (Ball.Location.X > 863)
                 {
                     if (Ball.Location.Y < 150)
                     {

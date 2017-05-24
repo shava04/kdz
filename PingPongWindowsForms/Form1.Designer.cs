@@ -133,7 +133,7 @@
             // 
             this.Ball.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(170)))), ((int)(((byte)(0)))));
             this.Ball.Image = global::PingPongWindowsForms.Properties.Resources.ball1;
-            this.Ball.Location = new System.Drawing.Point(559, 270);
+            this.Ball.Location = new System.Drawing.Point(863, 251);
             this.Ball.Name = "Ball";
             this.Ball.Size = new System.Drawing.Size(20, 20);
             this.Ball.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -456,7 +456,7 @@
             this.news.AutoSize = true;
             this.news.Font = new System.Drawing.Font("Arial", 30.75F, System.Drawing.FontStyle.Bold);
             this.news.ForeColor = System.Drawing.Color.LightYellow;
-            this.news.Location = new System.Drawing.Point(418, 193);
+            this.news.Location = new System.Drawing.Point(412, 193);
             this.news.Name = "news";
             this.news.Size = new System.Drawing.Size(296, 47);
             this.news.TabIndex = 36;
