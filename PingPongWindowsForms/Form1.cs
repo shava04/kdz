@@ -115,14 +115,14 @@ namespace PingPongWindowsForms
             addedTimeEnd = 90 + addedTime;
 
 
-            //FileStream fl = new FileStream("teams.txt", FileMode.Open, FileAccess.Read);
-            //StreamReader sr = new StreamReader(fl);
-            //yourTeam = sr.ReadLine();
-            //compTeam = sr.ReadLine();
-            //compSpeed = int.Parse(sr.ReadLine());
-            //myForm = int.Parse(sr.ReadLine());
-            //compForm = int.Parse(sr.ReadLine());
-            //timing = int.Parse(sr.ReadLine());
+            FileStream fl = new FileStream("teams.txt", FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fl);
+            yourTeam = sr.ReadLine();
+            compTeam = sr.ReadLine();
+            compSpeed = int.Parse(sr.ReadLine());
+            myForm = int.Parse(sr.ReadLine());
+            compForm = int.Parse(sr.ReadLine());
+            timing = int.Parse(sr.ReadLine());
 
 
 
@@ -526,12 +526,12 @@ namespace PingPongWindowsForms
                 aTimeShowing.Enabled = false;
                 gameEnd = true;
 
-                //FileStream fl = new FileStream("score.txt", FileMode.Create, FileAccess.Write);
-                //StreamWriter sw = new StreamWriter(fl);
-                //sw.WriteLine(playerScore);
-                //sw.WriteLine(compScore);
-                //sw.Close();
-                //fl.Close();
+                FileStream fl = new FileStream("score.txt", FileMode.Create, FileAccess.Write);
+                StreamWriter sw = new StreamWriter(fl);
+                sw.WriteLine(playerScore);
+                sw.WriteLine(compScore);
+                sw.Close();
+                fl.Close();
 
                 if (playerScore > compScore)
                 {
