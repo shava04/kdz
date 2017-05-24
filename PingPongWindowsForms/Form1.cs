@@ -90,12 +90,12 @@ namespace PingPongWindowsForms
                 playerScore = 0;
                 compScore = 3;
 
-                //FileStream fl = new FileStream("score.txt", FileMode.Create, FileAccess.Write);
-                //StreamWriter sw = new StreamWriter(fl);
-                //sw.WriteLine(playerScore);
-                //sw.WriteLine(compScore);
-                //sw.Close();
-                //fl.Close();
+                FileStream fl = new FileStream("score.txt", FileMode.Create, FileAccess.Write);
+                StreamWriter sw = new StreamWriter(fl);
+                sw.WriteLine(playerScore);
+                sw.WriteLine(compScore);
+                sw.Close();
+                fl.Close();
             }
         }
 
@@ -127,9 +127,6 @@ namespace PingPongWindowsForms
             //yourTeam = sr.ReadLine();
             //compTeam = sr.ReadLine();
             //compSpeed = int.Parse(sr.ReadLine());
-            //myForm = int.Parse(sr.ReadLine());
-            //compForm = int.Parse(sr.ReadLine());
-            //timing = int.Parse(sr.ReadLine());
 
 
 
@@ -140,18 +137,18 @@ namespace PingPongWindowsForms
         {
             if (myForm == 0)//black
             {
-                aYourTeamColor.BackColor = Color.FromArgb(64,64,64);
-                GoalKeeper.BackColor = Color.FromArgb(64, 64, 64);
-                Def1.BackColor = Color.FromArgb(64, 64, 64);
-                Def2.BackColor = Color.FromArgb(64, 64, 64);
-                Mid1.BackColor = Color.FromArgb(64, 64, 64);
-                Mid2.BackColor = Color.FromArgb(64, 64, 64);
-                Mid3.BackColor = Color.FromArgb(64, 64, 64);
-                Mid4.BackColor = Color.FromArgb(64, 64, 64);
-                Mid5.BackColor = Color.FromArgb(64, 64, 64);
-                Forw1.BackColor = Color.FromArgb(64, 64, 64);
-                Forw2.BackColor = Color.FromArgb(64, 64, 64); 
-                Forw3.BackColor = Color.FromArgb(64, 64, 64); 
+                aYourTeamColor.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                GoalKeeper.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                Def1.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                Def2.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                Mid1.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                Mid2.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                Mid3.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                Mid4.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                Mid5.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                Forw1.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                Forw2.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                Forw3.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             }
             if (myForm == 1)//orange
             {
@@ -217,17 +214,17 @@ namespace PingPongWindowsForms
             if (compForm == 0)
             {
                 aCompTeamColor.BackColor = Color.FromArgb(64,64,64);
-                GoalComp.BackColor = Color.FromArgb(64, 64, 64);
-                DefComp1.BackColor = Color.FromArgb(64, 64, 64);
-                DefComp2.BackColor = Color.FromArgb(64, 64, 64);
-                MidComp1.BackColor = Color.FromArgb(64, 64, 64);
-                MidComp2.BackColor = Color.FromArgb(64, 64, 64);
-                MidComp3.BackColor = Color.FromArgb(64, 64, 64);
-                MidComp4.BackColor = Color.FromArgb(64, 64, 64);
-                MidComp5.BackColor = Color.FromArgb(64, 64, 64);
-                ForwComp1.BackColor = Color.FromArgb(64, 64, 64);
-                ForwComp2.BackColor = Color.FromArgb(64, 64, 64);
-                ForwComp3.BackColor = Color.FromArgb(64, 64, 64);
+                GoalComp.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                DefComp1.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                DefComp2.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                MidComp1.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                MidComp2.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                MidComp3.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                MidComp4.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                MidComp5.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                ForwComp1.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                ForwComp2.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+                ForwComp3.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             }
             if (compForm == 1)
             {
@@ -850,8 +847,7 @@ namespace PingPongWindowsForms
                     if (ballSpeedY < 0)
                     {
                         if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
-                        {
-                            
+                        {                            
                             if (countForAccelerationToAttack % 3 == 1)
                             {
                                 accelerationAttPlayer = 3;
@@ -941,7 +937,7 @@ namespace PingPongWindowsForms
                 {
                     if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
                     {
-                        
+                       
                         if (countForAccelerationToAttack % 3 == 1)
                         {
                             accelerationAttPlayer = 3;
