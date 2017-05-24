@@ -81,22 +81,25 @@ namespace PingPongWindowsForms
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
                      
-            if (MessageBox.Show("Вы уверены что хотите закрыть приложение? \nЗакрытие программы во время игры ведет к техническому поражению", "Предупреждение", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
+            if (min != addedTimeEnd)
+            {
+                if (MessageBox.Show("Вы уверены что хотите закрыть приложение? \nЗакрытие программы во время игры ведет к техническому поражению", "Предупреждение", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
                 e.Cancel = true;
             else
                 e.Cancel = false;
-            if (min != addedTimeEnd)
-            {
+
+
                 playerScore = 0;
                 compScore = 3;
 
-                //FileStream fl = new FileStream("score.txt", FileMode.Create, FileAccess.Write);
-                //StreamWriter sw = new StreamWriter(fl);
-                //sw.WriteLine(playerScore);
-                //sw.WriteLine(compScore);
-                //sw.Close();
-                //fl.Close();
+                FileStream fl = new FileStream("score.txt", FileMode.Create, FileAccess.Write);
+                StreamWriter sw = new StreamWriter(fl);
+                sw.WriteLine(playerScore);
+                sw.WriteLine(compScore);
+                sw.Close();
+                fl.Close();
             }
+
         }
 
         private void pauseBox_MouseHover(object sender, EventArgs e)
@@ -122,14 +125,14 @@ namespace PingPongWindowsForms
             addedTimeEnd = 90 + addedTime;
 
 
-            //FileStream fl = new FileStream("teams.txt", FileMode.Open, FileAccess.Read);
-            //StreamReader sr = new StreamReader(fl);
-            //yourTeam = sr.ReadLine();
-            //compTeam = sr.ReadLine();
-            //compSpeed = int.Parse(sr.ReadLine());
-            //myForm = int.Parse(sr.ReadLine());
-            //compForm = int.Parse(sr.ReadLine());
-            //timing = int.Parse(sr.ReadLine());
+            FileStream fl = new FileStream("teams.txt", FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fl);
+            yourTeam = sr.ReadLine();
+            compTeam = sr.ReadLine();
+            compSpeed = int.Parse(sr.ReadLine());
+            myForm = int.Parse(sr.ReadLine());
+            compForm = int.Parse(sr.ReadLine());
+            timing = int.Parse(sr.ReadLine());
 
 
 
@@ -155,48 +158,48 @@ namespace PingPongWindowsForms
             }
             if (myForm == 1)//orange
             {
-                aYourTeamColor.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                GoalKeeper.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                Def1.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                Def2.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                Mid1.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                Mid2.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                Mid3.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                Mid4.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                Mid5.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                Forw1.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                Forw2.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                Forw3.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+                aYourTeamColor.BackColor = Color.FromArgb(255, 128, 0);
+                GoalKeeper.BackColor = Color.FromArgb(255, 128, 0);
+                Def1.BackColor = Color.FromArgb(255, 128, 0);
+                Def2.BackColor = Color.FromArgb(255, 128, 0);
+                Mid1.BackColor = Color.FromArgb(255, 128, 0);
+                Mid2.BackColor = Color.FromArgb(255, 128, 0);
+                Mid3.BackColor = Color.FromArgb(255, 128, 0);
+                Mid4.BackColor = Color.FromArgb(255, 128, 0);
+                Mid5.BackColor = Color.FromArgb(255, 128, 0);
+                Forw1.BackColor = Color.FromArgb(255, 128, 0);
+                Forw2.BackColor = Color.FromArgb(255, 128, 0);
+                Forw3.BackColor = Color.FromArgb(255, 128, 0);
             }
             if (myForm == 2)//blue
             {
-                aYourTeamColor.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150))))); 
-                GoalKeeper.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                Def1.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                Def2.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                Mid1.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                Mid2.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                Mid3.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                Mid4.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                Mid5.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                Forw1.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                Forw2.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                Forw3.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
+                aYourTeamColor.BackColor = Color.FromArgb(40, 30, 150);
+                GoalKeeper.BackColor = Color.FromArgb(40, 30, 150);
+                Def1.BackColor = Color.FromArgb(40, 30, 150);
+                Def2.BackColor = Color.FromArgb(40, 30, 150);
+                Mid1.BackColor = Color.FromArgb(40, 30, 150);
+                Mid2.BackColor = Color.FromArgb(40, 30, 150);
+                Mid3.BackColor = Color.FromArgb(40, 30, 150);
+                Mid4.BackColor = Color.FromArgb(40, 30, 150);
+                Mid5.BackColor = Color.FromArgb(40, 30, 150);
+                Forw1.BackColor = Color.FromArgb(40, 30, 150);
+                Forw2.BackColor = Color.FromArgb(40, 30, 150);
+                Forw3.BackColor = Color.FromArgb(40, 30, 150);
             }
             if (myForm == 3)//red
             {
-                aYourTeamColor.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                GoalKeeper.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                Def1.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                Def2.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                Mid1.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                Mid2.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                Mid3.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                Mid4.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                Mid5.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                Forw1.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                Forw2.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                Forw3.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
+                aYourTeamColor.BackColor = Color.FromArgb(192, 33, 40);
+                GoalKeeper.BackColor = Color.FromArgb(192, 33, 40);
+                Def1.BackColor = Color.FromArgb(192, 33, 40);
+                Def2.BackColor = Color.FromArgb(192, 33, 40);
+                Mid1.BackColor = Color.FromArgb(192, 33, 40);
+                Mid2.BackColor = Color.FromArgb(192, 33, 40);
+                Mid3.BackColor = Color.FromArgb(192, 33, 40);
+                Mid4.BackColor = Color.FromArgb(192, 33, 40);
+                Mid5.BackColor = Color.FromArgb(192, 33, 40);
+                Forw1.BackColor = Color.FromArgb(192, 33, 40);
+                Forw2.BackColor = Color.FromArgb(192, 33, 40);
+                Forw3.BackColor = Color.FromArgb(192, 33, 40);
             }
             if (myForm == 4)//yellow
             {
@@ -232,47 +235,47 @@ namespace PingPongWindowsForms
             if (compForm == 1)
             {
                 aCompTeamColor.BackColor = Color.FromArgb(255, 128, 0);
-                GoalComp.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                DefComp1.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                DefComp2.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                MidComp1.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                MidComp2.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                MidComp3.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                MidComp4.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                MidComp5.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                ForwComp1.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                ForwComp2.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-                ForwComp3.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+                GoalComp.BackColor = Color.FromArgb(255, 128, 0);
+                DefComp1.BackColor = Color.FromArgb(255, 128, 0);
+                DefComp2.BackColor = Color.FromArgb(255, 128, 0);
+                MidComp1.BackColor = Color.FromArgb(255, 128, 0);
+                MidComp2.BackColor = Color.FromArgb(255, 128, 0);
+                MidComp3.BackColor = Color.FromArgb(255, 128, 0);
+                MidComp4.BackColor = Color.FromArgb(255, 128, 0);
+                MidComp5.BackColor = Color.FromArgb(255, 128, 0);
+                ForwComp1.BackColor = Color.FromArgb(255, 128, 0);
+                ForwComp2.BackColor = Color.FromArgb(255, 128, 0);
+                ForwComp3.BackColor = Color.FromArgb(255, 128, 0);
             }
             if (compForm == 2)//blue
             {
                 aCompTeamColor.BackColor = Color.FromArgb(40, 30, 150);
-                GoalComp.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                DefComp1.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                DefComp2.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                MidComp1.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                MidComp2.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                MidComp3.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                MidComp4.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                MidComp5.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                ForwComp1.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                ForwComp2.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
-                ForwComp3.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
+                GoalComp.BackColor = Color.FromArgb(40, 30, 150);
+                DefComp1.BackColor = Color.FromArgb(40, 30, 150);
+                DefComp2.BackColor = Color.FromArgb(40, 30, 150);
+                MidComp1.BackColor = Color.FromArgb(40, 30, 150);
+                MidComp2.BackColor = Color.FromArgb(40, 30, 150);
+                MidComp3.BackColor = Color.FromArgb(40, 30, 150);
+                MidComp4.BackColor = Color.FromArgb(40, 30, 150);
+                MidComp5.BackColor = Color.FromArgb(40, 30, 150);
+                ForwComp1.BackColor = Color.FromArgb(40, 30, 150);
+                ForwComp2.BackColor = Color.FromArgb(40, 30, 150);
+                ForwComp3.BackColor = Color.FromArgb(40, 30, 150);
             }
             if (compForm == 3)//red
             {
                 aCompTeamColor.BackColor = Color.FromArgb(192, 33, 40);
-                GoalComp.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                DefComp1.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                DefComp2.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                MidComp1.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                MidComp2.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                MidComp3.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                MidComp4.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                MidComp5.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                ForwComp1.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40))))); 
-                ForwComp2.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
-                ForwComp3.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
+                GoalComp.BackColor = Color.FromArgb(192, 33, 40);
+                DefComp1.BackColor = Color.FromArgb(192, 33, 40);
+                DefComp2.BackColor = Color.FromArgb(192, 33, 40);
+                MidComp1.BackColor = Color.FromArgb(192, 33, 40);
+                MidComp2.BackColor = Color.FromArgb(192, 33, 40);
+                MidComp3.BackColor = Color.FromArgb(192, 33, 40);
+                MidComp4.BackColor = Color.FromArgb(192, 33, 40);
+                MidComp5.BackColor = Color.FromArgb(192, 33, 40);
+                ForwComp1.BackColor = Color.FromArgb(192, 33, 40);
+                ForwComp2.BackColor = Color.FromArgb(192, 33, 40);
+                ForwComp3.BackColor = Color.FromArgb(192, 33, 40);
             }
             if (compForm == 4)//yellow
             {
@@ -533,12 +536,12 @@ namespace PingPongWindowsForms
                 aTimeShowing.Enabled = false;
                 gameEnd = true;
 
-                //FileStream fl = new FileStream("score.txt", FileMode.Create, FileAccess.Write);
-                //StreamWriter sw = new StreamWriter(fl);
-                //sw.WriteLine(playerScore);
-                //sw.WriteLine(compScore);
-                //sw.Close();
-                //fl.Close();
+                FileStream fl = new FileStream("score.txt", FileMode.Create, FileAccess.Write);
+                StreamWriter sw = new StreamWriter(fl);
+                sw.WriteLine(playerScore);
+                sw.WriteLine(compScore);
+                sw.Close();
+                fl.Close();
 
                 if (playerScore > compScore)
                 {
