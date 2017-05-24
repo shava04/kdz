@@ -79,6 +79,8 @@
             this.aCompTeamLabel = new System.Windows.Forms.Label();
             this.aTime_timer = new System.Windows.Forms.Timer(this.components);
             this.additionalTime = new System.Windows.Forms.Label();
+            this.aTimeShowing = new System.Windows.Forms.Timer(this.components);
+            this.additionalTimeLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Field)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LeftGoal)).BeginInit();
@@ -349,7 +351,7 @@
             // 
             // MidComp5
             // 
-            this.MidComp5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.MidComp5.BackColor = System.Drawing.Color.Gold;
             this.MidComp5.Location = new System.Drawing.Point(673, 460);
             this.MidComp5.Name = "MidComp5";
             this.MidComp5.Size = new System.Drawing.Size(10, 30);
@@ -576,6 +578,31 @@
             this.aCompTeamLabel.TabIndex = 46;
             this.aCompTeamLabel.Text = "Team";
             // 
+            // additionalTime
+            // 
+            this.additionalTime.Location = new System.Drawing.Point(0, 0);
+            this.additionalTime.Name = "additionalTime";
+            this.additionalTime.Size = new System.Drawing.Size(100, 23);
+            this.additionalTime.TabIndex = 0;
+            // 
+            // aTimeShowing
+            // 
+            this.aTimeShowing.Interval = 10;
+            this.aTimeShowing.Tick += new System.EventHandler(this.aTimeShowing_Tick);
+            // 
+            // additionalTimeLabel
+            // 
+            this.additionalTimeLabel.AutoSize = true;
+            this.additionalTimeLabel.BackColor = System.Drawing.Color.PaleGreen;
+            this.additionalTimeLabel.Font = new System.Drawing.Font("Arial", 20.75F, System.Drawing.FontStyle.Bold);
+            this.additionalTimeLabel.ForeColor = System.Drawing.Color.Firebrick;
+            this.additionalTimeLabel.Location = new System.Drawing.Point(88, 613);
+            this.additionalTimeLabel.Name = "additionalTimeLabel";
+            this.additionalTimeLabel.Size = new System.Drawing.Size(127, 33);
+            this.additionalTimeLabel.TabIndex = 47;
+            this.additionalTimeLabel.Text = "+3 MINS";
+            this.additionalTimeLabel.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -583,6 +610,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(75)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1137, 673);
+            this.Controls.Add(this.additionalTimeLabel);
             this.Controls.Add(this.additionalTime);
             this.Controls.Add(this.aMin);
             this.Controls.Add(this.aSecTen);
@@ -721,6 +749,8 @@
         private System.Windows.Forms.Label aCompTeamLabel;
         private System.Windows.Forms.Timer aTime_timer;
         private System.Windows.Forms.Label additionalTime;
+        private System.Windows.Forms.Timer aTimeShowing;
+        private System.Windows.Forms.Label additionalTimeLabel;
     }
 }
 
