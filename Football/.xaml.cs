@@ -36,6 +36,7 @@ namespace Football
         }
         public string log = "";
         private int level = 2;
+        private int time = 2;
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             
@@ -94,19 +95,25 @@ namespace Football
                     }
                     i++;
                 }
-                Competition comp = new Competition(teams, myTeam, rounds, log, music, level);
+                Competition comp = new Competition(teams, myTeam, rounds, log, music, level, time);
                 comp.Show();
                 return;
             }
-            Squad cmp = new Squad(log, music, level);
+            Squad cmp = new Squad(log, music, level, time);
             cmp.Show();
         }
         Random r = new Random();
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            Settings st = new Settings(music, level);
+            Settings st = new Settings(music, level, time);
             st.ShowDialog();
-            this.level = st.Level;
+            if (st.DialogResult==true)
+            {
+
+                this.level = st.Level;
+                this.time = st.Time;
+            }
+
             string filename = "C:\\Users\\User\\Desktop\\music\\music" + (r.Next(2)+1).ToString() + ".wav";
             SoundPlayer sp = new SoundPlayer(filename);
             if (st.checkBox1.IsChecked==true && st.Stayornot==false && st.Result==true)

@@ -56,12 +56,26 @@ namespace Football
                 level = value;
             }
         }
-        public Settings(bool music, int level)
+        private int time = 2;
+        public int Time
+        {
+            get
+            {
+                return time;
+            }
+            set
+            {
+                time = value;
+            }
+        }
+        public Settings(bool music, int level, int time)
         {
             InitializeComponent();
             this.music = music;
             this.result = music;
+            this.time = time;
             this.level = level;
+            comboBox.SelectedIndex = time;
             if (level==1)
             {
                 radioButton4.IsChecked = true;
@@ -89,6 +103,7 @@ namespace Football
             comboBox.Items.Add("1 минута");
             comboBox.Items.Add("2 минуты");
             comboBox.Items.Add("3 минуты");
+            comboBox.SelectedIndex = time;
         }
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -121,6 +136,7 @@ namespace Football
             {
                 this.level = 4;
             }
+            time = comboBox.SelectedIndex;
             DialogResult = true;
         }
 
