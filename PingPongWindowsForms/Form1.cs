@@ -585,10 +585,10 @@ namespace PingPongWindowsForms
                 {
                     if (Ball.Location.Y > 197 && Ball.Location.Y < 391)
                     {
-                        buffoniche.Play();
+                        buffoniche.PlaySync();
                         buffonicheWasPlayed = true;
                     }
-                    else
+                    else                        
                         shot.Play();
                 }
             }
