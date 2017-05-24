@@ -576,24 +576,6 @@
             this.aCompTeamLabel.TabIndex = 46;
             this.aCompTeamLabel.Text = "Team";
             // 
-            // aTime_timer
-            // 
-            this.aTime_timer.Interval = 10;
-            this.aTime_timer.Tick += new System.EventHandler(this.aTime_timer_Tick);
-            // 
-            // additionalTime
-            // 
-            this.additionalTime.AutoSize = true;
-            this.additionalTime.BackColor = System.Drawing.Color.PaleGreen;
-            this.additionalTime.Font = new System.Drawing.Font("Arial", 30.75F, System.Drawing.FontStyle.Bold);
-            this.additionalTime.ForeColor = System.Drawing.Color.Firebrick;
-            this.additionalTime.Location = new System.Drawing.Point(96, 612);
-            this.additionalTime.Name = "additionalTime";
-            this.additionalTime.Size = new System.Drawing.Size(89, 47);
-            this.additionalTime.TabIndex = 47;
-            this.additionalTime.Text = "+ 3 ";
-            this.additionalTime.Visible = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

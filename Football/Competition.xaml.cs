@@ -247,41 +247,65 @@ namespace Football
                 int teamGoal2 = 0;
                 if (teamName1 == myTeam)
                 {
-                    FileStream fl1 = new FileStream("teams.txt", FileMode.Create, FileAccess.Write);
-                    StreamWriter sw = new StreamWriter(fl1);
-                    sw.WriteLine(teamName1);
-                    sw.WriteLine(teamName2);
-                    sw.WriteLine(level);
-                    sw.Close();
-                    fl1.Close();
-                    Form1 game = new Form1();
-                    game.ShowDialog();
-                    FileStream fl = new FileStream("score.txt", FileMode.Open, FileAccess.Read);
-                    StreamReader sr = new StreamReader(fl);
-                    teamGoal1 = int.Parse(sr.ReadLine());
-                    teamGoal2 = int.Parse(sr.ReadLine());
-                    sr.Close();
-                    fl.Close();
-                    File.Delete("score.txt");
+                    Clothes clothes = new Clothes(teamName1, teamName2);
+                    clothes.ShowDialog();
+                    if (DialogResult==false)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        FileStream fl1 = new FileStream("teams.txt", FileMode.Create, FileAccess.Write);
+                        StreamWriter sw = new StreamWriter(fl1);
+                        sw.WriteLine(teamName1);
+                        sw.WriteLine(teamName2);
+                        sw.WriteLine(level);
+                        sw.WriteLine(clothes.Cloth1);
+                        sw.WriteLine(clothes.Cloth2);
+                        sw.Close();
+                        fl1.Close();
+                        Form1 game = new Form1();
+                        game.ShowDialog();
+                        FileStream fl = new FileStream("score.txt", FileMode.Open, FileAccess.Read);
+                        StreamReader sr = new StreamReader(fl);
+                        teamGoal1 = int.Parse(sr.ReadLine());
+                        teamGoal2 = int.Parse(sr.ReadLine());
+                        sr.Close();
+                        fl.Close();
+                        File.Delete("score.txt");
+                    }
 
                 }
                 else if (teamName2 == myTeam)
                 {
-                    FileStream fl1 = new FileStream("teams.txt", FileMode.Create, FileAccess.Write);
-                    StreamWriter sw = new StreamWriter(fl1);
-                    sw.WriteLine(teamName2);
-                    sw.WriteLine(teamName1);
-                    sw.Close();
-                    fl1.Close();
-                    Form1 game = new Form1();
-                    game.ShowDialog();
-                    FileStream fl = new FileStream("score.txt", FileMode.Open, FileAccess.Read);
-                    StreamReader sr = new StreamReader(fl);
-                    teamGoal2 = int.Parse(sr.ReadLine());
-                    teamGoal1 = int.Parse(sr.ReadLine());
-                    sr.Close();
-                    fl.Close();
-                    File.Delete("score.txt"); 
+                    Clothes clothes = new Clothes(teamName1, teamName2);
+                    clothes.ShowDialog();
+                    if (DialogResult == false)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        FileStream fl1 = new FileStream("teams.txt", FileMode.Create, FileAccess.Write);
+                        StreamWriter sw = new StreamWriter(fl1);
+                        sw.WriteLine(teamName2);
+                        sw.WriteLine(teamName1);
+                        sw.WriteLine(level);
+                        sw.WriteLine(clothes.Cloth2);
+                        sw.WriteLine(clothes.Cloth1);
+                        sw.Close();
+                        fl1.Close();
+                        Form1 game = new Form1();
+                        game.ShowDialog();
+                        FileStream fl = new FileStream("score.txt", FileMode.Open, FileAccess.Read);
+                        StreamReader sr = new StreamReader(fl);
+                        teamGoal2 = int.Parse(sr.ReadLine());
+                        teamGoal1 = int.Parse(sr.ReadLine());
+                        sr.Close();
+                        fl.Close();
+                        File.Delete("score.txt");
+                    }
+                   
                 }
                 else
                 {
