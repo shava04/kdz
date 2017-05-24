@@ -50,6 +50,7 @@ namespace Football
         }
         public Team(string name, List<Player>squad, int points)
         {
+
             this.name = name;
             this.squad = squad;
             this.points = points;
