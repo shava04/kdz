@@ -269,7 +269,7 @@ namespace Football
                         sw.WriteLine(level);
                         sw.WriteLine(comboBox.SelectedIndex);
                         sw.WriteLine(comboBox1.SelectedIndex);
-                        sw.WriteLine(time);
+                        sw.WriteLine(time+1);
                         sw.Close();
                         fl1.Close();
                         Form1 game = new Form1();

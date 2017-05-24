@@ -690,16 +690,6 @@ namespace PingPongWindowsForms
                     }
                 }
             }
-            ////CHANGING IMAGE
-            //n += 1;
-            //if (n % 2 == 0)
-            //{
-            //    Ball.ImageLocation = "C:\\Users\\Валентин\\Desktop\\Soccerball.png";
-            //}
-            //if (n % 2 == 1)
-            //{
-            //    Ball.ImageLocation = "C:\\Users\\Валентин\\Desktop\\maball.png";
-            //}
         }
 
         private void aBallTimer_Tick(object sender, EventArgs e)
