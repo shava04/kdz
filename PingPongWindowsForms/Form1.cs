@@ -589,7 +589,7 @@ namespace PingPongWindowsForms
             {
                 shot.Play();
             }
-            if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))              
+            if  (Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))              
             {
                 shot.Play();
             }
@@ -672,7 +672,7 @@ namespace PingPongWindowsForms
             }
             if (Ball.Location.X > 509)
             {
-                if (Ball.Location.X < 810)
+                if (Ball.Location.X < 795)
                 {
                     if (Ball.Location.Y < 116)
                     {
@@ -740,7 +740,7 @@ namespace PingPongWindowsForms
                         }
                     }
                 }
-                else if (Ball.Location.X > 810)
+                else if (Ball.Location.X > 795)
                 {
                     if (Ball.Location.Y < 150)
                     {
