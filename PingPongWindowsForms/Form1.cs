@@ -106,6 +106,11 @@ namespace PingPongWindowsForms
 
         }
 
+        private void news_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void pauseBox_MouseHover(object sender, EventArgs e)
         {
             //if (pauseButtonClick % 2 == 1)
@@ -585,10 +590,10 @@ namespace PingPongWindowsForms
                 {
                     if (Ball.Location.Y > 197 && Ball.Location.Y < 391)
                     {
-                        buffoniche.PlaySync();
+                        buffoniche.Play();
                         buffonicheWasPlayed = true;
                     }
-                    else                        
+                    else
                         shot.Play();
                 }
             }
