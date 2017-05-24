@@ -96,6 +96,7 @@ namespace Football
             Competition cmp = new Competition(Teams, t, 0, login, music, level, time);
             cmp.Show();
             this.Close();
+
         }
         int i = 1;
         private void button_Click(object sender, RoutedEventArgs e)

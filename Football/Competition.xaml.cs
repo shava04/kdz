@@ -280,7 +280,7 @@ namespace Football
                         teamGoal2 = int.Parse(sr.ReadLine());
                         sr.Close();
                         fl.Close();
-                        File.Delete("score.txt");
+                        //File.Delete("score.txt");
 
                 }
                 else if (teamName2 == myTeam)
@@ -303,7 +303,7 @@ namespace Football
                         teamGoal1 = int.Parse(sr.ReadLine());
                         sr.Close();
                         fl.Close();
-                        File.Delete("score.txt");
+                        //File.Delete("score.txt");
                    
                 }
                 else
