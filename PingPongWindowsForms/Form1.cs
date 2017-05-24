@@ -584,14 +584,17 @@ namespace PingPongWindowsForms
                     if (Ball.Location.Y > 197 && Ball.Location.Y < 391)
                     {
                         buffoniche.Play();
-                        buffonicheWasPlayed = true;
-                        if (Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
-                        {
-                            buffonicheWasPlayed = false;
-                        }
+                        buffonicheWasPlayed = true;                        
                     }
                     else
                         shot.Play();
+                }
+            }
+            if (buffonicheWasPlayed)
+            {
+                if (Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
+                {
+                    buffonicheWasPlayed = false;
                 }
             }
             if (!buffonicheWasPlayed)
