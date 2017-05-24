@@ -371,15 +371,15 @@ namespace Football
                     }
                 }
                 this.standings();
-                if (music == true)
-                {
-                    string filename = "C:\\Users\\User\\Desktop\\music\\music" + (rand.Next(2) + 1).ToString() + ".wav";
-                    SoundPlayer sp = new SoundPlayer(filename);
-                    sp.Play();
-                }
+                
 
             }
-
+            if (music == true)
+            {
+                string filename = "C:\\Users\\User\\Desktop\\music\\music" + (rand.Next(2) + 1).ToString() + ".wav";
+                SoundPlayer sp = new SoundPlayer(filename);
+                sp.Play();
+            }
         }
     }
 }
