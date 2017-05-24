@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
+using System.Media;
 using PingPongWindowsForms;
 namespace Football
 {
@@ -274,6 +275,7 @@ namespace Football
                         fl1.Close();
                         Form1 game = new Form1();
                         game.ShowDialog();
+                        
                         FileStream fl = new FileStream("score.txt", FileMode.Open, FileAccess.Read);
                         StreamReader sr = new StreamReader(fl);
                         teamGoal1 = int.Parse(sr.ReadLine());
@@ -297,7 +299,7 @@ namespace Football
                         fl1.Close();
                         Form1 game = new Form1();
                         game.ShowDialog();
-                        FileStream fl = new FileStream("score.txt", FileMode.Open, FileAccess.Read);
+                    FileStream fl = new FileStream("score.txt", FileMode.Open, FileAccess.Read);
                         StreamReader sr = new StreamReader(fl);
                         teamGoal2 = int.Parse(sr.ReadLine());
                         teamGoal1 = int.Parse(sr.ReadLine());
@@ -369,6 +371,13 @@ namespace Football
                     }
                 }
                 this.standings();
+                if (music == true)
+                {
+                    string filename = "C:\\Users\\User\\Desktop\\music\\music" + (rand.Next(2) + 1).ToString() + ".wav";
+                    SoundPlayer sp = new SoundPlayer(filename);
+                    sp.Play();
+                }
+
             }
 
         }

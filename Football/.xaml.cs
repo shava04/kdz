@@ -23,13 +23,15 @@ namespace Football
     public partial class MainWindow : Window
     {
         private bool music = true;
+        private int musicCnt = 4;
         public MainWindow()
         {
             InitializeComponent();
             if (music)
             {
-                    SoundPlayer sp = new SoundPlayer("C:\\Users\\User\\Desktop\\music\\music1.wav");
-                    sp.Play();
+                string filename = "C:\\Users\\User\\Desktop\\music\\music" + (r.Next(musicCnt) + 1).ToString() + ".wav";
+                SoundPlayer sp = new SoundPlayer(filename);
+                sp.Play();
                 
             }
             
@@ -114,7 +116,7 @@ namespace Football
                 this.time = st.Time;
             }
 
-            string filename = "C:\\Users\\User\\Desktop\\music\\music" + (r.Next(2)+1).ToString() + ".wav";
+            string filename = "C:\\Users\\User\\Desktop\\music\\music" + (r.Next(musicCnt)+1).ToString() + ".wav";
             SoundPlayer sp = new SoundPlayer(filename);
             if (st.checkBox1.IsChecked==true && st.Stayornot==false && st.Result==true)
             {
