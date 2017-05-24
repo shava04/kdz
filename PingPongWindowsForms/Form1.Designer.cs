@@ -462,6 +462,7 @@
             this.news.TabIndex = 36;
             this.news.Text = "GOOOOOOAL";
             this.news.Visible = false;
+           
             // 
             // label1
             // 
