@@ -20,6 +20,7 @@ namespace Football
     public partial class Adding : Window
     {
         private List<Team> teams = new List<Team>(0);
+
         public Adding(List<Team>teams)
         {
             InitializeComponent();
