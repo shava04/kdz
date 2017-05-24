@@ -144,10 +144,10 @@ namespace Football
             {
                 // adding.team  
                 dataGrid.BeginEdit();
-                var data = new Test { test1 = i, test2 = adding.team.Name };
+                var data = new Test { test1 = i, test2 = adding.Team.Name };
                 dataGrid.Items.Add(data);
                 i++;
-                this.Teams.Add(adding.team);
+                this.Teams.Add(adding.Team);
             }
         }
 
