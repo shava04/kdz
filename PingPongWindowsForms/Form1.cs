@@ -89,8 +89,15 @@ namespace PingPongWindowsForms
             {
                 playerScore = 0;
                 compScore = 3;
+
+                FileStream fl = new FileStream("score.txt", FileMode.Create, FileAccess.Write);
+                StreamWriter sw = new StreamWriter(fl);
+                sw.WriteLine(playerScore);
+                sw.WriteLine(compScore);
+                sw.Close();
+                fl.Close();
             }
-    }
+        }
 
         private void pauseBox_MouseHover(object sender, EventArgs e)
         {
