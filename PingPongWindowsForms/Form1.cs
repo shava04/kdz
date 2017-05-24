@@ -28,6 +28,7 @@ namespace PingPongWindowsForms
         int accelerationDefPlayer, accelerationAttPlayer, acceleration3;
         int countForAcceleration = 0, countForAccelerationDelete = 0, countForAccelerationToAttack = 0;
         int countForFinalWhistle;
+        int addedTime, addedTimeEnd, countForAddTime;
 
         string yourTeam, compTeam;
         
@@ -37,17 +38,23 @@ namespace PingPongWindowsForms
         SoundPlayer whistle = new SoundPlayer("whistlee.wav");
         SoundPlayer finalWhistle = new SoundPlayer("FinalWhistle.wav");
         SoundPlayer shot = new SoundPlayer("shot.wav");
-        
+
 
         public Form1()
         {
             InitializeComponent();
+            Random r = new Random();
+            addedTime = r.Next(7)+3;
+            addedTimeEnd = 90 + addedTime;
 
-            FileStream fl = new FileStream("teams.txt", FileMode.Open, FileAccess.Read);
-            StreamReader sr = new StreamReader(fl);
-            yourTeam = sr.ReadLine();
-            compTeam = sr.ReadLine();
-            compSpeed = int.Parse(sr.ReadLine());
+
+            //FileStream fl = new FileStream("teams.txt", FileMode.Open, FileAccess.Read);
+            //StreamReader sr = new StreamReader(fl);
+            //yourTeam = sr.ReadLine();
+            //compTeam = sr.ReadLine();
+            //compSpeed = int.Parse(sr.ReadLine());
+
+
 
         }
 
@@ -224,12 +231,9 @@ namespace PingPongWindowsForms
             compdirect = -1;
         }
 
-        private void aCompTimer_Tick(object sender, EventArgs e)
+        private void aTime_timer_Tick(object sender, EventArgs e)
         {
-           
-
-            //TIME  tick = 30 ms
-            m++;          
+            m++;
             if (m % 11 == 0)
             {
                 aDoubleDot.Visible = false;
@@ -246,7 +250,7 @@ namespace PingPongWindowsForms
                 {
                     aSec.Text = sec.ToString();
                 }
-                else if(sec % 10== 0)
+                else if (sec % 10 == 0)
                 {
                     sec = 0;
                     aSec.Text = sec.ToString();
@@ -264,22 +268,47 @@ namespace PingPongWindowsForms
                     }
                 }
             }
-            if (min == 90)
+            if (min >= 90)
             {
+
+                countForAddTime++;
+
+                additionalTime.Text = String.Format("+ {0} MINS", addedTime);
+                additionalTime.Visible = true;
+                if (countForAddTime % 3 == 0)
+                {
+                    aMin.ForeColor = Color.Firebrick;
+                    aDoubleDot.ForeColor = Color.Firebrick;
+                    aSecTen.ForeColor = Color.Firebrick;
+                    aSec.ForeColor = Color.Firebrick;
+                }
+                else
+                {
+                    aMin.ForeColor = Color.Black;
+                    aDoubleDot.ForeColor = Color.Black;
+                    aSecTen.ForeColor = Color.Black;
+                    aSec.ForeColor = Color.Black;
+                }
+
+            }
+            if (min == addedTimeEnd)
+            {
+                
+               
                 news.Text = "GAME OVER";
                 news.Location = new Point(426, 193);
                 aBallTimer.Enabled = true;
                 aTimer.Enabled = false;
                 aCompTimer.Enabled = false;
+                aTime_timer.Enabled = false;
                 gameEnd = true;
 
-
-                FileStream fl = new FileStream("score.txt", FileMode.Create, FileAccess.Write);
-                StreamWriter sw = new StreamWriter(fl);
-                sw.WriteLine(playerScore);
-                sw.WriteLine(compScore);
-                sw.Close();
-                fl.Close();
+                //FileStream fl = new FileStream("score.txt", FileMode.Create, FileAccess.Write);
+                //StreamWriter sw = new StreamWriter(fl);
+                //sw.WriteLine(playerScore);
+                //sw.WriteLine(compScore);
+                //sw.Close();
+                //fl.Close();
 
                 if (playerScore > compScore)
                 {
@@ -300,6 +329,19 @@ namespace PingPongWindowsForms
                     aWinnerTable.Visible = true;
                 }
             }
+        }
+                
+            
+       
+                    
+                           
+
+        private void aCompTimer_Tick(object sender, EventArgs e)
+        {
+           
+
+            //TIME  tick = 30 ms
+           
 
 
             //BALL MOVEMENT
@@ -412,14 +454,6 @@ namespace PingPongWindowsForms
                     }
                 }
             }
-
-
-
-
-
-
-
-
             ////CHANGING IMAGE
             //n += 1;
             //if (n % 2 == 0)
@@ -431,14 +465,6 @@ namespace PingPongWindowsForms
             //    Ball.ImageLocation = "C:\\Users\\Валентин\\Desktop\\maball.png";
             //}
         }
-
-
-
-        
-
-
-
-
 
         private void aBallTimer_Tick(object sender, EventArgs e)
         {
@@ -474,6 +500,7 @@ namespace PingPongWindowsForms
                     news.Visible = false;
                     playerScoreBig.Visible = false;
                     compScoreBig.Visible = false;
+                    aTime_timer.Enabled = true;
                     aTimer.Enabled = true;
                     aCompTimer.Enabled = true;
                     aBallTimer.Enabled = false;
@@ -517,22 +544,7 @@ namespace PingPongWindowsForms
                     buffoniche.Play();
                 }
             }
-
-
-
-
-            //if (LeftGoal.Bounds.IntersectsWith(Ball.Bounds))
-            //{
-            //    compScore++;
-            //    Scoring();
-            //}
-            //if (RightGoal.Bounds.IntersectsWith(Ball.Bounds))
-            //{
-            //    playerScore++;
-            //    Scoring();
-            //}
-
-            //SCORING
+          
 
             if (Ball.Location.X >= 1059) //(1040; 197) ; (1040; 351)
             {
@@ -604,7 +616,8 @@ namespace PingPongWindowsForms
                     if (ballSpeedY < 0)
                     {
                         if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
-                        {                            
+                        {
+                            
                             if (countForAccelerationToAttack % 3 == 1)
                             {
                                 accelerationAttPlayer = 3;
@@ -697,7 +710,7 @@ namespace PingPongWindowsForms
                 {
                     if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
                     {
-                       
+                        
                         if (countForAccelerationToAttack % 3 == 1)
                         {
                             accelerationAttPlayer = 3;

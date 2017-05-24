@@ -579,7 +579,7 @@
             // aTime_timer
             // 
             this.aTime_timer.Interval = 10;
-            this.aTime_timer.Tick += new System.EventHandler(this.aTime_timer.Tick);
+            this.aTime_timer.Tick += new System.EventHandler(this.aTime_timer_Tick);
             // 
             // additionalTime
             // 
