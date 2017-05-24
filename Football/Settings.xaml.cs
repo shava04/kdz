@@ -101,7 +101,7 @@ namespace Football
                 checkBox1.IsChecked = false;
             }
             comboBox.Items.Add("1 минута");
-            comboBox.Items.Add("2 минуты");
+            comboBox.Items.Add("1.5 минут");
             comboBox.Items.Add("3 минуты");
             comboBox.SelectedIndex = time;
         }
