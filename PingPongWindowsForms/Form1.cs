@@ -30,7 +30,8 @@ namespace PingPongWindowsForms
         int countForFinalWhistle;
         int addedTime, addedTimeEnd, countForAddTime;
         int timing=1;
-        int myForm = 4, compForm=2;
+        int myForm = 2, compForm=3;
+        int pauseButtonClick = 0;
         
 
         string yourTeam, compTeam;
@@ -40,10 +41,67 @@ namespace PingPongWindowsForms
         SoundPlayer buffoniche = new SoundPlayer("буффонище.wav");
         SoundPlayer whistle = new SoundPlayer("whistlee.wav");
         SoundPlayer finalWhistle = new SoundPlayer("FinalWhistle.wav");
-
-
         SoundPlayer shot = new SoundPlayer("shot.wav");
 
+        ToolTip tl = new ToolTip();
+
+        private void pauseBox_Click(object sender, EventArgs e)
+        {
+            pauseButtonClick++;
+            if (pauseButtonClick % 2 == 1)
+            {
+                pauseBox.ImageLocation = "Play.png";
+                aTimer.Enabled = false;                
+                aTimeShowing.Enabled = false;
+                aCompTimer.Enabled = false;
+            }
+            else
+            {               
+                pauseBox.ImageLocation = "Pause.png";
+                aTimer.Enabled = true;                
+                aTimeShowing.Enabled = true;
+                aCompTimer.Enabled = true;
+            }
+        }
+
+        
+
+        private void pauseBox_MouseEnter(object sender, EventArgs e)
+        {
+            pauseBox.Width = 32;
+            pauseBox.Height = 32;
+        }
+
+        private void pauseBox_MouseLeave(object sender, EventArgs e)
+        {
+            pauseBox.Width = 29;
+            pauseBox.Height = 29;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+                     
+            if (MessageBox.Show("Вы уверены что хотите закрыть приложение? \nЗакрытие программы во время игры ведет к техническому поражению", "Предупреждение", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == System.Windows.Forms.DialogResult.No)
+                e.Cancel = true;
+            else
+                e.Cancel = false;
+        
+    }
+
+        private void pauseBox_MouseHover(object sender, EventArgs e)
+        {
+            //if (pauseButtonClick % 2 == 1)
+            //{
+            //    tl.Show("Продолжить игру", pauseBox);
+            //}
+            //if (pauseButtonClick % 2 == 0)
+            //{
+            //    tl.Show("Пауза", pauseBox);
+            //}
+        }
+
+
+       
 
         public Form1()
         {
@@ -53,23 +111,25 @@ namespace PingPongWindowsForms
             addedTimeEnd = 90 + addedTime;
 
 
-            FileStream fl = new FileStream("teams.txt", FileMode.Open, FileAccess.Read);
-            StreamReader sr = new StreamReader(fl);
-            yourTeam = sr.ReadLine();
-            compTeam = sr.ReadLine();
-            compSpeed = int.Parse(sr.ReadLine());
-            myForm = int.Parse(sr.ReadLine());
-            compForm = int.Parse(sr.ReadLine());
-            timing = int.Parse(sr.ReadLine());
+            //FileStream fl = new FileStream("teams.txt", FileMode.Open, FileAccess.Read);
+            //StreamReader sr = new StreamReader(fl);
+            //yourTeam = sr.ReadLine();
+            //compTeam = sr.ReadLine();
+            //compSpeed = int.Parse(sr.ReadLine());
+            //myForm = int.Parse(sr.ReadLine());
+            //compForm = int.Parse(sr.ReadLine());
+            //timing = int.Parse(sr.ReadLine());
 
 
 
         }
+        
 
         private void Clothes()
         {
             if (myForm == 0)//black
             {
+                aYourTeamColor.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
                 GoalKeeper.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
                 Def1.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
                 Def2.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -84,6 +144,7 @@ namespace PingPongWindowsForms
             }
             if (myForm == 1)//orange
             {
+                aYourTeamColor.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
                 GoalKeeper.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
                 Def1.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
                 Def2.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -98,6 +159,7 @@ namespace PingPongWindowsForms
             }
             if (myForm == 2)//blue
             {
+                aYourTeamColor.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150))))); 
                 GoalKeeper.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
                 Def1.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
                 Def2.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
@@ -112,6 +174,7 @@ namespace PingPongWindowsForms
             }
             if (myForm == 3)//red
             {
+                aYourTeamColor.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
                 GoalKeeper.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
                 Def1.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
                 Def2.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
@@ -126,6 +189,7 @@ namespace PingPongWindowsForms
             }
             if (myForm == 4)//yellow
             {
+                aYourTeamColor.BackColor = Color.Gold;
                 GoalKeeper.BackColor = Color.Gold;
                 Def1.BackColor = Color.Gold;
                 Def2.BackColor = Color.Gold;
@@ -141,6 +205,7 @@ namespace PingPongWindowsForms
 
             if (compForm == 0)
             {
+                aCompTeamColor.BackColor = Color.FromArgb(64,64,64);
                 GoalComp.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
                 DefComp1.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
                 DefComp2.BackColor = Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -155,6 +220,7 @@ namespace PingPongWindowsForms
             }
             if (compForm == 1)
             {
+                aCompTeamColor.BackColor = Color.FromArgb(255, 128, 0);
                 GoalComp.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
                 DefComp1.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
                 DefComp2.BackColor = Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -169,6 +235,7 @@ namespace PingPongWindowsForms
             }
             if (compForm == 2)//blue
             {
+                aCompTeamColor.BackColor = Color.FromArgb(40, 30, 150);
                 GoalComp.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
                 DefComp1.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
                 DefComp2.BackColor = Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(30)))), ((int)(((byte)(150)))));
@@ -183,6 +250,7 @@ namespace PingPongWindowsForms
             }
             if (compForm == 3)//red
             {
+                aCompTeamColor.BackColor = Color.FromArgb(192, 33, 40);
                 GoalComp.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
                 DefComp1.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
                 DefComp2.BackColor = Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(33)))), ((int)(((byte)(40)))));
@@ -197,6 +265,7 @@ namespace PingPongWindowsForms
             }
             if (compForm == 4)//yellow
             {
+                aCompTeamColor.BackColor = Color.Gold;
                 GoalComp.BackColor = Color.Gold;
                 DefComp1.BackColor = Color.Gold;
                 DefComp2.BackColor = Color.Gold;
@@ -453,12 +522,12 @@ namespace PingPongWindowsForms
                 aTimeShowing.Enabled = false;
                 gameEnd = true;
 
-                FileStream fl = new FileStream("score.txt", FileMode.Create, FileAccess.Write);
-                StreamWriter sw = new StreamWriter(fl);
-                sw.WriteLine(playerScore);
-                sw.WriteLine(compScore);
-                sw.Close();
-                fl.Close();
+                //FileStream fl = new FileStream("score.txt", FileMode.Create, FileAccess.Write);
+                //StreamWriter sw = new StreamWriter(fl);
+                //sw.WriteLine(playerScore);
+                //sw.WriteLine(compScore);
+                //sw.Close();
+                //fl.Close();
 
                 if (playerScore > compScore)
                 {

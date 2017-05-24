@@ -77,10 +77,12 @@
             this.aWinnerTable = new System.Windows.Forms.Label();
             this.aYourTeamLabel = new System.Windows.Forms.Label();
             this.aCompTeamLabel = new System.Windows.Forms.Label();
-            this.aTime_timer = new System.Windows.Forms.Timer(this.components);
             this.additionalTime = new System.Windows.Forms.Label();
             this.aTimeShowing = new System.Windows.Forms.Timer(this.components);
             this.additionalTimeLabel = new System.Windows.Forms.Label();
+            this.aYourTeamColor = new System.Windows.Forms.PictureBox();
+            this.aCompTeamColor = new System.Windows.Forms.PictureBox();
+            this.pauseBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Field)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LeftGoal)).BeginInit();
@@ -110,6 +112,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ForwComp2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ForwComp3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aYourTeamColor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aCompTeamColor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pauseBox)).BeginInit();
             this.SuspendLayout();
             // 
             // aTimer
@@ -603,6 +608,37 @@
             this.additionalTimeLabel.Text = "+3 MINS";
             this.additionalTimeLabel.Visible = false;
             // 
+            // aYourTeamColor
+            // 
+            this.aYourTeamColor.Location = new System.Drawing.Point(286, 597);
+            this.aYourTeamColor.Name = "aYourTeamColor";
+            this.aYourTeamColor.Size = new System.Drawing.Size(10, 44);
+            this.aYourTeamColor.TabIndex = 48;
+            this.aYourTeamColor.TabStop = false;
+            // 
+            // aCompTeamColor
+            // 
+            this.aCompTeamColor.Location = new System.Drawing.Point(699, 597);
+            this.aCompTeamColor.Name = "aCompTeamColor";
+            this.aCompTeamColor.Size = new System.Drawing.Size(10, 44);
+            this.aCompTeamColor.TabIndex = 49;
+            this.aCompTeamColor.TabStop = false;
+            // 
+            // pauseBox
+            // 
+            this.pauseBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(75)))));
+            this.pauseBox.Image = ((System.Drawing.Image)(resources.GetObject("pauseBox.Image")));
+            this.pauseBox.Location = new System.Drawing.Point(1088, 28);
+            this.pauseBox.Name = "pauseBox";
+            this.pauseBox.Size = new System.Drawing.Size(29, 29);
+            this.pauseBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pauseBox.TabIndex = 50;
+            this.pauseBox.TabStop = false;
+            this.pauseBox.Click += new System.EventHandler(this.pauseBox_Click);
+            this.pauseBox.MouseEnter += new System.EventHandler(this.pauseBox_MouseEnter);
+            this.pauseBox.MouseLeave += new System.EventHandler(this.pauseBox_MouseLeave);
+            this.pauseBox.MouseHover += new System.EventHandler(this.pauseBox_MouseHover);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -610,6 +646,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(75)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1137, 673);
+            this.Controls.Add(this.pauseBox);
+            this.Controls.Add(this.aCompTeamColor);
+            this.Controls.Add(this.aYourTeamColor);
             this.Controls.Add(this.additionalTimeLabel);
             this.Controls.Add(this.additionalTime);
             this.Controls.Add(this.aMin);
@@ -663,6 +702,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Football";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).EndInit();
@@ -694,6 +734,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ForwComp2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ForwComp3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aYourTeamColor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aCompTeamColor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pauseBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -747,10 +790,12 @@
         private System.Windows.Forms.Label aWinnerTable;
         private System.Windows.Forms.Label aYourTeamLabel;
         private System.Windows.Forms.Label aCompTeamLabel;
-        private System.Windows.Forms.Timer aTime_timer;
         private System.Windows.Forms.Label additionalTime;
         private System.Windows.Forms.Timer aTimeShowing;
         private System.Windows.Forms.Label additionalTimeLabel;
+        private System.Windows.Forms.PictureBox aYourTeamColor;
+        private System.Windows.Forms.PictureBox aCompTeamColor;
+        private System.Windows.Forms.PictureBox pauseBox;
     }
 }
 
