@@ -99,6 +99,11 @@ namespace PingPongWindowsForms
             }
         }
 
+        private void news_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void pauseBox_MouseHover(object sender, EventArgs e)
         {
             //if (pauseButtonClick % 2 == 1)
