@@ -133,7 +133,7 @@
             // 
             this.Ball.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(170)))), ((int)(((byte)(0)))));
             this.Ball.Image = global::PingPongWindowsForms.Properties.Resources.ball1;
-            this.Ball.Location = new System.Drawing.Point(559, 273);
+            this.Ball.Location = new System.Drawing.Point(335, 276);
             this.Ball.Name = "Ball";
             this.Ball.Size = new System.Drawing.Size(20, 20);
             this.Ball.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -462,7 +462,6 @@
             this.news.TabIndex = 36;
             this.news.Text = "GOOOOOOAL";
             this.news.Visible = false;
-            this.news.Click += new System.EventHandler(this.news_Click);
             // 
             // label1
             // 
