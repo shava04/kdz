@@ -576,6 +576,24 @@ namespace PingPongWindowsForms
                     aWinnerTable.Visible = true;
                 }
             }
+            if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds))
+            {
+                if (Ball.Location.Y > 197 && Ball.Location.Y < 391)
+                {
+                    buffoniche.Play();
+                }
+                else
+                    shot.Play();
+            }
+            if( GoalComp.Bounds.IntersectsWith(Ball.Bounds) || DefComp1.Bounds.IntersectsWith(Ball.Bounds) || DefComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp1.Bounds.IntersectsWith(Ball.Bounds) || MidComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp3.Bounds.IntersectsWith(Ball.Bounds) || MidComp4.Bounds.IntersectsWith(Ball.Bounds) || MidComp5.Bounds.IntersectsWith(Ball.Bounds) || ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
+            {
+                shot.Play();
+            }
+            if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))              
+            {
+                shot.Play();
+            }
+
         }
 
 
@@ -654,7 +672,7 @@ namespace PingPongWindowsForms
             }
             if (Ball.Location.X > 509)
             {
-                if (Ball.Location.X < 863)
+                if (Ball.Location.X < 810)
                 {
                     if (Ball.Location.Y < 116)
                     {
@@ -722,7 +740,7 @@ namespace PingPongWindowsForms
                         }
                     }
                 }
-                else if (Ball.Location.X > 863)
+                else if (Ball.Location.X > 810)
                 {
                     if (Ball.Location.Y < 150)
                     {
@@ -831,13 +849,7 @@ namespace PingPongWindowsForms
 
         private void aTimer_Tick(object sender, EventArgs e)
         {
-            if(GoalKeeper.Bounds.IntersectsWith(Ball.Bounds))
-            {
-                if (Ball.Location.Y > 197 && Ball.Location.Y < 391)
-                {
-                    buffoniche.Play();
-                }
-            }
+            
           
             //SCORING
             if (Ball.Location.X >= 1059) //(1040; 197) ; (1040; 351)
