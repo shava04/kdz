@@ -68,12 +68,15 @@ namespace PingPongWindowsForms
 
         private void pauseBox_MouseEnter(object sender, EventArgs e)
         {
+            pauseBox.Location = new Point(1087, 27);
             pauseBox.Width = 32;
             pauseBox.Height = 32;
+
         }
 
         private void pauseBox_MouseLeave(object sender, EventArgs e)
         {
+            pauseBox.Location = new Point(1088, 28);
             pauseBox.Width = 29;
             pauseBox.Height = 29;
         }
@@ -596,17 +599,17 @@ namespace PingPongWindowsForms
 
             //COMP CONTROL
 
-            if (Ball.Location.Y > 150 && Ball.Location.Y < 387)
-            {
-                if (Ball.Location.Y > GoalComp.Location.Y)
-                {
-                    GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y + compSpeed);
-                }
-                else
-                {
-                    GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y - compSpeed);
-                }
-            }
+            //if (Ball.Location.Y > 150 && Ball.Location.Y < 387)
+            //{
+            //    if (Ball.Location.Y > GoalComp.Location.Y)
+            //    {
+            //        GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y + compSpeed);
+            //    }
+            //    else
+            //    {
+            //        GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y - compSpeed);
+            //    }
+            //}
             if (Ball.Location.X < 509)
             {
                 if (Ball.Location.Y < 194)
@@ -614,10 +617,12 @@ namespace PingPongWindowsForms
                     if (Ball.Location.Y < ForwComp1.Location.Y)
                     {
                         CompTeamUp();
+                        GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y - compSpeed);
                     }
                     else
                     {
                         CompTeamDown();
+                        GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y + compSpeed);
                     }
                 }
                 if (Ball.Location.Y > 194 && Ball.Location.Y < 335)
@@ -625,10 +630,12 @@ namespace PingPongWindowsForms
                     if (Ball.Location.Y < ForwComp2.Location.Y)
                     {
                         CompTeamUp();
+                        GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y - compSpeed);
                     }
                     else
                     {
                         CompTeamDown();
+                        GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y + compSpeed);
                     }
                 }
                 if (Ball.Location.Y > 335 && Ball.Location.Y < bottom)
@@ -636,72 +643,120 @@ namespace PingPongWindowsForms
                     if (Ball.Location.Y < ForwComp3.Location.Y)
                     {
                         CompTeamUp();
+                        GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y - compSpeed);
                     }
                     else
                     {
                         CompTeamDown();
+                        GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y + compSpeed);
                     }
                 }
             }
             if (Ball.Location.X > 509)
             {
-                if (Ball.Location.Y < 116)
+                if (Ball.Location.X < 773)
                 {
-                    if (Ball.Location.Y < MidComp1.Location.Y)
+                    if (Ball.Location.Y < 116)
                     {
-                        CompTeamUp();
+                        if (Ball.Location.Y < MidComp1.Location.Y)
+                        {
+                            CompTeamUp();
+                            GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y - compSpeed);
+                        }
+                        else
+                        {
+                            CompTeamDown();
+                            GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y + compSpeed);
+                        }
                     }
-                    else
+                    if (Ball.Location.Y > 110 && Ball.Location.Y < 210)
                     {
-                        CompTeamDown();
+                        if (Ball.Location.Y < MidComp2.Location.Y)
+                        {
+                            CompTeamUp();
+                            GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y - compSpeed);
+                        }
+                        else
+                        {
+                            CompTeamDown();
+                            GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y + compSpeed);
+                        }
+                    }
+                    if (Ball.Location.Y > 210 && Ball.Location.Y < 310)
+                    {
+                        if (Ball.Location.Y < MidComp3.Location.Y)
+                        {
+                            CompTeamUp();
+                            GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y - compSpeed);
+                        }
+                        else
+                        {
+                            CompTeamDown();
+                            GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y + compSpeed);
+                        }
+                    }
+                    if (Ball.Location.Y > 310 && Ball.Location.Y < 410)
+                    {
+                        if (Ball.Location.Y < MidComp4.Location.Y)
+                        {
+                            CompTeamUp();
+                            GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y - compSpeed);
+                        }
+                        else
+                        {
+                            CompTeamDown();
+                            GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y + compSpeed);
+                        }
+                    }
+                    if (Ball.Location.Y > 410 && Ball.Location.Y < bottom)
+                    {
+                        if (Ball.Location.Y < MidComp5.Location.Y)
+                        {
+                            CompTeamUp();
+                            GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y - compSpeed);
+                        }
+                        else
+                        {
+                            CompTeamDown();
+                            GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y + compSpeed);
+                        }
                     }
                 }
-                if (Ball.Location.Y > 110 && Ball.Location.Y < 210)
+                else if (Ball.Location.X > 773)
                 {
-                    if (Ball.Location.Y < MidComp2.Location.Y)
+                    if (Ball.Location.Y < 150)
                     {
-                        CompTeamUp();
+                        if (GoalComp.Location.Y > 150)
+                        {
+                            CompTeamUp();
+                            GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y - compSpeed);
+                        }
+                        
                     }
-                    else
+                    if (Ball.Location.Y > 150 && Ball.Location.Y < 387)
                     {
-                        CompTeamDown();
+                        if (Ball.Location.Y > GoalComp.Location.Y)
+                        {
+                            GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y + compSpeed);
+                            CompTeamDown();
+                        }
+                        else
+                        {
+                            GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y - compSpeed);
+                            CompTeamUp();
+                        }
                     }
-                }
-                if (Ball.Location.Y > 210 && Ball.Location.Y < 310)
-                {
-                    if (Ball.Location.Y < MidComp3.Location.Y)
+                    if (Ball.Location.Y > 387)
                     {
-                        CompTeamUp();
-                    }
-                    else
-                    {
-                        CompTeamDown();
-                    }
-                }
-                if (Ball.Location.Y > 310 && Ball.Location.Y < 410)
-                {
-                    if (Ball.Location.Y < MidComp4.Location.Y)
-                    {
-                        CompTeamUp();
-                    }
-                    else
-                    {
-                        CompTeamDown();
-                    }
-                }
-                if (Ball.Location.Y > 410 && Ball.Location.Y < bottom)
-                {
-                    if (Ball.Location.Y < MidComp5.Location.Y)
-                    {
-                        CompTeamUp();
-                    }
-                    else
-                    {
-                        CompTeamDown();
+                        if (GoalComp.Location.Y < 350)
+                        {
+                            CompTeamDown();
+                            GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y + compSpeed);
+
+                        }
                     }
                 }
             }
-           
         }
 
         private void aBallTimer_Tick(object sender, EventArgs e)
@@ -784,7 +839,7 @@ namespace PingPongWindowsForms
                 }
             }
           
-
+            //SCORING
             if (Ball.Location.X >= 1059) //(1040; 197) ; (1040; 351)
             {
                 if (Ball.Location.Y >= 190 && Ball.Location.Y <= 368)
@@ -820,21 +875,34 @@ namespace PingPongWindowsForms
 
                 if (ballSpeedX > 0)
                 {
-                    if (compdirect < 0)
+                    if (Ball.Location.X < 335)
                     {
-                        ballSpeedY *= 1;
-                        ballSpeedX *= -1;
+                        if (Ball.Location.Y < 276)
+                        {
+                            ballSpeedY = -Math.Abs(ballSpeedY);
+                        }
+                        else
+                        {
+                            ballSpeedY = Math.Abs(ballSpeedY);
+                        }
                     }
                     else
                     {
-                        ballSpeedY *= -1;
-                        ballSpeedX *= -1;
+                        if (compdirect < 0)
+                        {
+                            ballSpeedY *= 1;
+                            ballSpeedX *= -1;
+                        }
+                        else
+                        {
+                            ballSpeedY *= -1;
+                            ballSpeedX *= -1;
+                        }
                     }
-
                 }
                 else
-                {
-                    ballSpeedY *= -1;
+                {                                      
+                        ballSpeedY *= -1;                    
                 }
                 
             }
