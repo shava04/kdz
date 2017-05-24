@@ -592,7 +592,7 @@
             // 
             // aTimeShowing
             // 
-            this.aTimeShowing.Interval = 10;
+            this.aTimeShowing.Interval = 17;
             this.aTimeShowing.Tick += new System.EventHandler(this.aTimeShowing_Tick);
             // 
             // additionalTimeLabel
