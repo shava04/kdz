@@ -485,8 +485,8 @@ namespace PingPongWindowsForms
 
             if (m % 1 == 0)
             {
-                sec+=timing;
-                if (sec==60)
+                sec += timing;
+                if (sec == 60)
                 {
                     sec = 0;
                     min++;
@@ -495,7 +495,7 @@ namespace PingPongWindowsForms
                 int st = sec / 10;
                 aSec.Text = ss.ToString();
                 aSecTen.Text = st.ToString();
-                aMin.Text = min.ToString();           
+                aMin.Text = min.ToString();
                 //if (sec % 10 !=0)
                 //{
                 //    aSec.Text = sec.ToString();
@@ -584,7 +584,7 @@ namespace PingPongWindowsForms
                     if (Ball.Location.Y > 197 && Ball.Location.Y < 391)
                     {
                         buffoniche.Play();
-                        buffonicheWasPlayed = true;                        
+                        buffonicheWasPlayed = true;
                     }
                     else
                         shot.Play();
@@ -600,18 +600,19 @@ namespace PingPongWindowsForms
                 {
                     buffonicheWasPlayed = false;
                 }
-            if (!buffonicheWasPlayed)
-            {
-                if (GoalComp.Bounds.IntersectsWith(Ball.Bounds) || DefComp1.Bounds.IntersectsWith(Ball.Bounds) || DefComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp1.Bounds.IntersectsWith(Ball.Bounds) || MidComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp3.Bounds.IntersectsWith(Ball.Bounds) || MidComp4.Bounds.IntersectsWith(Ball.Bounds) || MidComp5.Bounds.IntersectsWith(Ball.Bounds) || ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
+                if (!buffonicheWasPlayed)
                 {
-                    shot.Play();
+                    if (GoalComp.Bounds.IntersectsWith(Ball.Bounds) || DefComp1.Bounds.IntersectsWith(Ball.Bounds) || DefComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp1.Bounds.IntersectsWith(Ball.Bounds) || MidComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp3.Bounds.IntersectsWith(Ball.Bounds) || MidComp4.Bounds.IntersectsWith(Ball.Bounds) || MidComp5.Bounds.IntersectsWith(Ball.Bounds) || ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
+                    {
+                        shot.Play();
+                    }
+                    if (Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
+                    {
+                        shot.Play();
+                    }
                 }
-                if (Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
-                {
-                    shot.Play();
-                }
-            }
 
+            }
         }
 
 
