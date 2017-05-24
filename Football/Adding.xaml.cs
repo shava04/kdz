@@ -23,6 +23,7 @@ namespace Football
 
         public Adding(List<Team>teams)
         {
+
             InitializeComponent();
             this.teams = teams;
             textboxes.Add(textBox);
