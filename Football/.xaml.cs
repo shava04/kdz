@@ -39,13 +39,13 @@ namespace Football
         public string log = "";
         private int level = 2;
         private int time = 2;
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void exitbutton_Click(object sender, RoutedEventArgs e)
         {
             
             this.Close();
         }
 
-        private void button_Click_1(object sender, RoutedEventArgs e)
+        private void playbutton_Click_1(object sender, RoutedEventArgs e)
         {
             log = Autorization.log;
             if (log=="")
@@ -105,7 +105,7 @@ namespace Football
             cmp.Show();
         }
         Random r = new Random();
-        private void button2_Click(object sender, RoutedEventArgs e)
+        private void settingsbutton_Click(object sender, RoutedEventArgs e)
         {
             Settings st = new Settings(music, level, time);
             st.ShowDialog();
@@ -118,7 +118,7 @@ namespace Football
 
             string filename = "C:\\Users\\User\\Desktop\\music\\music" + (r.Next(musicCnt)+1).ToString() + ".wav";
             SoundPlayer sp = new SoundPlayer(filename);
-            if (st.checkBox1.IsChecked==true && st.Stayornot==false && st.Result==true)
+            if (st.musicBox.IsChecked==true && st.Stayornot==false && st.Result==true)
             {
                 music = true;
                
@@ -135,13 +135,13 @@ namespace Football
             }
         }
 
-        private void button3_Click(object sender, RoutedEventArgs e)
+        private void registrationbutton_Click(object sender, RoutedEventArgs e)
         {
             Registration r = new Registration();
             r.Show();
         }
 
-        private void button4_Click(object sender, RoutedEventArgs e)
+        private void autorizationbutton_Click(object sender, RoutedEventArgs e)
         {
             Autorization a = new Autorization();
             a.Show();

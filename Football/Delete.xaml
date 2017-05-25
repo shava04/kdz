@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
         Title="Delete" Height="300" Width="300">
-    <Grid>
+    <Grid Background="#FF2CE22C">
         <Label x:Name="label" Content="Введите команду" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="110"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="26" Margin="146,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130"/>
         <Button x:Name="button" Content="Удалить" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="110" Height="49" FontSize="20" Click="button_Click"/>

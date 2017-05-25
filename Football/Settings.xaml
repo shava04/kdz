@@ -7,14 +7,14 @@
         mc:Ignorable="d"
         Title="Settings" Height="369.512" Width="300">
     <Grid>
-        <Button x:Name="button" Content="Потвердить" HorizontalAlignment="Left" Margin="10,287,0,0" VerticalAlignment="Top" Width="139" Height="38" FontSize="20" Click="button_Click"/>
-        <CheckBox x:Name="checkBox1" Content="Включить музыку" HorizontalAlignment="Left" Margin="5,257,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button1" Content="Отмена" HorizontalAlignment="Left" Margin="185,287,0,0" VerticalAlignment="Top" Width="97" Height="38" FontSize="20" Click="button1_Click"/>
+        <Button x:Name="submitbutton" Content="Потвердить" HorizontalAlignment="Left" Margin="10,287,0,0" VerticalAlignment="Top" Width="139" Height="38" FontSize="20" Click="submitbutton_Click"/>
+        <CheckBox x:Name="musicBox" Content="Включить музыку" HorizontalAlignment="Left" Margin="5,257,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="exitbutton" Content="Отмена" HorizontalAlignment="Left" Margin="185,287,0,0" VerticalAlignment="Top" Width="97" Height="38" FontSize="20" Click="exitbutton_Click"/>
         <RadioButton x:Name="radioButton4" Content="Новичок" HorizontalAlignment="Left" Margin="12,153,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="radioButton5" Content="Обычный" HorizontalAlignment="Left" Margin="12,173,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="radioButton6" Content="Профессионал" HorizontalAlignment="Left" Margin="12,193,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="radioButton7" Content="Легенда футбола" HorizontalAlignment="Left" Margin="12,213,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="12,57,0,0" VerticalAlignment="Top" Width="122" Height="27"/>
+        <ComboBox x:Name="timeBox" HorizontalAlignment="Left" Margin="12,57,0,0" VerticalAlignment="Top" Width="122" Height="27"/>
         <Label x:Name="label" Content="  Продолжительность матча" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Сложность игры" HorizontalAlignment="Left" Margin="6,118,0,0" VerticalAlignment="Top"/>
 

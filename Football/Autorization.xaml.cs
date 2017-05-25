@@ -24,19 +24,19 @@ namespace Football
             InitializeComponent();
         }
         public static string log = "";
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void exitbutton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void autorizationbutton_Click(object sender, RoutedEventArgs e)
         {
-            if (textBox.Text == "")
+            if (loginBox.Text == "")
             {
                 MessageBox.Show("Введите логин", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (textBox1.Text == "")
+            if (passwordBox.Password == "")
             {
                 MessageBox.Show("Введите пароль", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -47,12 +47,12 @@ namespace Football
             bool okl = false;
             string login = "";
             Hashing h = new Hashing();
-            string pass = h.hash(textBox1.Text);
+            string pass = h.hash(passwordBox.Password);
             while (!sr.EndOfStream)
             {
                 string l = sr.ReadLine();
                 string p = sr.ReadLine();
-                if (l==textBox.Text)
+                if (l==loginBox.Text)
                 {
                     okl = true;
                     if (p==pass)

@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
-        Title="MainWindow" Height="695.223" Width="727.272">
-    <Grid x:Name="___Football_">
-        <Button x:Name="button" Content="Играть" HorizontalAlignment="Left" Margin="107,60,0,0" VerticalAlignment="Top" Width="468" Height="90" FontSize="60" Click="button_Click_1"/>
-        <Button x:Name="button1" Content="Выход" HorizontalAlignment="Left" Margin="107,312,0,0" VerticalAlignment="Top" Width="468" Height="79" FontSize="60" Click="button1_Click"/>
-        <Button x:Name="button2" Content="Настройки" HorizontalAlignment="Left" Margin="107,185,0,0" VerticalAlignment="Top" Width="468" Height="82" FontSize="60" Click="button2_Click"/>
-        <Button x:Name="button3" Content="Регистрация" HorizontalAlignment="Left" Margin="107,432,0,0" VerticalAlignment="Top" Width="468" Height="68" FontSize="50" Click="button3_Click"/>
-        <Button x:Name="button4" Content="Авторизация" HorizontalAlignment="Left" Margin="107,532,0,0" VerticalAlignment="Top" Width="468" Height="62" FontSize="50" Click="button4_Click"/>
+        Title="MainWindow" Height="667.223" Width="727.272">
+    <Grid x:Name="___Football_" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" OpacityMask="Black">
+        <Button x:Name="playbutton" Content="Играть" HorizontalAlignment="Left" Margin="107,60,0,0" VerticalAlignment="Top" Width="468" Height="90" FontSize="60" Click="playbutton_Click_1"/>
+        <Button x:Name="exitbutton" Content="Выход" HorizontalAlignment="Left" Margin="107,509,0,0" VerticalAlignment="Top" Width="468" Height="83" FontSize="60" Click="exitbutton_Click"/>
+        <Button x:Name="settingsbutton" Content="Настройки" HorizontalAlignment="Left" Margin="107,185,0,0" VerticalAlignment="Top" Width="468" Height="82" FontSize="60" Click="settingsbutton_Click"/>
+        <Button x:Name="registrationbutton" Content="Регистрация" HorizontalAlignment="Left" Margin="107,307,0,0" VerticalAlignment="Top" Width="468" Height="76" FontSize="50" Click="registrationbutton_Click"/>
+        <Button x:Name="autorizationbutton" Content="Авторизация" HorizontalAlignment="Left" Margin="107,407,0,0" VerticalAlignment="Top" Width="468" Height="72" FontSize="50" Click="autorizationbutton_Click"/>
 
     </Grid>
 </Window>

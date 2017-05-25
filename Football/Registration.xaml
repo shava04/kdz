@@ -10,11 +10,11 @@
         <Label x:Name="label" Content="Логин" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Пароль" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="Потверждение пароля" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button" Content="Зарегестрировать" HorizontalAlignment="Left" Margin="60,150,0,0" VerticalAlignment="Top" Width="109" Click="button_Click"/>
-        <Button x:Name="button1" Content="Отмена" HorizontalAlignment="Left" Margin="188,150,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="162,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="162,74,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="162,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="registrationbutton" Content="Зарегестрировать" HorizontalAlignment="Left" Margin="60,150,0,0" VerticalAlignment="Top" Width="109" Click="registrationbutton_Click"/>
+        <Button x:Name="exitbutton" Content="Отмена" HorizontalAlignment="Left" Margin="188,150,0,0" VerticalAlignment="Top" Width="75" Click="exitbutton_Click"/>
+        <TextBox x:Name="loginBox" HorizontalAlignment="Left" Height="23" Margin="162,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="159,74,0,0" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox x:Name="passwordBox1" HorizontalAlignment="Left" Margin="159,102,0,0" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

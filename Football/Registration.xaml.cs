@@ -25,24 +25,24 @@ namespace Football
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void exitbutton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void registrationbutton_Click(object sender, RoutedEventArgs e)
         {
-            if (textBox.Text == "")
+            if (loginBox.Text == "")
             {
                 MessageBox.Show("Введите логин", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (textBox1.Text == "")
+            if (passwordBox.Password == "")
             {
                 MessageBox.Show("Введите пароль", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return; 
             }
-            if (textBox1.Text != textBox2.Text)
+            if (passwordBox.Password != passwordBox1.Password)
             {
                 MessageBox.Show("Пароль потвержден неверно", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -53,7 +53,7 @@ namespace Football
             while(!sr.EndOfStream)
             {
                 string l = sr.ReadLine();
-                if (l==textBox.Text)
+                if (l==loginBox.Text)
                 {
                     ok = false;
                 }
@@ -79,8 +79,8 @@ namespace Football
                 sr1.Close();
                 f1.Close();
                 Hashing h = new Hashing();
-                string pass = h.hash(textBox1.Text);
-                logins.Add(textBox.Text);
+                string pass = h.hash(passwordBox.Password);
+                logins.Add(loginBox.Text);
                 passwords.Add(pass);
                 FileStream f = new FileStream("C:\\Users\\User\\Desktop\\logins.txt", FileMode.Open, FileAccess.Write);
                 StreamWriter sw = new StreamWriter(f);

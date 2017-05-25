@@ -75,7 +75,7 @@ namespace Football
             this.result = music;
             this.time = time;
             this.level = level;
-            comboBox.SelectedIndex = time;
+            timeBox.SelectedIndex = time;
             if (level==1)
             {
                 radioButton4.IsChecked = true;
@@ -94,21 +94,21 @@ namespace Football
             }
             if (music ==true)
             {
-                checkBox1.IsChecked = true;
+                musicBox.IsChecked = true;
             }
             else
             {
-                checkBox1.IsChecked = false;
+                musicBox.IsChecked = false;
             }
-            comboBox.Items.Add("1 минута");
-            comboBox.Items.Add("1.5 минут");
-            comboBox.Items.Add("3 минуты");
-            comboBox.SelectedIndex = time;
+            timeBox.Items.Add("1 минута");
+            timeBox.Items.Add("1.5 минут");
+            timeBox.Items.Add("3 минуты");
+            timeBox.SelectedIndex = time;
         }
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void submitbutton_Click(object sender, RoutedEventArgs e)
         {
 
-            if (checkBox1.IsChecked==true)
+            if (musicBox.IsChecked==true)
             {
                 this.result = true;
             }
@@ -116,7 +116,7 @@ namespace Football
             {
                 this.result = false;
             }
-            if (music != checkBox1.IsChecked)
+            if (music != musicBox.IsChecked)
             {
                 stayornot = false;
             }
@@ -136,13 +136,13 @@ namespace Football
             {
                 this.level = 4;
             }
-            time = comboBox.SelectedIndex;
+            time = timeBox.SelectedIndex;
             DialogResult = true;
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void exitbutton_Click(object sender, RoutedEventArgs e)
         {
-            if (music != checkBox1.IsChecked)
+            if (music != musicBox.IsChecked)
             {
                 stayornot = false;
             }
