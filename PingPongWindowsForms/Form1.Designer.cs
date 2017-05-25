@@ -121,7 +121,7 @@
             // aTimer
             // 
             this.aTimer.Enabled = true;
-            this.aTimer.Interval = 30;
+            this.aTimer.Interval = 25;
             this.aTimer.Tick += new System.EventHandler(this.aTimer_Tick);
             // 
             // aBallTimer
@@ -289,7 +289,7 @@
             // 
             // aCompTimer
             // 
-            this.aCompTimer.Interval = 30;
+            this.aCompTimer.Interval = 25;
             this.aCompTimer.Tick += new System.EventHandler(this.aCompTimer_Tick);
             // 
             // GoalComp
@@ -642,6 +642,7 @@
             // 
             // aSound_timer
             // 
+            this.aSound_timer.Enabled = true;
             this.aSound_timer.Interval = 50;
             this.aSound_timer.Tick += new System.EventHandler(this.aSound_timer_Tick);
             // 

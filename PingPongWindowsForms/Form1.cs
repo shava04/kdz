@@ -46,9 +46,9 @@ namespace PingPongWindowsForms
         SoundPlayer shot = new SoundPlayer("shot.wav");
         SoundPlayer goalCatch = new SoundPlayer("goalcatch.wav");
 
-        //SoundPlayer opasno = new SoundPlayer("opasno.wav");
-        //SoundPlayer udarische = new SoundPlayer("udarische.wav");
-        //SoundPlayer shtanga = new SoundPlayer("shtanga.wav");
+        SoundPlayer opasno = new SoundPlayer("opasno.wav");
+        SoundPlayer udarische = new SoundPlayer("udarische.wav");
+        SoundPlayer shtanga = new SoundPlayer("shtanga.wav");
 
         ToolTip tl = new ToolTip();
 
@@ -569,20 +569,19 @@ namespace PingPongWindowsForms
                     aWinnerTable.Visible = true;
                 }
             }
-
-            if (GoalComp.Bounds.IntersectsWith(Ball.Bounds) || GoalKeeper.Bounds.IntersectsWith(Ball.Bounds))
-            {
-                goalCatch.Play();
-            }
-            if (DefComp1.Bounds.IntersectsWith(Ball.Bounds) || DefComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp1.Bounds.IntersectsWith(Ball.Bounds) || MidComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp3.Bounds.IntersectsWith(Ball.Bounds) || MidComp4.Bounds.IntersectsWith(Ball.Bounds) || MidComp5.Bounds.IntersectsWith(Ball.Bounds) || ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
-            {
-                shot.Play();
-            }
-            if (Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
-            {
-                shot.Play();
-            }
-
+        
+        //    if (GoalComp.Bounds.IntersectsWith(Ball.Bounds) || GoalKeeper.Bounds.IntersectsWith(Ball.Bounds))
+        //    {
+        //        goalCatch.Play();
+        //    }
+        //    if (DefComp1.Bounds.IntersectsWith(Ball.Bounds) || DefComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp1.Bounds.IntersectsWith(Ball.Bounds) || MidComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp3.Bounds.IntersectsWith(Ball.Bounds) || MidComp4.Bounds.IntersectsWith(Ball.Bounds) || MidComp5.Bounds.IntersectsWith(Ball.Bounds) || ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
+        //    {
+        //        shot.Play();
+        //    }
+        //    if (Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
+        //    {
+        //        shot.Play();
+        //    }
         }
 
 
@@ -590,142 +589,118 @@ namespace PingPongWindowsForms
         private void aSound_timer_Tick(object sender, EventArgs e)
         {
 
-           
-            //if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds))
-            //{
-            //    if (!buffonicheWasPlayed)
-            //    {
-            //        if (Ball.Location.Y > 197 && Ball.Location.Y < 391)
-            //        {
-            //            buffoniche.Play();
-            //            buffonicheWasPlayed = true;
-            //            countForbuffoniche = 0;
-            //        }
-            //        else
-            //            shot.Play();
-            //    }
-            //}
-            //if (buffonicheWasPlayed)
-            //{
-            //    countForbuffoniche++;
-            //    if (countForbuffoniche / 75 == 1)
-            //    {
-            //        buffonicheWasPlayed = false;
-            //    }
-            //}
 
-            ////USING SOUNDS SLOWS DOWN THE PROGRAMM
+            if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds))
+            {
+                if (!buffonicheWasPlayed)
+                {
+                    if (Ball.Location.Y > 197 && Ball.Location.Y < 391)
+                    {
+                        buffoniche.Play();
+                        buffonicheWasPlayed = true;
+                        countForbuffoniche = 0;
+                    }
+                    else
+                        shot.Play();
+                }
+            }
+            if (buffonicheWasPlayed)
+            {
+                countForbuffoniche++;
+                if (countForbuffoniche / 75 == 1)
+                {
+                    buffonicheWasPlayed = false;
+                }
+            }
 
-            ////if (ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
-            ////{
-            ////    if (!opasnoWasPlayed)
-            ////    {
-            ////        if (forwCountComp % 12 == 6)
-            ////        {
-            ////            opasno.Play();
-            ////            opasnoWasPlayed = true;
-            ////            forwCountComp++;
-            ////            countForbuffoniche = 0;
-            ////        }
-            ////    }
-            ////}
-
-            ////if (Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
-            ////{
-            ////    if (!opasnoWasPlayed)
-            ////    {
-            ////        if (forwCountPlayer % 12 == 6)
-            ////        {
-            ////            opasno.Play();
-            ////            opasnoWasPlayed = true;
-            ////            forwCountPlayer++;
-            ////            countForbuffoniche = 0;
-            ////        }
-            ////    }
-            ////}
-            ////if (opasnoWasPlayed)
-            ////{
-            ////    countForbuffoniche++;
-            ////    if (countForbuffoniche / 75 == 0)
-            ////    {
-            ////        opasnoWasPlayed = false;
-            ////    }
-            ////}
+            // USING SOUNDS SLOWS DOWN THE PROGRAMM
 
 
-            ////if (ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
-            ////{
-            ////    if (!udarisheWasPlayed)
-            ////    {
-            ////        if (forwCountComp % 12 == 0)
-            ////        {
-            ////            udarische.Play();
-            ////            udarisheWasPlayed = true;
-            ////            forwCountComp++;
-            ////            countForbuffoniche = 0;
-            ////        }
-            ////    }
-            ////}
+            if (opasnoWasPlayed)
+            {
+                countForbuffoniche++;
+                if (countForbuffoniche / 75 == 0)
+                {
+                    opasnoWasPlayed = false;
+                }
+            }
 
-            ////if (Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
-            ////{
-            ////    if (!udarisheWasPlayed)
-            ////    {
-            ////        if (forwCountPlayer % 12 == 0)
-            ////        {
-            ////            udarische.Play();
-            ////            udarisheWasPlayed = true;
-            ////            forwCountPlayer++;
-            ////            countForbuffoniche = 0;
-            ////        }
-            ////    }
-            ////}
 
-            ////if (udarisheWasPlayed)
-            ////{
-            ////    countForbuffoniche++;
-            ////    if (countForbuffoniche / 75 == 0)
-            ////    {
-            ////        udarisheWasPlayed = false;
-            ////    }
-            ////}
 
-            //if (!buffonicheWasPlayed)
-            //{
-            //    if (GoalComp.Bounds.IntersectsWith(Ball.Bounds))
-            //    {
-            //        goalCatch.Play();                                         
-            //    }
-            //    if (DefComp1.Bounds.IntersectsWith(Ball.Bounds) || DefComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp1.Bounds.IntersectsWith(Ball.Bounds) || MidComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp3.Bounds.IntersectsWith(Ball.Bounds) || MidComp4.Bounds.IntersectsWith(Ball.Bounds) || MidComp5.Bounds.IntersectsWith(Ball.Bounds))
-            //    {
-            //        shot.Play();
-            //    }
-            //    if (ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
-            //    {
-            //        //if (forwCountComp % 12 != 0 && forwCountComp % 12 != 6)
-            //        {
-            //            //forwCountComp++;
-            //            shot.Play();
-            //        }
-            //    }
 
-            //    if (Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds))
-            //    {
-            //        shot.Play();
-            //    }
+            if (udarisheWasPlayed)
+            {
+                countForbuffoniche++;
+                if (countForbuffoniche / 75 == 0)
+                {
+                    udarisheWasPlayed = false;
+                }
+            }
 
-            //    if (Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
-            //    {
-            //        //if (forwCountPlayer % 12 != 0 && forwCountComp % 12 != 6)
-            //        {
-            //            //forwCountPlayer++;
-            //            shot.Play();
-            //        }
+            if (!buffonicheWasPlayed && !udarisheWasPlayed && !opasnoWasPlayed)
+            {
+                if (GoalComp.Bounds.IntersectsWith(Ball.Bounds))
+                {
+                    goalCatch.Play();
+                }
+                if (DefComp1.Bounds.IntersectsWith(Ball.Bounds) || DefComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp1.Bounds.IntersectsWith(Ball.Bounds) || MidComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp3.Bounds.IntersectsWith(Ball.Bounds) || MidComp4.Bounds.IntersectsWith(Ball.Bounds) || MidComp5.Bounds.IntersectsWith(Ball.Bounds))
+                {
+                    shot.Play();
+                }
+                if (ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
+                {
+                    if (forwCountComp % 12 != 0 && forwCountComp % 12 != 6)
+                    {
+                        forwCountComp++;
+                        shot.Play();
+                    }
+                    if (forwCountComp % 12 == 0)
+                    {
+                        udarische.Play();
+                        udarisheWasPlayed = true;
+                        forwCountComp++;
+                        countForbuffoniche = 0;
+                    }
+                    if (forwCountComp % 12 == 6)
+                    {
+                        opasno.Play();
+                        opasnoWasPlayed = true;
+                        forwCountComp++;
+                        countForbuffoniche = 0;
+                    }
+                }
 
-            //    }
+                if (Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds))
+                {
+                    shot.Play();
+                }
 
-            //}
+                if (Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
+                {
+                    if (forwCountPlayer % 12 != 0 && forwCountComp % 12 != 6)
+                    {
+                        forwCountPlayer++;
+                        shot.Play();
+                    }
 
+                    if (forwCountPlayer % 12 == 0)
+                    {
+                        udarische.Play();
+                        udarisheWasPlayed = true;
+                        forwCountPlayer++;
+                        countForbuffoniche = 0;
+                    }
+                    if (forwCountPlayer % 12 == 6)
+                    {
+                        opasno.Play();
+                        opasnoWasPlayed = true;
+                        forwCountPlayer++;
+                        countForbuffoniche = 0;
+                    }
+
+                }
+
+            }
         }
 
                                            
@@ -735,8 +710,6 @@ namespace PingPongWindowsForms
 
             //TIME  tick = 30 ms
            
-
-
             //BALL MOVEMENT
             Ball.Location = new Point(Ball.Location.X + ballSpeedX, Ball.Location.Y + ballSpeedY);
 
