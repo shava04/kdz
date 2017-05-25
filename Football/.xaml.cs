@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.IO;
 using System.Media;
 using PingPongWindowsForms;
+using System.Runtime.Serialization.Formatters.Binary;
 namespace Football
 {
     /// <summary>
@@ -39,6 +40,7 @@ namespace Football
         public string log = "";
         private int level = 2;
         private int time = 2;
+        private Random r = new Random();
         private void exitbutton_Click(object sender, RoutedEventArgs e)
         {
             
@@ -48,12 +50,12 @@ namespace Football
         private void playbutton_Click_1(object sender, RoutedEventArgs e)
         {
             log = Autorization.log;
-            if (log=="")
+            if (log == "")
             {
                 MessageBox.Show("Перед тем как начать играть авторизутесь!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            string filename = "C:\\Users\\User\\Desktop\\competitions\\" + log + ".txt";
+            /*string filename = "C:\\Users\\User\\Desktop\\competitions\\" + log + ".txt";
             if (File.Exists(filename))
             {
                 FileStream fl = new FileStream(filename, FileMode.Open, FileAccess.Read);
@@ -100,11 +102,45 @@ namespace Football
                 Competition comp = new Competition(teams, myTeam, rounds, log, music, level, time);
                 comp.Show();
                 return;
+            }*/
+            string filename = log + "savings.dat";
+            BinaryFormatter formatter = new BinaryFormatter();
+            if (File.Exists(filename))
+            {
+                string myTeam;
+                using (FileStream fs = new FileStream(filename, FileMode.OpenOrCreate))
+                {
+                    myTeam = (String)formatter.Deserialize(fs);
+                    int rounds;
+                    rounds = (int)formatter.Deserialize(fs);
+                    int teamcnt;
+                    teamcnt = (int)formatter.Deserialize(fs);
+                    List<Team> teams = new List<Team>(0);
+                    for (int i = 0; i < teamcnt; i++)
+                    {
+                        string teamName;
+                        teamName = (String)formatter.Deserialize(fs);
+                        int teamPoint;
+                        teamPoint = (int)formatter.Deserialize(fs);
+                        List<Player> players = new List<Player>(0);
+                        for (int j = 0; j < 11; j++)
+                        {
+                            Player player = new Player();
+                            player.Surname = (string)formatter.Deserialize(fs);
+                            player.Goals = (int)formatter.Deserialize(fs);
+                            players.Add(player);
+                        }
+                        Team team = new Team(teamName, players, teamPoint);
+                        teams.Add(team);
+                    }
+                    Competition comp = new Competition(teams, myTeam, rounds, log, music, level, time);
+                    comp.Show();
+                }
+                return;
             }
             Squad cmp = new Squad(log, music, level, time);
             cmp.Show();
         }
-        Random r = new Random();
         private void settingsbutton_Click(object sender, RoutedEventArgs e)
         {
             Settings st = new Settings(music, level, time);

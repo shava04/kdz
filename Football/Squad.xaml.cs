@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 namespace Football
 {
     public class Test
@@ -75,7 +76,7 @@ namespace Football
                 MessageBox.Show("Данная команда не участвует в турнире", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            string filename = "C:\\Users\\User\\Desktop\\competitions\\" + login + ".txt";
+            /*string filename = "C:\\Users\\User\\Desktop\\competitions\\" + login + ".txt";
             FileStream fl = new FileStream(filename, FileMode.Create, FileAccess.ReadWrite);
             StreamWriter sw = new StreamWriter(fl);
             sw.WriteLine(t);
@@ -92,7 +93,26 @@ namespace Football
                 sw.WriteLine("####");
             }
             sw.Close();
-            fl.Close();
+            fl.Close();*/
+            BinaryFormatter formatter = new BinaryFormatter();
+            string filename = login + "savings.dat";
+            using (FileStream fs = new FileStream(filename, FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, textBox.Text);
+                formatter.Serialize(fs, 0);
+                formatter.Serialize(fs, teams.Count);
+                foreach (Team team in teams)
+                {
+                    formatter.Serialize(fs, team.Name);
+                    formatter.Serialize(fs, team.Points);
+                    foreach (Player player in team.Squad)
+                    {
+
+                        formatter.Serialize(fs, player.Surname);
+                        formatter.Serialize(fs, player.Goals);
+                    }
+                }
+            }
             Competition cmp = new Competition(Teams, t, 0, login, music, level, time);
             cmp.Show();
             this.Close();

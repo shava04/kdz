@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 using System.Media;
+using System.Runtime.Serialization.Formatters.Binary;
 using PingPongWindowsForms;
 namespace Football
 {
@@ -154,7 +155,7 @@ namespace Football
 
         private void button5_Click(object sender, RoutedEventArgs e)
         {
-            string filename = "C:\\Users\\User\\Desktop\\competitions\\" + login + ".txt";
+            /*string filename = "C:\\Users\\User\\Desktop\\competitions\\" + login + ".txt";
             FileStream fl = new FileStream(filename, FileMode.Create, FileAccess.ReadWrite);
             StreamWriter sw = new StreamWriter(fl);
             sw.WriteLine(myTeam);
@@ -171,9 +172,27 @@ namespace Football
                 sw.WriteLine("####");
             }
             sw.Close();
-            fl.Close();
-        }
+            fl.Close();*/
+            BinaryFormatter formatter = new BinaryFormatter();
+            string filename = login + "savings.dat";
+            using (FileStream fs = new FileStream(filename, FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, myTeam);
+                formatter.Serialize(fs, rounds);
+                formatter.Serialize(fs, teams.Count);
+                foreach (Team team in teams)
+                {
+                    formatter.Serialize(fs, team.Name);
+                    formatter.Serialize(fs, team.Points);
+                    foreach (Player player in team.Squad)
+                    {
 
+                        formatter.Serialize(fs, player.Surname);
+                        formatter.Serialize(fs, player.Goals);
+                    }
+                }
+            }
+        }
         private void button4_Click(object sender, RoutedEventArgs e)
         {
             int maxRounds = (teams.Count - (teams.Count + 1) % 2) * 2;
