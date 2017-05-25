@@ -664,11 +664,7 @@ namespace PingPongWindowsForms
                 }
             }
 
-
-
-
-
-            if (!buffonicheWasPlayed || !opasnoWasPlayed || !udarisheWasPlayed || !shtangaWasPlayed)
+            if (!buffonicheWasPlayed && !opasnoWasPlayed && !udarisheWasPlayed)
             {
                 if (GoalComp.Bounds.IntersectsWith(Ball.Bounds))
                 {
