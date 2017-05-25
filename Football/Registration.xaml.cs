@@ -47,7 +47,7 @@ namespace Football
                 MessageBox.Show("Пароль потвержден неверно", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            FileStream fl = new FileStream("C:\\Users\\User\\Desktop\\logins.txt", FileMode.Open, FileAccess.Read);
+            FileStream fl = new FileStream("logins.txt", FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fl);
             bool ok = true;
             while(!sr.EndOfStream)
@@ -67,7 +67,7 @@ namespace Football
             }
             else
             {
-                FileStream f1 = new FileStream("C:\\Users\\User\\Desktop\\logins.txt", FileMode.Open, FileAccess.Read);
+                FileStream f1 = new FileStream("logins.txt", FileMode.Open, FileAccess.Read);
                 StreamReader sr1 = new StreamReader(f1);
                 List<string> logins = new List<string>(0);
                 List<string> passwords = new List<string>(0);
@@ -82,7 +82,7 @@ namespace Football
                 string pass = h.hash(passwordBox.Password);
                 logins.Add(loginBox.Text);
                 passwords.Add(pass);
-                FileStream f = new FileStream("C:\\Users\\User\\Desktop\\logins.txt", FileMode.Open, FileAccess.Write);
+                FileStream f = new FileStream("logins.txt", FileMode.Open, FileAccess.Write);
                 StreamWriter sw = new StreamWriter(f);
                 for (int i=0; i<logins.Count; i++)
                 {

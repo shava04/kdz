@@ -41,7 +41,7 @@ namespace Football
                 MessageBox.Show("Введите пароль", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            FileStream fl = new FileStream("C:\\Users\\User\\Desktop\\logins.txt", FileMode.Open, FileAccess.Read);
+            FileStream fl = new FileStream("logins.txt", FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fl);
             bool ok = false;
             bool okl = false;

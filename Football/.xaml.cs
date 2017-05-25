@@ -30,7 +30,7 @@ namespace Football
             InitializeComponent();
             if (music)
             {
-                string filename = "C:\\Users\\User\\Desktop\\music\\music" + (r.Next(musicCnt) + 1).ToString() + ".wav";
+                string filename = "music\\music" + (r.Next(musicCnt) + 1).ToString() + ".wav";
                 SoundPlayer sp = new SoundPlayer(filename);
                 sp.Play();
                 
@@ -152,7 +152,7 @@ namespace Football
                 this.time = st.Time;
             }
 
-            string filename = "C:\\Users\\User\\Desktop\\music\\music" + (r.Next(musicCnt)+1).ToString() + ".wav";
+            string filename = "music\\music" + (r.Next(musicCnt)+1).ToString() + ".wav";
             SoundPlayer sp = new SoundPlayer(filename);
             if (st.musicBox.IsChecked==true && st.Stayornot==false && st.Result==true)
             {

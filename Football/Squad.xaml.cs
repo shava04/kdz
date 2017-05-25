@@ -50,9 +50,9 @@ namespace Football
                 teams = value;
             }
         }
-        private void button3_Click(object sender, RoutedEventArgs e)
+        private void beginbutton_Click(object sender, RoutedEventArgs e)
         {
-            if (textBox.Text=="")
+            if (myTeamBox.Text=="")
             {
                 MessageBox.Show("Введите название команды!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -62,7 +62,7 @@ namespace Football
                 MessageBox.Show("Слишком мало команд", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            string t = textBox.Text;
+            string t = myTeamBox.Text;
             bool ok = false;
             for (int i=0; i<teams.Count; i++)
             {
@@ -98,7 +98,7 @@ namespace Football
             string filename = login + "savings.dat";
             using (FileStream fs = new FileStream(filename, FileMode.OpenOrCreate))
             {
-                formatter.Serialize(fs, textBox.Text);
+                formatter.Serialize(fs, myTeamBox.Text);
                 formatter.Serialize(fs, 0);
                 formatter.Serialize(fs, teams.Count);
                 foreach (Team team in teams)
@@ -128,7 +128,7 @@ namespace Football
             }
             f = true;
             dataGrid.BeginEdit();
-            FileStream fl = new FileStream("C:\\Users\\User\\Desktop\\squad.txt", FileMode.Open, FileAccess.Read);
+            FileStream fl = new FileStream("squad.txt", FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fl);
             while (!sr.EndOfStream)
             {
@@ -136,7 +136,7 @@ namespace Football
                 var data = new Test { test1 = i, test2 = teamname };
                 dataGrid.Items.Add(data);
                 i=i+1;
-                string filename = "C:\\Users\\User\\Desktop\\teams\\" + teamname + ".txt";
+                string filename = "teams\\" + teamname + ".txt";
                 FileStream fl1 = new FileStream(filename, FileMode.Open, FileAccess.Read);
                 StreamReader sr1 = new StreamReader(fl1);
                 List<Player> players = new List<Player>(0);
@@ -156,7 +156,7 @@ namespace Football
             fl.Close();
         }
 
-        private void button1_Click(object sender, RoutedEventArgs e)
+        private void addbutton_Click(object sender, RoutedEventArgs e)
         {
             Adding adding = new Adding(teams);
             var result = adding.ShowDialog();
@@ -171,7 +171,7 @@ namespace Football
             }
         }
 
-        private void button2_Click(object sender, RoutedEventArgs e)
+        private void deletebutton_Click(object sender, RoutedEventArgs e)
         {
             Deleting deleting = new Deleting(teams);
             var result = deleting.ShowDialog();
