@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
-        Title="MainWindow" Height="667.223" Width="727.272" MaxWidth="727.272" MinWidth="727.272" MaxHeight="667.223" MinHeight="667.223">
+        Title="MainWindow"  Height="667.223" Width="727.272" MaxWidth="727.272" MinWidth="727.272" MaxHeight="667.223" MinHeight="667.223">
     <Grid x:Name="___Football_" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" OpacityMask="Black">
         <Button x:Name="playbutton" Content="Играть" HorizontalAlignment="Left" Margin="107,60,0,0" VerticalAlignment="Top" Width="468" Height="90" FontSize="60" Click="playbutton_Click_1"/>
         <Button x:Name="exitbutton" Content="Выход" HorizontalAlignment="Left" Margin="107,509,0,0" VerticalAlignment="Top" Width="468" Height="83" FontSize="60" Click="exitbutton_Click"/>
