@@ -222,6 +222,7 @@ namespace Football
                 used[i] = false;
             }
             List<string> matches = new List<string>(0);
+
             bool d = false;
             if (n%2==1)
             {
