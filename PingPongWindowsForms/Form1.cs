@@ -539,6 +539,7 @@ namespace PingPongWindowsForms
                 aBallTimer.Enabled = true;
                 aTimer.Enabled = false;
                 aCompTimer.Enabled = false;
+                aSound_timer.Enabled = false;
                 aTimeShowing.Enabled = false;
                 gameEnd = true;
 
@@ -598,6 +599,8 @@ namespace PingPongWindowsForms
                     buffonicheWasPlayed = false;
                 }
             }
+
+            //USING SOUNDS SLOWS DOWN THE PROGRAMM
 
             //if (ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
             //{
@@ -677,17 +680,7 @@ namespace PingPongWindowsForms
             {
                 if (GoalComp.Bounds.IntersectsWith(Ball.Bounds))
                 {
-                    if (goleyCompCount % 4 != 0)
-                    {
-                        goalCatch.PlaySync();
-                        goleyCompCount++;
-                    }
-                    else
-                    {
-                        opasno.Play();
-                        goleyCompCount++;
-                    }
-
+                    goalCatch.Play();                                         
                 }
                 if (DefComp1.Bounds.IntersectsWith(Ball.Bounds) || DefComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp1.Bounds.IntersectsWith(Ball.Bounds) || MidComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp3.Bounds.IntersectsWith(Ball.Bounds) || MidComp4.Bounds.IntersectsWith(Ball.Bounds) || MidComp5.Bounds.IntersectsWith(Ball.Bounds))
                 {
