@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
-        Title="Squad" Height="434.876" Width="456.297">
+        Title="Squad" Height="434.876" Width="456.297" MaxHeight="434.876" MinHeight="434.876" MaxWidth="456.297" MinWidth="456.297">
     <Grid>
         <Button x:Name="button" Content="Загрузить команды по умолчанию" HorizontalAlignment="Left" Margin="32,26,0,0" VerticalAlignment="Top" Width="365" Height="44" FontSize="14" Click="button_Click"/>
         <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="32,75,0,0" VerticalAlignment="Top" Height="146" Width="365" IsSynchronizedWithCurrentItem="True">

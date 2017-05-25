@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
-        Title="Adding" Height="476.087" Width="386.413">
+        Title="Adding" Height="476.087" Width="386.413" MaxHeight="476.087" MinHeight="476.087" MaxWidth="386.413" MinWidth="386.413" Background="#FF64D838" BorderBrush="#FF2CE22C">
     <Grid>
         <Label x:Name="label" Content="Введите название команды" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="240,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
