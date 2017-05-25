@@ -83,6 +83,7 @@
             this.aYourTeamColor = new System.Windows.Forms.PictureBox();
             this.aCompTeamColor = new System.Windows.Forms.PictureBox();
             this.pauseBox = new System.Windows.Forms.PictureBox();
+            this.aSound_timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Field)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LeftGoal)).BeginInit();
@@ -639,6 +640,12 @@
             this.pauseBox.MouseLeave += new System.EventHandler(this.pauseBox_MouseLeave);
             this.pauseBox.MouseHover += new System.EventHandler(this.pauseBox_MouseHover);
             // 
+            // aSound_timer
+            // 
+            this.aSound_timer.Enabled = true;
+            this.aSound_timer.Interval = 50;
+            this.aSound_timer.Tick += new System.EventHandler(this.aSound_timer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -796,6 +803,7 @@
         private System.Windows.Forms.PictureBox aYourTeamColor;
         private System.Windows.Forms.PictureBox aCompTeamColor;
         private System.Windows.Forms.PictureBox pauseBox;
+        private System.Windows.Forms.Timer aSound_timer;
     }
 }
 

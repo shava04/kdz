@@ -45,6 +45,7 @@ namespace PingPongWindowsForms
         SoundPlayer finalWhistle = new SoundPlayer("FinalWhistle.wav");
         SoundPlayer shot = new SoundPlayer("shot.wav");
         SoundPlayer goalCatch = new SoundPlayer("goalcatch.wav");
+
         SoundPlayer opasno = new SoundPlayer("opasno.wav");
         SoundPlayer udarische = new SoundPlayer("udarische.wav");
         SoundPlayer shtanga = new SoundPlayer("shtanga.wav");
@@ -566,6 +567,12 @@ namespace PingPongWindowsForms
                 }
             }
 
+        }
+        
+            
+        
+        private void aSound_timer_Tick(object sender, EventArgs e)
+        {
 
             if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds))
             {
@@ -687,15 +694,15 @@ namespace PingPongWindowsForms
                 if (ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
                 {
                     if (forwCountComp % 12 != 0 && forwCountComp % 12 != 6)
-                    { 
+                    {
                         forwCountComp++;
                         shot.Play();
-                    }                   
+                    }
                 }
 
-                if (Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds)) 
+                if (Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds))
                 {
-                      shot.Play();
+                    shot.Play();
                 }
 
                 if (Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
@@ -704,15 +711,14 @@ namespace PingPongWindowsForms
                     {
                         forwCountPlayer++;
                         shot.Play();
-                    }                    
+                    }
 
                 }
 
-                }
             }
-        
-            
-        
+
+        }
+
                                            
         private void aCompTimer_Tick(object sender, EventArgs e)
         {
@@ -726,18 +732,6 @@ namespace PingPongWindowsForms
             Ball.Location = new Point(Ball.Location.X + ballSpeedX, Ball.Location.Y + ballSpeedY);
 
             //COMP CONTROL
-
-            //if (Ball.Location.Y > 150 && Ball.Location.Y < 387)
-            //{
-            //    if (Ball.Location.Y > GoalComp.Location.Y)
-            //    {
-            //        GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y + compSpeed);
-            //    }
-            //    else
-            //    {
-            //        GoalComp.Location = new Point(GoalComp.Location.X, GoalComp.Location.Y - compSpeed);
-            //    }
-            //}
             if (Ball.Location.X < 509)
             {
                 if (Ball.Location.Y < 194)
