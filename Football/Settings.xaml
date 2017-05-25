@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
-        Title="Settings" Height="369.512" Width="300">
+        Title="Settings" Height="369.512" Width="300" MaxHeight="369.512" MinHeight="369.512" MaxWidth="300" MinWidth="300">
     <Grid>
         <Button x:Name="submitbutton" Content="Потвердить" HorizontalAlignment="Left" Margin="10,287,0,0" VerticalAlignment="Top" Width="139" Height="38" FontSize="20" Click="submitbutton_Click"/>
         <CheckBox x:Name="musicBox" Content="Включить музыку" HorizontalAlignment="Left" Margin="5,257,0,0" VerticalAlignment="Top"/>

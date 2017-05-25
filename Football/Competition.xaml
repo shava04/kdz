@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
-        Title="Competition" Height="559.707" Width="714.37">
+        Title="Competition" Height="559.707" Width="714.37" MaxHeight="559.707" MinHeight="559.707" MaxWidth="714.37" MinWidth="714.37">
     <Grid Margin="0,0,2,-2" Background="#FF75EE75">
         <Button x:Name="button" Content="Список бомбардиров" HorizontalAlignment="Left" Margin="504,163,0,0" VerticalAlignment="Top" Width="181" Height="49" FontSize="15" Click="button_Click"/>
         <Button x:Name="button1" Content="Информация о команде" HorizontalAlignment="Left" Margin="504,231,0,0" VerticalAlignment="Top" Width="181" Height="58" FontSize="15" Click="button1_Click"/>

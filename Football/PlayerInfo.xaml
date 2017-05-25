@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
-        Title="PlayerInfo" Height="181.395" Width="300">
+        Title="PlayerInfo" Height="181.395" Width="300" MaxHeight="181.395" MinHeight="181.85" MaxWidth="300" MinWidth="300" Background="#FF64D838" BorderBrush="#FF2CE22C">
     <Grid>
         <Label x:Name="label" Content="Введите команду" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Введите игрока" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
