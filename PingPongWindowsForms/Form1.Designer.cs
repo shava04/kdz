@@ -402,7 +402,6 @@
             this.Score.Size = new System.Drawing.Size(112, 32);
             this.Score.TabIndex = 31;
             this.Score.Text = "SCORE";
-            this.Score.Click += new System.EventHandler(this.Score_Click);
             // 
             // pictureBox1
             // 
@@ -454,6 +453,7 @@
             // news
             // 
             this.news.AutoSize = true;
+            this.news.BackColor = System.Drawing.Color.Transparent;
             this.news.Font = new System.Drawing.Font("Arial", 30.75F, System.Drawing.FontStyle.Bold);
             this.news.ForeColor = System.Drawing.Color.LightYellow;
             this.news.Location = new System.Drawing.Point(412, 193);
@@ -462,7 +462,6 @@
             this.news.TabIndex = 36;
             this.news.Text = "GOOOOOOAL";
             this.news.Visible = false;
-           
             // 
             // label1
             // 

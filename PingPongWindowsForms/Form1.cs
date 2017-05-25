@@ -24,15 +24,16 @@ namespace PingPongWindowsForms
         int compdirect;
         int n = 0;
         int m = 1;
-        int sec = 0,secTen = 0, min = 0;
+        int sec = 0, min = 0;
         int accelerationDefPlayer, accelerationAttPlayer, acceleration3;
         int countForAcceleration = 0, countForAccelerationDelete = 0, countForAccelerationToAttack = 0;
         int countForFinalWhistle, countForbuffoniche=0;
-        int addedTime, addedTimeEnd, countForAddTime;
+        int addedTime, addedTimeEnd=90, countForAddTime;
         int timing=1;
         int myForm = 2, compForm=3;
         int pauseButtonClick = 0;
-        bool buffonicheWasPlayed;
+        bool buffonicheWasPlayed, opasnoWasPlayed, udarisheWasPlayed, shtangaWasPlayed;
+        int goleyCompCount = 0, forwCountPlayer = 0, forwCountComp=0;
         
 
         string yourTeam, compTeam;
@@ -44,6 +45,9 @@ namespace PingPongWindowsForms
         SoundPlayer finalWhistle = new SoundPlayer("FinalWhistle.wav");
         SoundPlayer shot = new SoundPlayer("shot.wav");
         SoundPlayer goalCatch = new SoundPlayer("goalcatch.wav");
+        SoundPlayer opasno = new SoundPlayer("opasno.wav");
+        SoundPlayer udarische = new SoundPlayer("udarische.wav");
+        SoundPlayer shtanga = new SoundPlayer("shtanga.wav");
 
         ToolTip tl = new ToolTip();
 
@@ -107,32 +111,29 @@ namespace PingPongWindowsForms
 
         }
 
-        private void news_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void pauseBox_MouseHover(object sender, EventArgs e)
         {
-            //if (pauseButtonClick % 2 == 1)
-            //{
-            //    tl.Show("Продолжить игру", pauseBox);
-            //}
-            //if (pauseButtonClick % 2 == 0)
-            //{
-            //    tl.Show("Пауза", pauseBox);
-            //}
+            if (pauseButtonClick % 2 == 1)
+            {
+                tl.Show("Продолжить игру", pauseBox);
+            }
+            if (pauseButtonClick % 2 == 0)
+            {
+                tl.Show("Пауза", pauseBox);
+            }
         }
 
 
-       
-
+      
         public Form1()
         {
             InitializeComponent();
             Random r = new Random();
-            addedTime = r.Next(7)+3;
-            addedTimeEnd = 90 + addedTime;
+            //addedTime = r.Next(7)+3;  
+
+
+
 
 
             FileStream fl = new FileStream("teams.txt", FileMode.Open, FileAccess.Read);
@@ -304,13 +305,6 @@ namespace PingPongWindowsForms
             }
         }
 
-        private void Time()
-        {
-
-        }
-        
-        
-
         private void ShowGoal()
         { 
             news.Visible = true;
@@ -393,9 +387,6 @@ namespace PingPongWindowsForms
             Forw1.Location = new Point(Forw1.Location.X, Forw1.Location.Y + 3);
             Forw2.Location = new Point(Forw2.Location.X, Forw2.Location.Y + 3);
             Forw3.Location = new Point(Forw3.Location.X, Forw3.Location.Y + 3);
-
-
-
         }
 
 
@@ -430,13 +421,6 @@ namespace PingPongWindowsForms
             }
         }
 
-        private void AccelerationAttackPlayer()
-        {
-            
-        }
-
-
-
         public void CompTeamUp()
         {
             ForwComp1.Location = new Point(ForwComp1.Location.X, ForwComp1.Location.Y - compSpeed);
@@ -451,14 +435,6 @@ namespace PingPongWindowsForms
             DefComp2.Location = new Point(DefComp2.Location.X, DefComp2.Location.Y - compSpeed);
             compdirect = 1;
         }
-
-
-
-        private void Score_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
 
         public void CompTeamDown()
@@ -479,6 +455,12 @@ namespace PingPongWindowsForms
         private void aTimeShowing_Tick(object sender, EventArgs e)
         {
             //10ms
+            if (min == 88)
+            {
+                addedTime = Math.Min(playerScore + compScore, 9);
+                addedTimeEnd = 90 + addedTime;
+            }
+
             m++;
             if (m % 11 == 0)
             {
@@ -602,30 +584,137 @@ namespace PingPongWindowsForms
             if (buffonicheWasPlayed)
             {
                 countForbuffoniche++;
-                if (countForbuffoniche / 84 == 1)
+                if (countForbuffoniche / 75 == 1)
                 {
                     buffonicheWasPlayed = false;
                 }
             }
-            //if (buffonicheWasPlayed)
-            //{
-            //    if (GoalComp.Bounds.IntersectsWith(Ball.Bounds) || DefComp1.Bounds.IntersectsWith(Ball.Bounds) || DefComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp1.Bounds.IntersectsWith(Ball.Bounds) || MidComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp3.Bounds.IntersectsWith(Ball.Bounds) || MidComp4.Bounds.IntersectsWith(Ball.Bounds) || MidComp5.Bounds.IntersectsWith(Ball.Bounds) || ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds) || Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
-            //    {
-            //        buffonicheWasPlayed = false;
-            //    }
-            //}
-            if (!buffonicheWasPlayed)
+
+            if (ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
             {
-                if (GoalComp.Bounds.IntersectsWith(Ball.Bounds) || DefComp1.Bounds.IntersectsWith(Ball.Bounds) || DefComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp1.Bounds.IntersectsWith(Ball.Bounds) || MidComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp3.Bounds.IntersectsWith(Ball.Bounds) || MidComp4.Bounds.IntersectsWith(Ball.Bounds) || MidComp5.Bounds.IntersectsWith(Ball.Bounds) || ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
+                if (!opasnoWasPlayed)
                 {
-                    shot.Play();
-                }
-                if (Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds) || Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
-                {
-                    shot.Play();
+                    if (forwCountComp % 12 == 6)
+                    {
+                        opasno.Play();
+                        opasnoWasPlayed = true;
+                        forwCountComp++;
+                        countForbuffoniche = 0;
+                    }
                 }
             }
-        }
+
+            if (Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
+            {
+                if (!opasnoWasPlayed)
+                {
+                    if (forwCountPlayer % 12 == 6)
+                    {
+                        opasno.Play();
+                        opasnoWasPlayed = true;
+                        forwCountPlayer++;
+                        countForbuffoniche = 0;
+                    }
+                }
+            }
+            if (opasnoWasPlayed)
+            {
+                countForbuffoniche++;
+                if (countForbuffoniche / 75 == 0)
+                {
+                    opasnoWasPlayed = false;
+                }
+            }
+
+
+            if (ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
+            {
+                if (!udarisheWasPlayed)
+                {
+                    if (forwCountComp % 12 == 0)
+                    {
+                        udarische.Play();
+                        udarisheWasPlayed = true;
+                        forwCountComp++;
+                        countForbuffoniche = 0;
+                    }
+                }
+            }
+
+            if (Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
+            {
+                if (!udarisheWasPlayed)
+                {
+                    if (forwCountPlayer % 12 == 0)
+                    {
+                        udarische.Play();
+                        udarisheWasPlayed = true;
+                        forwCountPlayer++;
+                        countForbuffoniche = 0;
+                    }
+                }
+            }
+
+            if (udarisheWasPlayed)
+            {
+                countForbuffoniche++;
+                if (countForbuffoniche / 75 == 0)
+                {
+                    udarisheWasPlayed = false;
+                }
+            }
+
+
+
+
+
+            if (!buffonicheWasPlayed || !opasnoWasPlayed || !udarisheWasPlayed || !shtangaWasPlayed)
+            {
+                if (GoalComp.Bounds.IntersectsWith(Ball.Bounds))
+                {
+                    if (goleyCompCount % 4 != 0)
+                    {
+                        goalCatch.PlaySync();
+                        goleyCompCount++;
+                    }
+                    else
+                    {
+                        opasno.Play();
+                        goleyCompCount++;
+                    }
+
+                }
+                if (DefComp1.Bounds.IntersectsWith(Ball.Bounds) || DefComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp1.Bounds.IntersectsWith(Ball.Bounds) || MidComp2.Bounds.IntersectsWith(Ball.Bounds) || MidComp3.Bounds.IntersectsWith(Ball.Bounds) || MidComp4.Bounds.IntersectsWith(Ball.Bounds) || MidComp5.Bounds.IntersectsWith(Ball.Bounds))
+                {
+                    shot.Play();
+                }
+                if (ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
+                {
+                    if (forwCountComp % 12 != 0 && forwCountComp % 12 != 6)
+                    { 
+                        forwCountComp++;
+                        shot.Play();
+                    }                   
+                }
+
+                if (Def1.Bounds.IntersectsWith(Ball.Bounds) || Def2.Bounds.IntersectsWith(Ball.Bounds) || Mid1.Bounds.IntersectsWith(Ball.Bounds) || Mid2.Bounds.IntersectsWith(Ball.Bounds) || Mid3.Bounds.IntersectsWith(Ball.Bounds) || Mid4.Bounds.IntersectsWith(Ball.Bounds) || Mid5.Bounds.IntersectsWith(Ball.Bounds)) 
+                {
+                      shot.Play();
+                }
+
+                if (Forw1.Bounds.IntersectsWith(Ball.Bounds) || Forw2.Bounds.IntersectsWith(Ball.Bounds) || Forw3.Bounds.IntersectsWith(Ball.Bounds))
+                {
+                    if (forwCountPlayer % 12 != 0 && forwCountComp % 12 != 6)
+                    {
+                        forwCountPlayer++;
+                        shot.Play();
+                    }                    
+
+                }
+
+                }
+            }
+        
             
         
                                            
@@ -857,16 +946,6 @@ namespace PingPongWindowsForms
                 TeamsLeaving();
 
             }
-
-            //if ((Ball.Bounds.IntersectsWith(Mid1.Bounds) || Ball.Bounds.IntersectsWith(Mid2.Bounds) || (Ball.Bounds.IntersectsWith(Mid3.Bounds)) || Ball.Bounds.IntersectsWith(Mid4.Bounds) || Ball.Bounds.IntersectsWith(Mid5.Bounds)));
-            //{
-            //    if (ballSpeedX > 0)
-            //    {
-            //        Random ne = new Random();
-            //        int r = ne.Next(5) - 2;
-            //        ballSpeedY += r;
-            //    }
-            //}
 
         }
 
