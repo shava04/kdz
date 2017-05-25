@@ -588,6 +588,20 @@ namespace PingPongWindowsForms
 
         private void aSound_timer_Tick(object sender, EventArgs e)
         {
+            if (shtanga1.Bounds.IntersectsWith(Ball.Bounds) || shtanga2.Bounds.IntersectsWith(Ball.Bounds) || shtanga3.Bounds.IntersectsWith(Ball.Bounds) || shtanga4.Bounds.IntersectsWith(Ball.Bounds))
+            {
+                shtanga.Play();
+                shtangaWasPlayed = true;
+                countForbuffoniche = 0;
+                if (countForbuffoniche / 75 == 1)
+                {
+                   shtangaWasPlayed = false;
+                }
+            }
+            if (shtangaWasPlayed)
+            {
+                countForbuffoniche++;
+            }
 
             if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds))
             {
@@ -633,7 +647,7 @@ namespace PingPongWindowsForms
                 }
             }
 
-            if (!buffonicheWasPlayed && !udarisheWasPlayed && !opasnoWasPlayed)
+            if (!buffonicheWasPlayed && !udarisheWasPlayed && !opasnoWasPlayed && !shtangaWasPlayed)
             {
                 if (GoalComp.Bounds.IntersectsWith(Ball.Bounds))
                 {
