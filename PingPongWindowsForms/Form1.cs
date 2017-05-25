@@ -14,26 +14,26 @@ namespace PingPongWindowsForms
 
     public partial class Form1 : Form
     {
-        const int top = 39, bottom = 510, rightOfTheField = 1050, leftOfTheField = 84;
-        int movementSpeed = 6;
-        int compSpeed = 2;
-        bool isUpPressed, isDownPressed, gameEnd = false;        
-        int ballSpeedX = 10, ballSpeedY = 4;
-        int ballSpeedXClone = 10, ballSpeedYClone = 10;
-        int playerScore = 0, compScore = 0;
-        int compdirect;
-        int n = 0;
-        int m = 1;
-        int sec = 0, min = 0;
-        int accelerationDefPlayer, accelerationAttPlayer;
-        int countForAcceleration = 0, countForAccelerationDelete = 0, countForAccelerationToAttack = 0;
-        int countForFinalWhistle, countForbuffoniche=0;
-        int addedTime, addedTimeEnd=90, countForAddTime;
-        int timing=1;
-        int myForm = 2, compForm=3;
-        int pauseButtonClick = 0;
-        bool buffonicheWasPlayed, opasnoWasPlayed, udarisheWasPlayed, shtangaWasPlayed;
-        int goleyCompCount = 0, forwCountPlayer = 0, forwCountComp=0;
+        private const int top = 39, bottom = 510, rightOfTheField = 1050, leftOfTheField = 84;
+        private int movementSpeed = 6;
+        private int compSpeed = 2;
+        private bool isUpPressed, isDownPressed, gameEnd = false;
+        private int ballSpeedX = 10, ballSpeedY = 4;
+        private int ballSpeedXClone = 10, ballSpeedYClone = 10;
+        private int playerScore = 0, compScore = 0;
+        private int compdirect;
+        private int n = 0;
+        private int m = 1;
+        private int sec = 0, min = 85;
+        private int accelerationDefPlayer, accelerationAttPlayer;
+        private int countForAcceleration = 0, countForAccelerationDelete = 0, countForAccelerationToAttack = 0;
+        private int countForFinalWhistle, countForbuffoniche=0;
+        private int addedTime, addedTimeEnd=90, countForAddTime;
+        private int timing =1;
+        private int myForm = 0, compForm=3;
+        private int pauseButtonClick = 0;
+        private bool buffonicheWasPlayed, opasnoWasPlayed, udarisheWasPlayed, shtangaWasPlayed;
+        private int forwCountPlayer = 0, forwCountComp=0;
         
 
         string yourTeam, compTeam;
@@ -48,7 +48,7 @@ namespace PingPongWindowsForms
 
         SoundPlayer opasno = new SoundPlayer("opasno.wav");
         SoundPlayer udarische = new SoundPlayer("udarische.wav");
-        SoundPlayer shtanga = new SoundPlayer("shtanga.wav");
+        SoundPlayer shtanga = new SoundPlayer("shtangaa.wav");
 
         ToolTip tl = new ToolTip();
 
@@ -511,7 +511,7 @@ namespace PingPongWindowsForms
             }
             if (min >= 90)
             {
-
+                advert.Visible = false;
                 countForAddTime++;
 
                 additionalTimeLabel.Text = String.Format("+ {0} MINS", addedTime);
@@ -875,6 +875,23 @@ namespace PingPongWindowsForms
         {
             if (!gameEnd)
             {
+                if (myForm == 3)
+                {
+                    advert.ImageLocation = "samsung.jpg";
+                }
+                if (myForm == 2)
+                {
+                    advert.ImageLocation = "bwin.png";
+                }
+                if (myForm == 1)
+                {
+                    advert.ImageLocation = "cola.png";
+                }
+                if (myForm == 0)
+                {
+                    advert.ImageLocation = "emir.png";
+                }
+
                 aYourTeamLabel.Text = yourTeam;
                 aCompTeamLabel.Text = compTeam;
                 Clothes();
