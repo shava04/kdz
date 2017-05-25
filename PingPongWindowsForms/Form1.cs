@@ -588,7 +588,20 @@ namespace PingPongWindowsForms
 
         private void aSound_timer_Tick(object sender, EventArgs e)
         {
-
+            if (shtanga1.Bounds.IntersectsWith(Ball.Bounds) || shtanga2.Bounds.IntersectsWith(Ball.Bounds) || shtanga3.Bounds.IntersectsWith(Ball.Bounds) || shtanga4.Bounds.IntersectsWith(Ball.Bounds))
+            {
+                shtanga.Play();
+                shtangaWasPlayed = true;
+                countForbuffoniche = 0;
+                if (countForbuffoniche / 75 == 1)
+                {
+                   shtangaWasPlayed = false;
+                }
+            }
+            if (shtangaWasPlayed)
+            {
+                countForbuffoniche++;
+            }
 
             if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds))
             {
@@ -625,9 +638,6 @@ namespace PingPongWindowsForms
                 }
             }
 
-
-
-
             if (udarisheWasPlayed)
             {
                 countForbuffoniche++;
@@ -637,7 +647,7 @@ namespace PingPongWindowsForms
                 }
             }
 
-            if (!buffonicheWasPlayed && !udarisheWasPlayed && !opasnoWasPlayed)
+            if (!buffonicheWasPlayed && !udarisheWasPlayed && !opasnoWasPlayed && !shtangaWasPlayed)
             {
                 if (GoalComp.Bounds.IntersectsWith(Ball.Bounds))
                 {
@@ -649,19 +659,19 @@ namespace PingPongWindowsForms
                 }
                 if (ForwComp1.Bounds.IntersectsWith(Ball.Bounds) || ForwComp2.Bounds.IntersectsWith(Ball.Bounds) || ForwComp3.Bounds.IntersectsWith(Ball.Bounds))
                 {
-                    if (forwCountComp % 12 != 0 && forwCountComp % 12 != 6)
+                    if (forwCountComp % 6 != 0 && forwCountComp % 6 != 3)
                     {
                         forwCountComp++;
                         shot.Play();
                     }
-                    if (forwCountComp % 12 == 0)
+                    if (forwCountComp % 6 == 0)
                     {
                         udarische.Play();
                         udarisheWasPlayed = true;
                         forwCountComp++;
                         countForbuffoniche = 0;
                     }
-                    if (forwCountComp % 12 == 6)
+                    if (forwCountComp % 6 == 3)
                     {
                         opasno.Play();
                         opasnoWasPlayed = true;
@@ -705,9 +715,7 @@ namespace PingPongWindowsForms
 
                                            
         private void aCompTimer_Tick(object sender, EventArgs e)
-        {
-           
-
+        {           
             //TIME  tick = 30 ms
            
             //BALL MOVEMENT

@@ -84,6 +84,10 @@
             this.aCompTeamColor = new System.Windows.Forms.PictureBox();
             this.pauseBox = new System.Windows.Forms.PictureBox();
             this.aSound_timer = new System.Windows.Forms.Timer(this.components);
+            this.shtanga1 = new System.Windows.Forms.PictureBox();
+            this.shtanga2 = new System.Windows.Forms.PictureBox();
+            this.shtanga3 = new System.Windows.Forms.PictureBox();
+            this.shtanga4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Field)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LeftGoal)).BeginInit();
@@ -116,6 +120,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.aYourTeamColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aCompTeamColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pauseBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shtanga1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shtanga2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shtanga3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shtanga4)).BeginInit();
             this.SuspendLayout();
             // 
             // aTimer
@@ -646,6 +654,38 @@
             this.aSound_timer.Interval = 50;
             this.aSound_timer.Tick += new System.EventHandler(this.aSound_timer_Tick);
             // 
+            // shtanga1
+            // 
+            this.shtanga1.Location = new System.Drawing.Point(63, 190);
+            this.shtanga1.Name = "shtanga1";
+            this.shtanga1.Size = new System.Drawing.Size(23, 15);
+            this.shtanga1.TabIndex = 51;
+            this.shtanga1.TabStop = false;
+            // 
+            // shtanga2
+            // 
+            this.shtanga2.Location = new System.Drawing.Point(63, 373);
+            this.shtanga2.Name = "shtanga2";
+            this.shtanga2.Size = new System.Drawing.Size(23, 15);
+            this.shtanga2.TabIndex = 52;
+            this.shtanga2.TabStop = false;
+            // 
+            // shtanga3
+            // 
+            this.shtanga3.Location = new System.Drawing.Point(1058, 190);
+            this.shtanga3.Name = "shtanga3";
+            this.shtanga3.Size = new System.Drawing.Size(23, 15);
+            this.shtanga3.TabIndex = 53;
+            this.shtanga3.TabStop = false;
+            // 
+            // shtanga4
+            // 
+            this.shtanga4.Location = new System.Drawing.Point(1058, 373);
+            this.shtanga4.Name = "shtanga4";
+            this.shtanga4.Size = new System.Drawing.Size(23, 15);
+            this.shtanga4.TabIndex = 54;
+            this.shtanga4.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -653,6 +693,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(75)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1137, 673);
+            this.Controls.Add(this.shtanga2);
             this.Controls.Add(this.pauseBox);
             this.Controls.Add(this.aCompTeamColor);
             this.Controls.Add(this.aYourTeamColor);
@@ -702,6 +743,9 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.RightGoal);
             this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.shtanga1);
+            this.Controls.Add(this.shtanga3);
+            this.Controls.Add(this.shtanga4);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -744,6 +788,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.aYourTeamColor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aCompTeamColor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pauseBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shtanga1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shtanga2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shtanga3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.shtanga4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -804,6 +852,10 @@
         private System.Windows.Forms.PictureBox aCompTeamColor;
         private System.Windows.Forms.PictureBox pauseBox;
         private System.Windows.Forms.Timer aSound_timer;
+        private System.Windows.Forms.PictureBox shtanga1;
+        private System.Windows.Forms.PictureBox shtanga2;
+        private System.Windows.Forms.PictureBox shtanga3;
+        private System.Windows.Forms.PictureBox shtanga4;
     }
 }
 
