@@ -46,7 +46,7 @@ namespace PingPongWindowsForms
         SoundPlayer shot = new SoundPlayer("shot.wav");
         SoundPlayer goalCatch = new SoundPlayer("goalcatch.wav");
 
-        SoundPlayer opasno = new SoundPlayer("opasno.wav");
+        //SoundPlayer opasno = new SoundPlayer("opasno.wav");
         //SoundPlayer udarische = new SoundPlayer("udarische.wav");
         //SoundPlayer shtanga = new SoundPlayer("shtanga.wav");
 
@@ -676,7 +676,7 @@ namespace PingPongWindowsForms
             //    }
             //}
 
-            if (!buffonicheWasPlayed && !opasnoWasPlayed && !udarisheWasPlayed)
+            if (!buffonicheWasPlayed)
             {
                 if (GoalComp.Bounds.IntersectsWith(Ball.Bounds))
                 {
@@ -690,7 +690,7 @@ namespace PingPongWindowsForms
                 {
                     //if (forwCountComp % 12 != 0 && forwCountComp % 12 != 6)
                     {
-                        forwCountComp++;
+                        //forwCountComp++;
                         shot.Play();
                     }
                 }
@@ -704,7 +704,7 @@ namespace PingPongWindowsForms
                 {
                     //if (forwCountPlayer % 12 != 0 && forwCountComp % 12 != 6)
                     {
-                        forwCountPlayer++;
+                        //forwCountPlayer++;
                         shot.Play();
                     }
 
