@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Football"
         mc:Ignorable="d"
-        Title="Registration" Height="300" Width="300" MaxHeight="300" MinHeight="300" MinWidth="300" MaxWidth="300">
+        Title="Registration"  Height="300" Width="300" MaxHeight="300" MinHeight="300" MinWidth="300" MaxWidth="300" Icon="IcoBall.ico">
     <Grid Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}">
         <Label x:Name="label" Content="Логин" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Пароль" HorizontalAlignment="Left" Margin="10,66,0,0" VerticalAlignment="Top"/>
