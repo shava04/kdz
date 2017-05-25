@@ -25,7 +25,7 @@ namespace PingPongWindowsForms
         int n = 0;
         int m = 1;
         int sec = 0, min = 0;
-        int accelerationDefPlayer, accelerationAttPlayer, acceleration3;
+        int accelerationDefPlayer, accelerationAttPlayer;
         int countForAcceleration = 0, countForAccelerationDelete = 0, countForAccelerationToAttack = 0;
         int countForFinalWhistle, countForbuffoniche=0;
         int addedTime, addedTimeEnd=90, countForAddTime;
@@ -570,13 +570,6 @@ namespace PingPongWindowsForms
                 }
             }
 
-        }
-        
-            
-        
-        private void aSound_timer_Tick(object sender, EventArgs e)
-        {
-
             if (GoalComp.Bounds.IntersectsWith(Ball.Bounds) || GoalKeeper.Bounds.IntersectsWith(Ball.Bounds))
             {
                 goalCatch.Play();
@@ -590,6 +583,14 @@ namespace PingPongWindowsForms
                 shot.Play();
             }
 
+        }
+
+
+
+        private void aSound_timer_Tick(object sender, EventArgs e)
+        {
+
+           
             //if (GoalKeeper.Bounds.IntersectsWith(Ball.Bounds))
             //{
             //    if (!buffonicheWasPlayed)

@@ -642,7 +642,6 @@
             // 
             // aSound_timer
             // 
-            this.aSound_timer.Enabled = true;
             this.aSound_timer.Interval = 50;
             this.aSound_timer.Tick += new System.EventHandler(this.aSound_timer_Tick);
             // 
