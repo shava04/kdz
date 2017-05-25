@@ -24,16 +24,16 @@ namespace PingPongWindowsForms
         int compdirect;
         int n = 0;
         int m = 1;
-        int sec = 0, min = 0;
+        int sec = 0, min = 85;
         int accelerationDefPlayer, accelerationAttPlayer;
         int countForAcceleration = 0, countForAccelerationDelete = 0, countForAccelerationToAttack = 0;
         int countForFinalWhistle, countForbuffoniche=0;
         int addedTime, addedTimeEnd=90, countForAddTime;
         int timing=1;
-        int myForm = 2, compForm=3;
+        int myForm = 0, compForm=3;
         int pauseButtonClick = 0;
         bool buffonicheWasPlayed, opasnoWasPlayed, udarisheWasPlayed, shtangaWasPlayed;
-        int goleyCompCount = 0, forwCountPlayer = 0, forwCountComp=0;
+        int forwCountPlayer = 0, forwCountComp=0;
         
 
         string yourTeam, compTeam;
@@ -48,7 +48,7 @@ namespace PingPongWindowsForms
 
         SoundPlayer opasno = new SoundPlayer("opasno.wav");
         SoundPlayer udarische = new SoundPlayer("udarische.wav");
-        SoundPlayer shtanga = new SoundPlayer("shtanga.wav");
+        SoundPlayer shtanga = new SoundPlayer("shtangaa.wav");
 
         ToolTip tl = new ToolTip();
 
@@ -511,7 +511,7 @@ namespace PingPongWindowsForms
             }
             if (min >= 90)
             {
-
+                advert.Visible = false;
                 countForAddTime++;
 
                 additionalTimeLabel.Text = String.Format("+ {0} MINS", addedTime);
@@ -875,6 +875,23 @@ namespace PingPongWindowsForms
         {
             if (!gameEnd)
             {
+                if (myForm == 3)
+                {
+                    advert.ImageLocation = "samsung.jpg";
+                }
+                if (myForm == 2)
+                {
+                    advert.ImageLocation = "bwin.png";
+                }
+                if (myForm == 1)
+                {
+                    advert.ImageLocation = "cola.png";
+                }
+                if (myForm == 0)
+                {
+                    advert.ImageLocation = "emir.png";
+                }
+
                 aYourTeamLabel.Text = yourTeam;
                 aCompTeamLabel.Text = compTeam;
                 Clothes();

@@ -88,6 +88,7 @@
             this.shtanga2 = new System.Windows.Forms.PictureBox();
             this.shtanga3 = new System.Windows.Forms.PictureBox();
             this.shtanga4 = new System.Windows.Forms.PictureBox();
+            this.advert = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Ball)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Field)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LeftGoal)).BeginInit();
@@ -124,6 +125,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.shtanga2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shtanga3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.shtanga4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advert)).BeginInit();
             this.SuspendLayout();
             // 
             // aTimer
@@ -686,6 +688,16 @@
             this.shtanga4.TabIndex = 54;
             this.shtanga4.TabStop = false;
             // 
+            // advert
+            // 
+            this.advert.BackColor = System.Drawing.Color.PaleGreen;
+            this.advert.Location = new System.Drawing.Point(94, 613);
+            this.advert.Name = "advert";
+            this.advert.Size = new System.Drawing.Size(104, 33);
+            this.advert.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.advert.TabIndex = 55;
+            this.advert.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -693,6 +705,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(75)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1137, 673);
+            this.Controls.Add(this.advert);
             this.Controls.Add(this.shtanga2);
             this.Controls.Add(this.pauseBox);
             this.Controls.Add(this.aCompTeamColor);
@@ -792,6 +805,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.shtanga2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shtanga3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.shtanga4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advert)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -856,6 +870,7 @@
         private System.Windows.Forms.PictureBox shtanga2;
         private System.Windows.Forms.PictureBox shtanga3;
         private System.Windows.Forms.PictureBox shtanga4;
+        private System.Windows.Forms.PictureBox advert;
     }
 }
 
