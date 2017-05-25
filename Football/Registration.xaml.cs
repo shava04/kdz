@@ -91,6 +91,7 @@ namespace Football
                 }
                 sw.Close();
                 f.Close();
+
                 this.Close();
             }
           
