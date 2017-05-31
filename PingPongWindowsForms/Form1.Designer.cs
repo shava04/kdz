@@ -706,7 +706,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1137, 673);
             this.Controls.Add(this.advert);
-            this.Controls.Add(this.shtanga2);
             this.Controls.Add(this.pauseBox);
             this.Controls.Add(this.aCompTeamColor);
             this.Controls.Add(this.aYourTeamColor);
@@ -759,6 +758,7 @@
             this.Controls.Add(this.shtanga1);
             this.Controls.Add(this.shtanga3);
             this.Controls.Add(this.shtanga4);
+            this.Controls.Add(this.shtanga2);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
